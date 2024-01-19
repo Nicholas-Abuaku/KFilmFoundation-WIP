@@ -10,7 +10,7 @@ export const MCard = (props) => {
     <CardActionArea>
     <Card sx={{ width:'29.59vw', height:'29vh', display:'flex', backgroundColor:'#F0F0ED ', color:'black'}} elevation={10}> 
    
-        <CardMedia component='img' image={props.img} title={props.title} sx={{ maxWidth:'8.5vw', maxHeight:'27.51vh', objectFit:'cover', marginRight:'5px' }}/>
+        <CardMedia component='img' image={props.img} title={props.title} sx={{ maxWidth:'8.5vw', minHeight:'29vh',  maxHeight:'29vh', objectFit:'cover', marginRight:'5px' }}/>
         <Box sx={{ wordWrap:'break-word', overflow:'auto'}}>
             <Stack direction={'row'} spacing={10}>
             <Typography fontWeight={'bold'} variant='h5'>{props.title}</Typography>
