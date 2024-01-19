@@ -24,7 +24,7 @@ export const CardGrid = () => {
         },
         {
             id:3,
-            title:'The Caastle',
+            title:'The Castle',
             img:"https://m.media-amazon.com/images/M/MV5BMDM4MDFiMjEtOWFhOC00M2RjLWE2NDItZGZlZjVhOGVjZWExXkEyXkFqcGdeQXVyNjMwMjk0MTQ@._V1_.jpg",
             runningTime:'85',
             date:'Friday 26th January 7pm',
