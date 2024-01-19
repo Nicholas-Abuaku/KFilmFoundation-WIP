@@ -6,18 +6,20 @@ import { Footer } from '../components/Footer'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { HomeHero } from '../components/HomeHero'
+import { LatestScreeningCard } from '../components/LatestScreeningCard'
 export const Home = () => {
   return (
-    <Grid container spacing={2} direction={'row'} marginTop={2} paddingLeft={0} paddingRight={0}>
-    <Grid item xs={12} container direction={'column'} alignItems={'center'} justifyContent={'center'} marginBottom={4} marginTop={2}>
+    <Grid container spacing={0} direction={'row'} marginTop={0} paddingLeft={0} paddingRight={0}>
+    <Grid item xs={12} container direction={'column'}  marginBottom={4} marginTop={0}>
     <HomeCarousel/>
     {/* <HomeHero/> */}
+    {/* <LatestScreeningCard/> */}
     </Grid>
     <Grid item>
       <CardGrid/>
     </Grid>
     <Grid item xs={12} justifyContent={'center'} alignItems={'center'} > 
-            <IconButton justifyContent={'center'} alignItems={'center'}>
+            <IconButton>
                 <FacebookIcon/>
             </IconButton>
             <IconButton>
