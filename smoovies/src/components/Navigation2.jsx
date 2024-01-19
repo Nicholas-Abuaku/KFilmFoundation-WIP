@@ -11,7 +11,7 @@ export const Navigation2 = () => {
             <IconButton component={Link} to={'/'}>
                 <img src={KentFilmLogo}/>
             </IconButton>
-            <Typography sx={{ flexGrow: '1', color:'white', fontWeight: 'bold' }} variant='h5'> Kent Film Foundaton </Typography>
+            <Typography sx={{ flexGrow: '1', color:'white', fontWeight: 'bold' }} variant='h5'> Kent Film Foundation </Typography>
             <Stack direction={'row'} spacing={2}>
             <Button variant="text" color='inherit' component={Link} to={'/'}>Home</Button>
                 <Button variant="text" color='inherit' component={Link} to={'/film-clubs'}>Film Clubs</Button>
