@@ -8,9 +8,11 @@ export const LatestScreeningCard = (props) => {
     
   return (
     <CardActionArea>
-    <Card sx={{ display:'flex'}} width={1775} height={600}>
-    <CardMedia component={'img'} width={1280} height={720} src={props.img} sx={{ objectFit:'cover', marginRight:'0px' }} />
-    <CardContent sx={{ backgroundColor:'#1A1A1A', color:'white' }}>
+    <Card sx={{ display:'flex'}} width={'92.44vw'} height={'63.49vh'}>
+      <Box>
+    <CardMedia component={'img'} width={'100%'} height={'100%'} src={props.img} sx={{ objectFit:'cover', marginRight:'0px' }}/>
+    </Box>
+    <CardContent sx={{ backgroundColor:'#1A1A1A', color:'white', wordBreak:'break-word' }}>
         <Typography textAlign={'center'} variant='h1'>{props.title}</Typography>
         <Typography color={'white'}  paddingBottom={4} textAlign={'center'} variant='h4'>{props.date}</Typography>
         <Typography color={'red'}  paddingBottom={4} textAlign={'center'} variant='h5'>Tickets</Typography>
