@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 #API Keys
 .env
+#TODO File
+.ToDo.txt
