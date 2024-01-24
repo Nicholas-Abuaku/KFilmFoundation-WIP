@@ -38,7 +38,7 @@ export const FilmClub = () => {
     </Grid>
 
     <Grid item xs={12} md={3}>
-    <Paper elevation={4} sx={{ width:'100%', height:'50%', marginLeft:'0.875rem', marginTop: '100px', marginBottom:'40px' }}>
+    <Paper elevation={4} sx={{ width:'90%', height:'50%', marginLeft:'0.875rem', marginTop: '100px', marginBottom:'40px' }}>
         <Card width={'100%'} height={'100%'}>
             <CardMedia component={'img'} height={'300px'} src='//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/2-275845-Main-600x450-7.jpg/:/cr=t:16.67%25,l:0%25,w:100%25,h:66.67%25/rs=w:600,h:300,cg:true'/>
             <CardContent>
