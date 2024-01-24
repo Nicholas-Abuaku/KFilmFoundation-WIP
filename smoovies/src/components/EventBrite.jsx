@@ -7,7 +7,7 @@ export const EventBrite = () => {
     const [desc,setDesc] = useState([]);
     const [date,setDate] = useState([]);
     const [stuff,setStuff] = useState([]);
-    const API_KEY = '7CHF5MRXCX4LJX2ENE2Q';
+    const API_KEY = import.meta.env.Event_API_KEY;
     const headers = {
         'Authorization': `Bearer ${API_KEY}`,
         'Content-Type': 'application/json'
