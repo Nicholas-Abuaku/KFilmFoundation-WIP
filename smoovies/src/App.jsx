@@ -10,11 +10,12 @@ import { Home } from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import {Contact} from './pages/Contact.jsx'
 import { FilmClub } from "./pages/FlimClub.jsx";
-import { News } from "./pages/News.jsx";
+
 import { Navigation2 } from "./components/Navigation2.jsx";
 import {Bored} from './pages/Bored.jsx';
 import { EventBrite } from "./components/EventBrite.jsx";
 import { About } from "./pages/About.jsx";
+import { Press } from "./pages/Press.jsx";
 function App() {
 
   return (
@@ -24,7 +25,7 @@ function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/film-clubs" element={<FilmClub/>}/>
-      <Route path="/news" element={<EventBrite/>}/>
+      <Route path="/press" element={<Press/>}/>
       <Route path="/about" element={<About/>}/>
     </Routes>
     <Footer/>
