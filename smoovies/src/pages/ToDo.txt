@@ -1,0 +1,28 @@
+Home Page:
+Try and get images to put in each event card
+Fit all the images into their own grid item and set the md value and xs values
+Ensure first 6 events appear on What's On (?)
+Add paypal donate button BEFORE huge thanks
+
+Film Clubs Page:
+Caitlin says is ok!!!!
+
+News:
+"I don't think it needs to exist" ~ Caitlin
+Harsh words
+
+About Us:
+Caitlin says is ok!!!!!
+
+Press:
+Consult Caitlin
+
+Contact Us:
+Caitlin says is ok!!!!
+
+Back-End
+Small DB/API To change the following content:
+    Home Page Latest Screening  
+    Create New event(?)
+    Create New Film Club(?)
+    Needs to make calls to eventbrite API
