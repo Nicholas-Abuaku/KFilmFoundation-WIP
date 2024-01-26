@@ -32,7 +32,7 @@ export const LatestScreeningCard = (props) => {
     isMobile ? (
       <>
       <CardActionArea>
-    <Card sx={{ display:'flex'}} width={'92.44vw'} height={'63.49vh'}>
+    <Card sx={{ display:'inline'}} width={'92.44vw'} height={'63.49vh'}>
       <Box>
     <CardMedia component={'img'} width={'4px'} height={'100%'} src={props.img} sx={{ objectFit:'objectFit', marginRight:'0px' }}/>
     </Box>
