@@ -1,16 +1,18 @@
 import React, { useEffect, useState, useSyncExternalStore } from 'react';
 import {MCard} from './MCard';
-import { Grid, Typography, Skeleton } from '@mui/material';
+import { Grid, Typography, Skeleton, useTheme, useMediaQuery } from '@mui/material';
 import axios from 'axios';
 export const CardGrid = () => {
     const [allEvents,setAllEvents] = useState([]);
     const API_KEY = import.meta.env.VITE_Event_API_KEY;
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const headers = {
         'Authorization': `Bearer ${API_KEY}`,
         'Content-Type': 'application/json'
     };
 
-    const currentDate = new Date();
+
 
     
     const fetchAllEvents = async ()=>{
@@ -39,10 +41,13 @@ export const CardGrid = () => {
             const startArr = event.start.local.replace("T", " ");
             const dateTimeArray = startArr.split(" ");
             const startTime = dateTimeArray[1];
-           
+            const currentDate = new Date();
             var startDate = new Date(dateTimeArray[0]);
-            var eventDate = startDate.toLocaleDateString()
-            if(currentDate < startDate){
+            var eventDate = startDate.toDateString();
+        //    console.log("Event:"+startDate);
+        //    console.log("Current"+currentDate);
+        console.log();
+            if(currentDate.getFullYear() <= startDate.getFullYear() && currentDate.getMonth() >= startDate.getMonth() && currentDate.getDate() >= startDate.getDate()){
                 return(
                     <Grid item key={event.id}>
                         <MCard title={event.name.text} description = {event.description.text} date={eventDate} time = {startTime} link={event.url} />
