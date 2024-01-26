@@ -26,7 +26,7 @@ export const Home = () => {
             <Typography variant='h4' textAlign={'center'} fontFamily={'Open Sans, arial, sans-serif'}>A HUGE THANKS to our partners</Typography>
         </Grid>
         <Grid item container md={12}   justifyContent={'center'} alignItems={'center'}>
-            <Grid item md={12} >
+            <Grid item md={12}  >
                 <Stack direction={'row'} spacing={3} justifyContent={'center'} alignItems={'center'}>
                 <img src='https://img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/GWF-logo-blue.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=h:100,cg:true'/>
                 <img src='//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/Colyer_Ferguson-e0a5fc3.png/:/rs=h:100,cg:true,m'/>
