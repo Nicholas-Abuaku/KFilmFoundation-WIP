@@ -7,13 +7,13 @@ export const ContactForm = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   theme.typography.h6={
-    fontSize: '2 rem',
+    fontSize: '1 rem',
     fontFamily:'Open Sans, arial, sans-serif',
     '@media (min-width:600px)': {
       fontSize: '1.5rem',
     },
     [theme.breakpoints.up('md')]: {
-      fontSize: '1.2rem',
+      fontSize: '1rem',
     },
   }
   theme.typography.h4={
@@ -34,7 +34,7 @@ export const ContactForm = () => {
       fontSize: '0.5rem',
     },
     [theme.breakpoints.up('md')]: {
-      fontSize: '1rem',
+      fontSize: '0.5rem',
     },
   }
 
@@ -54,9 +54,10 @@ export const ContactForm = () => {
               <ThemeProvider theme={textTheme}>
             <Typography textAlign={'center'} color={'#339465'} variant='h6'>PLEASE NOTE KENT FILM FOUNDATION HAS NO FULL TIME STAFF SO PLEASE BE PATIENT WITH US.</Typography>
             </ThemeProvider>
-            <Typography textAlign={'center'}>ALL OUR PROFESSIONAL FILM MENTORS UNDERTAKE AN ENHANCED DBS CHECK</Typography>
-            <Typography textAlign={'center'} color={'#339465'}>KENT FILM FOUNDATION</Typography>
-            <Typography textAlign={'center'}>Ramsgate Youth Centre, High St, St Lawrence Ramsgate, CT11 0QG</Typography>
+            <Typography textAlign={'center'} variant='h6'>ALL OUR PROFESSIONAL FILM MENTORS UNDERTAKE AN ENHANCED DBS CHECK</Typography>
+            <Typography textAlign={'center'} color={'#339465'} variant='h6'>KENT FILM FOUNDATION</Typography>
+            <Typography textAlign={'center'} variant='h6'>Ramsgate Youth Centre, High St, St Lawrence Ramsgate, CT11 0QG</Typography>
+            
             </Stack>
             
         </form>
