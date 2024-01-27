@@ -20,6 +20,16 @@ export const FilmClub = () => {
     },
   };
 
+  theme.typography.h6 = {
+    fontSize: '1.2rem',
+    '@media (min-width:600px)': {
+      fontSize: '1.5rem',
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '1.5rem',
+    },
+  };
+
 
   return (
     <>
@@ -88,7 +98,7 @@ export const FilmClub = () => {
             <CardMedia component={'img'} height={'300px'} src='//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/ff5ef498a6974abbf9f8cbb269fac47a628a60a5.jpg/:/rs=w:600,h:300,cg:true,m/cr=w:600,h:300'/>
             <CardContent>
                 <Stack spacing={0}>
-                <Typography textAlign={'center'} fontWeight={'bold'} variant='subtitle1'>We offer a range of film clubs</Typography>
+                <Typography textAlign={'center'} fontWeight={'bold'} >We offer a range of film clubs</Typography>
                 <Typography textAlign={'center'}>Girl's Film Club (ages 13-19)</Typography>
                 <Typography textAlign={'center'}>New Talent Film Club (ages 14-19)</Typography>
                 <Typography textAlign={'center'}>LGBT Film Club (ages 15-19)</Typography>
@@ -102,11 +112,11 @@ export const FilmClub = () => {
                 <CardMedia component={'img'} height={'300px'} src='//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/ff5ef498a6974abbf9f8cbb269fac47a628a60a5.jpg/:/rs=w:600,h:300,cg:true,m/cr=w:600,h:300'/>
                 <CardContent>
                     <Stack spacing={0}>
-                    <Typography textAlign={'center'} fontWeight={'bold'}>We offer a range of film clubs</Typography>
-                    <Typography textAlign={'center'}>Girl's Film Club (ages 13-19)</Typography>
-                    <Typography textAlign={'center'}>New Talent Film Club (ages 14-19)</Typography>
-                    <Typography textAlign={'center'}>LGBT Film Club (ages 15-19)</Typography>
-                    <Typography textAlign={'center'}>Wildlife Cinematographer Programme is for young adults 16 - 25</Typography>
+                    <Typography textAlign={'center'} fontWeight={'bold'} variant='subtitle1'>We offer a range of film clubs</Typography>
+                    <Typography textAlign={'center'} variant='subtitle2'>Girl's Film Club (ages 13-19)</Typography>
+                    <Typography textAlign={'center'} variant='subtitle2'>New Talent Film Club (ages 14-19)</Typography>
+                    <Typography textAlign={'center'} variant='subtitle2'>LGBT Film Club (ages 15-19)</Typography>
+                    <Typography textAlign={'center'} variant='subtitle2'>Wildlife Cinematographer Programme is for young adults 16 - 25</Typography>
                     </Stack>
                 </CardContent>
             </Card>
