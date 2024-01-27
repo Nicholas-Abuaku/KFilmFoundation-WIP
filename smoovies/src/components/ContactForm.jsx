@@ -6,24 +6,35 @@ export const ContactForm = () => {
   const textTheme = createTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  textTheme.typography.h6={
+  theme.typography.h6={
     fontSize: '2 rem',
     fontFamily:'Open Sans, arial, sans-serif',
     '@media (min-width:600px)': {
       fontSize: '1.5rem',
     },
     [theme.breakpoints.up('md')]: {
-      fontSize: '2.4rem',
+      fontSize: '1.2rem',
     },
   }
-  textTheme.typography.h4={
+  theme.typography.h4={
     fontSize: '0.5 rem',
     fontFamily:'Open Sans, arial, sans-serif',
     '@media (min-width:600px)': {
       fontSize: '1.5rem',
     },
     [theme.breakpoints.up('md')]: {
-      fontSize: '2.4rem',
+      fontSize: '1rem',
+    },
+  }
+
+  theme.typography.body={
+    fontSize: '0.5 rem',
+    fontFamily:'Open Sans, arial, sans-serif',
+    '@media (min-width:600px)': {
+      fontSize: '0.5rem',
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '1rem',
     },
   }
 
