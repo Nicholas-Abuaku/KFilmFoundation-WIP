@@ -8,16 +8,18 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import { HomeHero } from '../components/HomeHero'
 import { Link } from 'react-router-dom'
 import { LatestScreeningCard } from '../components/LatestScreeningCard'
+import { CardGridPaginated } from '../components/CardGridPaginated'
 export const Home = () => {
   return (
     <Grid container spacing={0} direction={'row'} marginTop={0} paddingLeft={0} paddingRight={0}>
     <Grid item md={12} xs={12} container direction={'column'}  marginBottom={4} marginTop={0}>
-    <HomeCarousel/>
+    <LatestScreeningCard title="Picnic At Hanging Rock" date="January 25th" img="https://cdn.shopify.com/s/files/1/1801/0569/files/BDP.jpg?v=1490143747"/>
+    {/* <HomeCarousel/> */}
     {/* <HomeHero/> */}
     {/* <LatestScreeningCard/> */}
     </Grid>
     <Grid item>
-      <CardGrid/>
+      <CardGridPaginated/>
     </Grid>
 
    
