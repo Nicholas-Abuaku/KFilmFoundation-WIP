@@ -1,9 +1,12 @@
-import React, { useEffect, useState, useSyncExternalStore } from 'react';
-import {MCard} from './MCard';
-import { Grid, Typography, Skeleton, useTheme, useMediaQuery } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Grid, Typography, useTheme, useMediaQuery, Pagination } from '@mui/material';
 import axios from 'axios';
+import { MCard } from './MCard';
+
 export const CardGrid = () => {
-    const [allEvents,setAllEvents] = useState([]);
+    const [allEvents, setAllEvents] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 3 ; // Change this as needed
     const API_KEY = import.meta.env.VITE_Event_API_KEY;
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -12,50 +15,56 @@ export const CardGrid = () => {
         'Content-Type': 'application/json'
     };
 
-
-
-    
-    const fetchAllEvents = async ()=>{
-        try{
-            axios.get("https://www.eventbriteapi.com/v3/organizations/335808768129/events/", {headers})
-            .then(response=>{
-                console.log(response.data.events)
-                setAllEvents(response.data.events)
-            })
-        }catch(err){
-            console.log(err)
+    const fetchAllEvents = async () => {
+        try {
+            const response = await axios.get("https://www.eventbriteapi.com/v3/organizations/335808768129/events/", { headers });
+            setAllEvents(response.data.events);
+        } catch (err) {
+            console.log(err);
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchAllEvents();
-    },[])
-  return (
-    <>
-    
-    <Grid container spacing={1} direction={'row'} paddingTop={3} paddingBottom={3} paddingLeft={'3%'} paddingRight={'3%'} sx={{ backgroundColor:'#339465'}} width={'99.11vw'} height={'47.61vh'}>
-        <Grid item xs={12}>
-        <Typography variant="h2" fontFamily={'Open Sans, arial, sans-serif'} sx={{ border: '2px solid', borderLeft:'0px', borderRight:'0px', marginRight:'40px', color:'white' }}>What's On</Typography>
-        </Grid>
-        {allEvents.map((event)=>{
-            const startArr = event.start.local.replace("T", " ");
-            const dateTimeArray = startArr.split(" ");
-            const startTime = dateTimeArray[1];
-            const currentDate = new Date();
-            var startDate = new Date(dateTimeArray[0]);
-            var eventDate = startDate.toDateString();
-        //    console.log("Event:"+startDate);
-        //    console.log("Current"+currentDate);
-        console.log();
-            if(currentDate.getFullYear() <= startDate.getFullYear() && currentDate.getMonth() >= startDate.getMonth() && currentDate.getDate() >= startDate.getDate()){
-                return(
-                    <Grid item key={event.id}>
-                        <MCard title={event.name.text} description = {event.description.text} date={eventDate} time = {startTime} link={event.url} />
-                    </Grid>
-                )
-            }
-        })}
-    </Grid>
-    </>
-  )
+    }, [])
+
+    // Calculate total number of pages
+    const totalPages = Math.ceil(allEvents.length / itemsPerPage);
+
+    // Calculate index of the first and last item of the current page
+    const indexOfLastEvent = currentPage * itemsPerPage;
+    const indexOfFirstEvent = indexOfLastEvent - itemsPerPage;
+    const currentEvents = allEvents.slice(indexOfFirstEvent, indexOfLastEvent);
+
+    const handlePageChange = (event, value) => {
+        setCurrentPage(value);
+    }
+
+    return (
+        <>
+            <Grid container spacing={1} direction={'row'} paddingTop={3} paddingBottom={3} paddingLeft={'3%'} paddingRight={'3%'} sx={{ backgroundColor: '#339465', overflow: 'auto' }} width={'99.11vw'} height={'47.61vh'}>
+                <Grid item xs={12}>
+                    <Typography variant="h2" fontFamily={'Open Sans, arial, sans-serif'} sx={{ border: '2px solid', borderLeft: '0px', borderRight: '0px', marginRight: '40px', color: 'white' }}>What's On</Typography>
+                </Grid>
+                {currentEvents.map((event) => {
+                    const startArr = event.start.local.replace("T", " ");
+                    const dateTimeArray = startArr.split(" ");
+                    const startTime = dateTimeArray[1];
+                    const startDate = new Date(dateTimeArray[0]);
+                    const eventDate = startDate.toDateString()
+                    const currentDate = new Date();
+                    console.log(startDate.getFullYear())
+                    if(currentDate.getFullYear() <= startDate.getFullYear() && currentDate.getMonth() >= startDate.getMonth() && currentDate.getDate() >= startDate.getDate()){
+                    return (
+                        <Grid item key={event.id}>
+                            <MCard title={event.name.text} description={event.description.text} date={eventDate} time={startTime} link={event.url} />
+                        </Grid>
+                    );
+                    }
+                })}
+                <Pagination count={totalPages} page={currentPage} onChange={handlePageChange} />
+            </Grid>
+            
+        </>
+    )
 }
