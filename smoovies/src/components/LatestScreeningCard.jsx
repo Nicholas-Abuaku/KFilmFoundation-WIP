@@ -32,9 +32,9 @@ export const LatestScreeningCard = (props) => {
     isMobile ? (
       <>
       <CardActionArea>
-    <Card sx={{ display:'inline'}} width={'92.44vw'} height={'63.49vh'}>
+    <Card sx={{ display:'inline', width:'100%'}}>
       <Box>
-    <CardMedia component={'img'} width={'4px'} height={'100%'} src={props.img} sx={{ objectFit:'objectFit', marginRight:'0px' }}/>
+    <CardMedia component={'img'} width={'900px'} height={'100%'} src={props.img} sx={{ objectFit:'objectFit', marginRight:'0px' }}/>
     </Box>
     <CardContent sx={{ backgroundColor:'#1A1A1A', color:'white', wordBreak:'break-word'  }}>
       <ThemeProvider theme={textTheme}>
@@ -49,11 +49,11 @@ export const LatestScreeningCard = (props) => {
       </>
     ):(
     <CardActionArea>
-    <Card sx={{ display:'flex'}} width={'92.44vw'} height={'63.49vh'}>
+    <Card sx={{ display:'flex'}} width={'900px'} height={'63.49vh'}>
       <Box>
-    <CardMedia component={'img'} width={'100%'} height={'100%'} src={props.img} sx={{ objectFit:'cover', marginRight:'0px' }}/>
+    <CardMedia component={'img'}  height={'100%'} src={props.img} sx={{ objectFit:'fill', marginRight:'0px', width:'100%' }}/>
     </Box>
-    <CardContent sx={{ backgroundColor:'#1A1A1A', color:'white', wordBreak:'break-word' }}>
+    <CardContent sx={{ backgroundColor:'#1A1A1A', color:'white', wordBreak:'break-word', width:'50%' }}>
         <Typography textAlign={'center'} variant='h1'>{props.title}</Typography>
         <Typography color={'white'}  paddingBottom={4} textAlign={'center'} variant='h4'>{props.date}</Typography>
         <Typography color={'red'}  paddingBottom={4} textAlign={'center'} variant='h5'>Tickets</Typography>
