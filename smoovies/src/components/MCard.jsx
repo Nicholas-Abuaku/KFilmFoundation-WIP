@@ -38,7 +38,7 @@ export const MCard = (props) => {
   return (
     <CardActionArea component={Link} to={props.link}>
       { isMobile ? (
-        <Card sx={{ width:'35vw', height:'29vh', display:'block', backgroundColor:'#F0F0ED ', color:'black'}} elevation={10}> 
+        <Card sx={{ width:'35vw', height:'29vh', display:'flex', backgroundColor:'#F0F0ED ', color:'black'}} elevation={10}> 
    
         
         <Skeleton variant='rectangular' width={400} height={274.05}/>
