@@ -10,7 +10,7 @@ export const ContactForm = () => {
     fontSize: '1 rem',
     fontFamily:'Open Sans, arial, sans-serif',
     '@media (min-width:600px)': {
-      fontSize: '1.5rem',
+      fontSize: '1rem',
     },
     [theme.breakpoints.up('md')]: {
       fontSize: '1rem',
@@ -20,7 +20,7 @@ export const ContactForm = () => {
     fontSize: '0.5 rem',
     fontFamily:'Open Sans, arial, sans-serif',
     '@media (min-width:600px)': {
-      fontSize: '1.5rem',
+      fontSize: '1rem',
     },
     [theme.breakpoints.up('md')]: {
       fontSize: '1rem',
@@ -31,7 +31,7 @@ export const ContactForm = () => {
     fontSize: '0.5 rem',
     fontFamily:'Open Sans, arial, sans-serif',
     '@media (min-width:600px)': {
-      fontSize: '0.5rem',
+      fontSize: '1rem',
     },
     [theme.breakpoints.up('md')]: {
       fontSize: '0.5rem',
