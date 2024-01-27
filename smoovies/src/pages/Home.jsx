@@ -126,7 +126,7 @@ export const Home = () => {
             </Grid>
             </Grid>
             <Grid item md={12}  justifyContent={'center'} alignItems={'center'} > 
-            <IconButton>
+            <IconButton component={Link} to={'https://www.facebook.com/KentFilmFoundation/'}>
                 <FacebookIcon/>
             </IconButton>
             <IconButton component={Link} to={'https://www.instagram.com/ramsgatecinema/'}>
