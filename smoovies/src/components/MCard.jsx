@@ -40,8 +40,8 @@ export const MCard = (props) => {
       { isMobile ? (
         <Card sx={{ width:'35vw', height:'29vh', display:'flex', backgroundColor:'#F0F0ED ', color:'black'}} elevation={10}> 
    
-        
-        <Skeleton variant='rectangular' width={400} height={274.05}/>
+   <CardMedia component='img' image={props.img} title={props.title} sx={{ maxWidth:'8.5vw', minHeight:'29vh',  maxHeight:'29vh', objectFit:'scale-down', marginRight:'5px' }}/>
+        {/* <Skeleton variant='rectangular' width={400} height={274.05}/> */}
         <Box sx={{ wordWrap:'break-word', overflow:'auto'}}> 
             <Stack direction={'row'} spacing={2}>
               <ThemeProvider theme={textTheme}>
