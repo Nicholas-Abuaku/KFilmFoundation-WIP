@@ -11,14 +11,15 @@ export const Home = () => {
     const textTheme = createTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     textTheme.typography.h4={
-        fontSize: '2 rem',
+        fontSize: '1 rem',
         fontWeight:'bold',
         fontFamily:'Open Sans, arial, sans-serif',
         '@media (min-width:600px)': {
           fontSize: '1.5rem',
         },
         [theme.breakpoints.up('md')]: {
-          fontSize: '2.4rem',
+          fontSize: '2rem',
+          fontFamily: 'Open Sans, arial, sans-serif'
         },
       }
 
