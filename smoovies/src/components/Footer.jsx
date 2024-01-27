@@ -10,7 +10,7 @@ export const Footer = () => {
     fontSize: '0.1 rem',
     fontFamily:'Open Sans, arial, sans-serif',
     '@media (min-width:600px)': {
-      fontSize: '0.1rem',
+      fontSize: '1rem',
     },
     [theme.breakpoints.up('md')]: {
       fontSize: '1rem',
