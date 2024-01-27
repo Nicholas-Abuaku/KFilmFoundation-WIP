@@ -38,18 +38,15 @@ export const MCard = (props) => {
   return (
     <CardActionArea component={Link} to={props.link}>
       { isMobile ? (
-        <Card sx={{ width:'35vw', height:'29vh', display:'flex', backgroundColor:'#F0F0ED ', color:'black'}} elevation={10}> 
+        <Card sx={{ width:'35vw', height:'29vh', display:'block', backgroundColor:'#F0F0ED ', color:'black'}} elevation={10}> 
    
-        {/* <CardMedia component='img' image={props.img} title={props.title} sx={{ maxWidth:'8.5vw', minHeight:'29vh',  maxHeight:'29vh', objectFit:'cover', marginRight:'5px' }}/> */}
+        
         <Skeleton variant='rectangular' width={400} height={274.05}/>
         <Box sx={{ wordWrap:'break-word', overflow:'auto'}}> 
-            <Stack direction={'row'} spacing={10}>
+            <Stack direction={'row'} spacing={2}>
               <ThemeProvider theme={textTheme}>
             <Typography fontWeight={'bold'} variant='h5' fontFamily={'Open Sans, arial, sans-serif'}>{props.title}</Typography>
             </ThemeProvider>
-            <Icon>
-                <img src={PGIcon} height={25} width={25}/>
-            </Icon>
             </Stack>
             <ThemeProvider theme={textTheme}>
             <Typography fontWeight={'bold'} variant='h6'>{props.date + " " + props.time}</Typography>
@@ -62,14 +59,12 @@ export const MCard = (props) => {
       ) : (
         <Card sx={{ width:'29.59vw', height:'29vh', display:'flex', backgroundColor:'#F0F0ED ', color:'black'}} elevation={10}> 
    
-        {/* <CardMedia component='img' image={props.img} title={props.title} sx={{ maxWidth:'8.5vw', minHeight:'29vh',  maxHeight:'29vh', objectFit:'cover', marginRight:'5px' }}/> */}
-        <Skeleton variant='rectangular' width={400} height={274.05}/>
+        <CardMedia component='img' image={props.img} title={props.title} sx={{ maxWidth:'8.5vw', minHeight:'29vh',  maxHeight:'29vh', objectFit:'scale-down', marginRight:'5px' }}/>
+        {/* <Skeleton variant='rectangular' width={400} height={274.05}/> */}
         <Box sx={{ wordWrap:'break-word', overflow:'auto'}}> 
             <Stack direction={'row'} spacing={10}>
             <Typography fontWeight={'bold'} variant='h5' fontFamily={'Open Sans, arial, sans-serif'}>{props.title}</Typography>
-            <Icon>
-                <img src={PGIcon} height={25} width={25}/>
-            </Icon>
+  
             </Stack>
             <Typography fontWeight={'bold'} variant='h6'>{props.date + " " + props.time}</Typography>
           
