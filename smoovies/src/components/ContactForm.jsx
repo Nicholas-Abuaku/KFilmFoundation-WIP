@@ -5,9 +5,32 @@ export const ContactForm = () => {
   const theme = useTheme();
   const textTheme = createTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  textTheme.typography.h6={
+    fontSize: '2 rem',
+    fontFamily:'Open Sans, arial, sans-serif',
+    '@media (min-width:600px)': {
+      fontSize: '1.5rem',
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '2.4rem',
+    },
+  }
+  textTheme.typography.h4={
+    fontSize: '0.5 rem',
+    fontFamily:'Open Sans, arial, sans-serif',
+    '@media (min-width:600px)': {
+      fontSize: '1.5rem',
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '2.4rem',
+    },
+  }
+
+
   return (
     <>
-    {isMobile ? (<Box width={'100%'} justifyContent={'center'} alignItems={'center'} margin={'auto'} >
+    {isMobile ? (<Box width={'90%'}   >
         <form style={{ width:'100%' }}>
         <Typography textAlign={'left'} variant='h6' color={'#339465'}>Contact Us</Typography>
             <Stack direction={'column'} spacing={2}>
@@ -17,7 +40,9 @@ export const ContactForm = () => {
             <Button variant='contained' sx={{ backgroundColor:'#339465', borderRadius:'0px', width:'10px', alignSelf:'center' }}>Send</Button>
             </Stack>
             <Stack spacing={3} marginTop={'40px'}>
+              <ThemeProvider theme={textTheme}>
             <Typography textAlign={'center'} color={'#339465'} variant='h6'>PLEASE NOTE KENT FILM FOUNDATION HAS NO FULL TIME STAFF SO PLEASE BE PATIENT WITH US.</Typography>
+            </ThemeProvider>
             <Typography textAlign={'center'}>ALL OUR PROFESSIONAL FILM MENTORS UNDERTAKE AN ENHANCED DBS CHECK</Typography>
             <Typography textAlign={'center'} color={'#339465'}>KENT FILM FOUNDATION</Typography>
             <Typography textAlign={'center'}>Ramsgate Youth Centre, High St, St Lawrence Ramsgate, CT11 0QG</Typography>
