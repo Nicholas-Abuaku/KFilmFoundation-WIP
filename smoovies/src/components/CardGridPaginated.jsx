@@ -15,6 +15,7 @@ export const CardGridPaginated = () => {
         'Content-Type': 'application/json'
     };
 
+    
     const fetchAllEvents = async () => {
         try {
             const response = await axios.get("https://www.eventbriteapi.com/v3/organizations/335808768129/events/", { headers });
@@ -46,7 +47,7 @@ export const CardGridPaginated = () => {
 
     return (
         <>
-            <Grid container spacing={1} direction={'row'} paddingTop={3} paddingBottom={3} paddingLeft={'3%'} paddingRight={'3%'} sx={{ backgroundColor: '#339465', overflow: 'auto' }} width={'99.11vw'} height={'47.61vh'}>
+            <Grid container spacing={1} direction={'row'} paddingTop={3} paddingBottom={3} paddingLeft={'3%'} paddingRight={'3%'} sx={{ backgroundColor: '#339465', overflow: 'auto' }} width={'100vw'} height={'47.61vh'}>
                 <Grid item xs={12}>
                     <Typography variant="h2" fontFamily={'Open Sans, arial, sans-serif'} sx={{ border: '2px solid', borderLeft: '0px', borderRight: '0px', marginRight: '40px', color: 'white' }}>What's On</Typography>
                 </Grid>
