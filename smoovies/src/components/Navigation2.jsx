@@ -11,10 +11,10 @@ export const Navigation2 = () => {
   return (
     <AppBar position='static' elevation={0}>
         <Toolbar sx={{ backgroundColor:'#339465', width:'100%'}} >
-            <IconButton component={Link} to={'/'}>
+            <IconButton component={Link} to={'/'} sx={{ float:'left' }}>
                 <img src={KentFilmLogo} width={80} height={80}/>
             </IconButton>
-            <Typography sx={{ flexGrow: '1', color:'white', fontWeight: 'bold' }} variant='h5'> Kent Film Foundation </Typography>
+            <Typography sx={{ flexGrow: '1', color:'white', fontWeight: 'bold' }} variant='h5'> Kent Film Foundation</Typography>
             {isMobile ? (<NavDrawer/>):(
                   <Stack direction={'row'} spacing={2}>
                   <Button variant="text" color='inherit' component={Link} to={'/'}>Home</Button>
