@@ -6,9 +6,9 @@ import { LatestScreeningCard } from './LatestScreeningCard';
 export const HomeCarousel = () => {
 
   return (
-    <Carousel style={{ width:'100%' }}>
+    <Carousel style={{ }}>
         <Carousel.Item >
-            <LatestScreeningCard title="My Old School" date="January 25th" img="https://i.ytimg.com/vi/km6bVJgiJbs/maxresdefault.jpg"/>
+            <LatestScreeningCard title="Picnic At Hanging Rock" date="January 25th" img="https://cdn.shopify.com/s/files/1/1801/0569/files/BDP.jpg?v=1490143747"/>
         </Carousel.Item>
         {/* <Carousel.Item>
           <img src={Carousel2}/>
