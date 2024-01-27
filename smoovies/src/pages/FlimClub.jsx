@@ -16,9 +16,10 @@ export const FilmClub = () => {
       fontSize: '1.5rem',
     },
     [theme.breakpoints.up('md')]: {
-      fontSize: '1.3rem',
+      fontSize: '1.5rem',
     },
   };
+
 
   return (
     <>
@@ -58,9 +59,9 @@ export const FilmClub = () => {
             <CardMedia component={'img'} height={'300px'} src='//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/36017984913_a367a47e19_b.jpg/:/cr=t:7.16%25,l:0%25,w:100%25,h:85.68%25/rs=w:600,h:300,cg:true'/>
             <CardContent>
                 <Stack spacing={2}>
-                <Typography textAlign={'center'} fontWeight={'bold'}>ARE YOU INTERESTED IN MAKING WILDLIFE/NATURE FILMS?</Typography>
-                <Typography textAlign={'center'}>BRAND NEW FOR THIS YEAR Free course for young adults 16 - 25 years olds For more information contact:</Typography>
-                <Typography textAlign={'center'}>  kentfilmfoundation@gmail.com </Typography>
+                <Typography textAlign={'center'} variant='subtitle1' fontWeight={'bold'}>ARE YOU INTERESTED IN MAKING WILDLIFE/NATURE FILMS?</Typography>
+                <Typography textAlign={'center'} variant='subtitle2'>BRAND NEW FOR THIS YEAR Free course for young adults 16 - 25 years olds For more information contact:</Typography>
+                <Typography textAlign={'center'} variant='subtitle2'>  kentfilmfoundation@gmail.com </Typography>
                 </Stack>
             </CardContent>
         </Card>
@@ -73,8 +74,8 @@ export const FilmClub = () => {
             <CardMedia component={'img'} height={'300px'} src='//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/2-275845-Main-600x450-7.jpg/:/cr=t:16.67%25,l:0%25,w:100%25,h:66.67%25/rs=w:600,h:300,cg:true'/>
             <CardContent>
                 <Stack spacing={2}>
-                <Typography textAlign={'center'} fontWeight={'bold'}>A fun experience with filmmakers</Typography>
-                <Typography textAlign={'center'}>Our award-winning film mentors are from professional arts and media backgrounds. We also invite guest speakers from the world of film and television. Guest speakers have included OSCAR and BAFTA winning Actors, Directors, Producer,s Propmakes, Make Up Artists and Screenwriters.</Typography>
+                <Typography textAlign={'center'} fontWeight={'bold'} variant='subtitle1'>A fun experience with filmmakers</Typography>
+                <Typography textAlign={'center'} variant='subtitle2'>Our award-winning film mentors are from professional arts and media backgrounds. We also invite guest speakers from the world of film and television. Guest speakers have included OSCAR and BAFTA winning Actors, Directors, Producer,s Propmakes, Make Up Artists and Screenwriters.</Typography>
                 </Stack>
             </CardContent>
         </Card>
@@ -87,7 +88,7 @@ export const FilmClub = () => {
             <CardMedia component={'img'} height={'300px'} src='//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/ff5ef498a6974abbf9f8cbb269fac47a628a60a5.jpg/:/rs=w:600,h:300,cg:true,m/cr=w:600,h:300'/>
             <CardContent>
                 <Stack spacing={0}>
-                <Typography textAlign={'center'} fontWeight={'bold'}>We offer a range of film clubs</Typography>
+                <Typography textAlign={'center'} fontWeight={'bold'} variant='subtitle1'>We offer a range of film clubs</Typography>
                 <Typography textAlign={'center'}>Girl's Film Club (ages 13-19)</Typography>
                 <Typography textAlign={'center'}>New Talent Film Club (ages 14-19)</Typography>
                 <Typography textAlign={'center'}>LGBT Film Club (ages 15-19)</Typography>
