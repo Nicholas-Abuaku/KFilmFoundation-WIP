@@ -1,0 +1,10 @@
+Admin Panel
+	Homepage:
+		Change featured content: Option for image, title and Ticket URL if needed
+	Film Clubs:
+		Add film club
+		Edit film club info
+	Press:
+		Maybe article writing with link? just make cards or something
+	Contact:
+		Somewhere to recieve messages from contact us as well as making the messages go out to the relevant email
