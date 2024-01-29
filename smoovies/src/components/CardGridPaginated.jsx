@@ -32,7 +32,7 @@ export const CardGridPaginated = () => {
     const currentMonthEvents = allEvents.filter(event => {
         const startDate = new Date(event.start.local);
         const currentDate = new Date();
-        return startDate.getMonth() === currentDate.getMonth() && startDate.getFullYear() === currentDate.getFullYear();
+        return startDate.getFullYear() === currentDate.getFullYear();
     });
 
     const totalPages = Math.ceil(currentMonthEvents.length / itemsPerPage);
