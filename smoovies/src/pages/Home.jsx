@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography, IconButton, Stack, useTheme, useMediaQuery, ThemeProvider, createTheme } from '@mui/material'
+import { Grid, Typography, IconButton, Stack, useTheme, useMediaQuery, ThemeProvider, createTheme, Icon } from '@mui/material'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { Link } from 'react-router-dom'
@@ -26,13 +26,19 @@ export const Home = () => {
   return (
     <Grid container spacing={0} direction={'row'} marginTop={0} paddingLeft={0} paddingRight={0}>
     <Grid item md={12} xs={12} container direction={'column'}  marginBottom={4} marginTop={0}>
-    <LatestScreeningCard title="Picnic At Hanging Rock" date="January 25th" img="https://cdn.shopify.com/s/files/1/1801/0569/files/BDP.jpg?v=1490143747"/>
+    <LatestScreeningCard title="A Good Person" date="January 31st" img="https://m.media-amazon.com/images/S/pv-target-images/3966f1c5f1304d1302898d97762e69b2d040c89687f34788cc5bd0f022af6a57.jpg"/>
     </Grid>
     <Grid item>
       <CardGridPaginated/>
     </Grid>
-
-   
+    <Grid item xs={12}>
+        <IconButton>
+            <FacebookIcon/>
+        </IconButton>
+        <IconButton>
+            <InstagramIcon/>
+        </IconButton>
+    </Grid>
         <Grid item container justifyContent={'center'} alignItems={'center'} spacing={4} >
         <Grid item textAlign={'center'} md={12} >
             <ThemeProvider theme={textTheme}>
@@ -125,14 +131,7 @@ export const Home = () => {
                 
             </Grid>
             </Grid>
-            <Grid item md={12}  justifyContent={'center'} alignItems={'center'} > 
-            <IconButton component={Link} to={'https://www.facebook.com/KentFilmFoundation/'}>
-                <FacebookIcon/>
-            </IconButton>
-            <IconButton component={Link} to={'https://www.instagram.com/ramsgatecinema/'}>
-                <InstagramIcon/>
-            </IconButton>
-        </Grid>
+     
         </Grid>
     
 
