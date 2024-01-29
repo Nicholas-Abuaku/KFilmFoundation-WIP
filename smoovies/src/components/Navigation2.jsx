@@ -4,10 +4,11 @@ import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import KentFilmLogo from '../assets/icons/Untitled_Artwork.jpg'
 import { NavDrawer } from './NavDrawer';
 import { Link } from 'react-router-dom';
-export const Navigation2 = () => {
+export const Navigation2 = (props) => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <AppBar position='static' elevation={0}>
         <Toolbar sx={{ backgroundColor:'#339465', width:'100%'}} >
@@ -25,7 +26,6 @@ export const Navigation2 = () => {
                       
                   </Stack>
             )}
-        
         </Toolbar>
     </AppBar>
   )
