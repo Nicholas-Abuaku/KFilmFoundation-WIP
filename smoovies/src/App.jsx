@@ -12,6 +12,7 @@ import { About } from "./pages/About.jsx";
 import { Press } from "./pages/Press.jsx";
 import { EditLatestScreening } from './components/back-end/EditLatestScreening.jsx';
 import { Dashboard } from './pages/back-end/Dashboard.jsx';
+import { LatestScreeningPage } from './pages/back-end/LatestScreeningPage.jsx';
 function App() {
 
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path="/film-clubs" element={<FilmClub/>}/>
       <Route path="/press" element={<Press/>}/>
       <Route path="/about" element={<Dashboard/>}/>
+      <Route path="/dashboard/edit-latest-screening" element={<LatestScreeningPage/>}/>
     </Routes>
     <Footer/>
     </>
