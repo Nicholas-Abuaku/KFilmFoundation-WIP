@@ -1,0 +1,10 @@
+Dashboard 
+	Add Film Clubs
+	Delete film clubs
+	edit film clubs
+
+	Edit Featured screening.
+
+	Add News article Card
+
+	
