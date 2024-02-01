@@ -1,18 +1,24 @@
 import React from 'react'
-import { AdminNav } from '../../components/back-end/AdminNav'
-import { Grid, Typography} from '@mui/material'
+import { Grid, Paper, Typography} from '@mui/material'
 import { ButtonGrid } from '../../components/back-end/ButtonGrid'
 import { DashboardAnalytics } from '../../components/back-end/DashboardAnalytics'
 
 export const Dashboard = () => {
+
+  const todayDate = new Date();
   return (
-    <Grid container justifyContent={'center'} alignItems={'center'} >
-      <Grid item xs={12}>
+    <Grid container>
+      <Grid item xs={12} sx={{ backgroundColor:'grey' }}>
+        <Typography variant='h3'>Dashboard</Typography>
+        <Typography>Welcome!</Typography>
+      </Grid>
+      <Grid item xs={3}>
         <ButtonGrid/>
       </Grid>
       <Grid item xs={12}>
-      <DashboardAnalytics/>
+        <DashboardAnalytics/>
       </Grid>
+
     </Grid>
   )
 }
