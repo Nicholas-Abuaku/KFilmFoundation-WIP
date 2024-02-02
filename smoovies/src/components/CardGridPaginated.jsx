@@ -13,8 +13,8 @@ export const CardGridPaginated = () => {
   const [allEvents, setAllEvents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3; // Change this as needed
-  const API_KEY = "3PCCZI3NTRWB2PLGZE7D";
-  // import.meta.env.VITE_Event_API_KEY;
+  const API_KEY = import.meta.env.VITE_Event_API_KEY;
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const headers = {
