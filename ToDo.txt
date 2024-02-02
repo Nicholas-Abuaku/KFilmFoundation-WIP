@@ -1,6 +1,8 @@
 Admin Panel
 	Homepage:
-		Change featured content: Option for image, title and Ticket URL if needed
+		Latest Screening:
+			Change date data type to string in backend
+			Make Post request when updated
 	Film Clubs:
 		Add film club
 		Edit film club info
