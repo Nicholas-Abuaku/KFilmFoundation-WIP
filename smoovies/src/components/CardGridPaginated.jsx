@@ -5,13 +5,15 @@ import {
   useTheme,
   useMediaQuery,
   Pagination,
+  Skeleton,
 } from "@mui/material";
 import axios from "axios";
 import { MCard } from "./MCard";
 
-export const CardGridPaginated = () => {
+export const CardGridPaginated = (props) => {
   const [allEvents, setAllEvents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
   const itemsPerPage = 3; // Change this as needed
   const API_KEY = import.meta.env.VITE_Event_API_KEY;
 
@@ -29,6 +31,7 @@ export const CardGridPaginated = () => {
         { headers }
       );
       setAllEvents(response.data.events);
+      setIsLoading(true);
     } catch (err) {
       console.log(err);
     }
@@ -91,26 +94,40 @@ export const CardGridPaginated = () => {
             What's On
           </Typography>
         </Grid>
-        {currentEvents.map((event) => {
-          const startArr = event.start.local.replace("T", " ");
-          const dateTimeArray = startArr.split(" ");
-          const startTime = dateTimeArray[1];
-          const startDate = new Date(dateTimeArray[0]);
-          const eventDate = startDate.toDateString();
-          const imageUrl = event.logo ? event.logo.url : null;
-          return (
-            <Grid item key={event.id}>
-              <MCard
-                title={event.name.text}
-                description={event.description.text}
-                date={eventDate}
-                time={startTime}
-                link={event.url}
-                img={imageUrl}
-              />
-            </Grid>
-          );
-        })}
+
+        {
+          isLoading
+            ? currentEvents.map((event) => {
+                const startArr = event.start.local.replace("T", " ");
+                const dateTimeArray = startArr.split(" ");
+                const startTime = dateTimeArray[1];
+                const startDate = new Date(dateTimeArray[0]);
+                const eventDate = startDate.toDateString();
+                const imageUrl = event.logo ? event.logo.url : null;
+                return (
+                  <Grid item key={event.id}>
+                    <MCard
+                      title={event.name.text}
+                      description={event.description.text}
+                      date={eventDate}
+                      time={startTime}
+                      link={event.url}
+                      img={imageUrl}
+                    />
+                  </Grid>
+                );
+              })
+            : Array.from({ length: itemsPerPage }).map((_, index) => (
+                <Grid item key={index}>
+                  <Skeleton
+                    variant="rectangular"
+                    width={576.13}
+                    height={275.06}
+                  />
+                </Grid>
+              ))
+          // <Skeleton variant="rectangular" width={576.13} height={275.06} />
+        }
       </Grid>
       <Pagination
         count={totalPages}
