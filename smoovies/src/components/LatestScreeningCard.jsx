@@ -3,6 +3,7 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import { LatestScreeningSkeleton } from "./LatestScreeningSkeleton";
 import {
   Box,
   CardActionArea,
@@ -11,12 +12,14 @@ import {
   useTheme,
   useMediaQuery,
   createTheme,
+  Skeleton,
 } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { Link } from "react-router-dom";
 export const LatestScreeningCard = (props) => {
   const theme = useTheme();
   const textTheme = createTheme();
+  const { loading = false } = props;
   textTheme.typography.h1 = {
     fontSize: "0.9rem",
     "@media (min-width:600px)": {
@@ -87,12 +90,21 @@ export const LatestScreeningCard = (props) => {
     <CardActionArea>
       <Card sx={{ display: "flex" }} width={"900px"} height={"63.49vh"}>
         <Box maxHeight={"500px"} maxWidth={"974px"}>
-          <CardMedia
-            component={"img"}
-            height={"100%"}
-            src={props.img}
-            sx={{ objectFit: "fill", marginRight: "0px", width: "100%" }}
-          />
+          {props.img ? (
+            <CardMedia
+              component={"img"}
+              height={"100%"}
+              src={props.img}
+              sx={{ objectFit: "fill", marginRight: "0px", width: "100%" }}
+            />
+          ) : (
+            <Skeleton
+              variant="rectangular"
+              animation="wave"
+              width={900}
+              height={"63.49vh"}
+            />
+          )}
         </Box>
         <CardContent
           sx={{
