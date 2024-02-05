@@ -1,7 +1,20 @@
-import React from 'react'
-
+import React from "react";
+import { Skeleton, Stack } from "@mui/material";
 export const Press = () => {
   return (
-    <div>Press</div>
-  )
-}
+    <Stack direction={"row"}>
+      <Skeleton
+        variant="rectangular"
+        width={974}
+        height={465}
+        animation="wave"
+      />
+      <Skeleton
+        variant="rectangular"
+        width={929}
+        height={465}
+        animation="wave"
+      />
+    </Stack>
+  );
+};
