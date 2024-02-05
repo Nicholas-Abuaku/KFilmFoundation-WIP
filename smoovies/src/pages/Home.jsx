@@ -9,6 +9,7 @@ import {
   ThemeProvider,
   createTheme,
   Icon,
+  Skeleton,
 } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -16,11 +17,13 @@ import { Link } from "react-router-dom";
 import { LatestScreeningCard } from "../components/LatestScreeningCard";
 import { CardGridPaginated } from "../components/CardGridPaginated";
 import axios from "axios";
+import { LatestScreeningSkeleton } from "../components/LatestScreeningSkeleton";
 
 export const Home = () => {
   const [latestScreeningData, setLatestScreeningData] = useState([]);
   const [latestScreeningDate, setLatestScreeningDate] = useState(null);
   const [latestScreeningTime, setLatestScreeningTime] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const theme = useTheme();
   const textTheme = createTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -50,7 +53,7 @@ export const Home = () => {
       );
 
       setLatestScreeningData(response.data[0]);
-
+      setIsLoading(true);
       const parsedDate = new Date(response.data[0].date);
       setLatestScreeningDate(parsedDate.toDateString());
       setLatestScreeningTime(parsedDate.toTimeString());
@@ -81,12 +84,19 @@ export const Home = () => {
         marginBottom={4}
         marginTop={0}
       >
-        <LatestScreeningCard
-          title={latestScreeningData.heading}
-          date={latestScreeningDate}
-          time={latestScreeningTime}
-          img={latestScreeningData.img_url}
-        />
+        {isLoading ? (
+          <LatestScreeningCard
+            title={latestScreeningData.heading}
+            date={latestScreeningDate}
+            time={latestScreeningTime}
+            img={latestScreeningData.img_url}
+          />
+        ) : (
+          <LatestScreeningCard
+            title={<Skeleton variant="text" animation="wave" />}
+            date={<Skeleton variant="text" />}
+          />
+        )}
       </Grid>
       <Grid item>
         <CardGridPaginated />
