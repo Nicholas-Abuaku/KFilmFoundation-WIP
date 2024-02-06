@@ -39,7 +39,7 @@ export const Home = () => {
       fontFamily: "Open Sans, arial, sans-serif",
     },
   };
-  const API_KEY = "1|fsfTTdHVxGsYi8jGefUvIxGmZoOMHeZow1hNJ4Dy5ad60d19";
+  const API_KEY = "1|rBvmzeUmqwFX0596V1H0XFCRNV6K4QLKkoo51G86f14fc84b";
   const headers = {
     Authorization: `Bearer ${API_KEY}`,
     "Content-Type": "application/json",
@@ -53,6 +53,7 @@ export const Home = () => {
       );
 
       setLatestScreeningData(response.data[0]);
+      console.log(response.data[0]);
       setIsLoading(true);
       const parsedDate = new Date(response.data[0].date);
       setLatestScreeningDate(parsedDate.toDateString());
@@ -89,12 +90,13 @@ export const Home = () => {
             title={latestScreeningData.heading}
             date={latestScreeningDate}
             time={latestScreeningTime}
-            img={latestScreeningData.img_url}
+            img={"http://localhost:8000/storage/" + latestScreeningData.img_Url}
           />
         ) : (
           <LatestScreeningCard
             title={<Skeleton variant="text" animation="wave" />}
             date={<Skeleton variant="text" />}
+            img={<Skeleton variant="rectangular" animation="wave" />}
           />
         )}
       </Grid>
