@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
 export const LatestScreeningCard = (props) => {
   const theme = useTheme();
   const textTheme = createTheme();
-  const { loading = false } = props;
+  const [isLoading, setIsLoading] = useState(false);
   textTheme.typography.h1 = {
     fontSize: "0.9rem",
     "@media (min-width:600px)": {
@@ -90,19 +90,20 @@ export const LatestScreeningCard = (props) => {
     <CardActionArea>
       <Card sx={{ display: "flex" }} width={"900px"} height={"63.49vh"}>
         <Box maxHeight={"500px"} maxWidth={"974px"}>
-          {props.img ? (
-            <CardMedia
-              component={"img"}
-              height={"100%"}
-              src={props.img}
-              sx={{ objectFit: "fill", marginRight: "0px", width: "100%" }}
-            />
-          ) : (
+          {isLoading ? (
             <Skeleton
               variant="rectangular"
               animation="wave"
               width={900}
               height={"63.49vh"}
+            />
+          ) : (
+            <CardMedia
+              component={"img"}
+              height={"100%"}
+              src={props.img}
+              sx={{ objectFit: "fill", marginRight: "0px", width: "100%" }}
+              onLoad={() => console.log("loaded")}
             />
           )}
         </Box>
