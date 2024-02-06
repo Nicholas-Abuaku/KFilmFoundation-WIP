@@ -1,39 +1,48 @@
 import React, { useState } from "react";
 import { LatestScreeningCard } from "../LatestScreeningCard";
 import { Button, Stack, TextField } from "@mui/material";
+import axios from "axios";
 export const EditLatestScreening = () => {
-  const [file, setFile] = useState();
-  function getImage(event) {
-    setFile(URL.createObjectURL(event.target.files[0]));
-  }
-
-  const [title, setTitle] = useState();
+  const [heading, setHeading] = useState();
   const [date, setDate] = useState();
   const [eventUrl, setEventUrl] = useState();
-  const [imgUrl, setImgUrl] = useState();
-  function handleTitleChange(e) {
-    console.log(e.target.value);
-    setTitle(e.target.value);
+  const API_KEY = "1|rBvmzeUmqwFX0596V1H0XFCRNV6K4QLKkoo51G86f14fc84b";
+  const headers = {
+    Authorization: `Bearer ${API_KEY}`,
+    "Content-Type": "multipart/form-data",
+  };
+  const [file, setFile] = useState(null);
+  const [fileName, setFileName] = useState("");
+  function fileHander(event) {
+    setFile(event.target.files[0]);
+    setFileName(event.target.files[0].name);
   }
-
   function handleDateChange(e) {
     console.log(e.target.value);
     setDate(e.target.value);
+    console.log(file);
   }
 
-  function handleUrlChange(e) {
+  function handleHeadingChange(e) {
     console.log(e.target.value);
-    setImgUrl(e.target.value);
+    setHeading(e.target.value);
   }
 
+  function handlePost() {
+    const formData = new FormData();
+    formData.append("heading", heading);
+    formData.append("date", date);
+    formData.append("img_Url", file, fileName);
+    console.log(file);
+    axios
+      .post("http://localhost:8000/api/featured-content", formData, { headers })
+      .then((res) => {
+        console.log(res.data);
+      });
+  }
   return (
     <>
-      <LatestScreeningCard
-        img={file ? file : imgUrl}
-        title={title}
-        date={date}
-        ticketLink={eventUrl}
-      />
+      <LatestScreeningCard title={heading} date={date} ticketLink={eventUrl} />
       <form style={{ marginTop: "50px" }}>
         <Stack
           spacing={2}
@@ -44,19 +53,13 @@ export const EditLatestScreening = () => {
           <TextField
             name="title"
             label="Title"
-            onChange={handleTitleChange}
             sx={{ width: "50%" }}
+            onChange={handleHeadingChange}
           />
           <TextField
             name="date"
             label="Date"
             onChange={handleDateChange}
-            sx={{ width: "50%" }}
-          />
-          <TextField
-            name="img_url"
-            label="Image URL"
-            onChange={handleUrlChange}
             sx={{ width: "50%" }}
           />
         </Stack>
@@ -69,9 +72,13 @@ export const EditLatestScreening = () => {
         >
           <Button component="label" variant="contained">
             Upload Image
-            <input type="file" hidden onChange={getImage} />
+            <input type="file" hidden onChange={fileHander} />
           </Button>
-          <Button variant="contained" sx={{ backgroundColor: "#339465" }}>
+          <Button
+            variant="contained"
+            sx={{ backgroundColor: "#339465" }}
+            onClick={handlePost}
+          >
             Submit
           </Button>
         </Stack>
