@@ -28,7 +28,7 @@ export const CardGridPaginated = (props) => {
     try {
       const response = await axios.get(
         "https://www.eventbriteapi.com/v3/organizations/335808768129/events/",
-        { headers }
+        { headers: headers, params: { status: "live" } }
       );
       setAllEvents(response.data.events);
       setIsLoading(true);
