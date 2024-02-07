@@ -23,6 +23,7 @@ export const Home = () => {
   const [latestScreeningData, setLatestScreeningData] = useState([]);
   const [latestScreeningDate, setLatestScreeningDate] = useState(null);
   const [latestScreeningTime, setLatestScreeningTime] = useState(null);
+  const [latestScreeningImage, setLatestScreeningImage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const theme = useTheme();
   const textTheme = createTheme();
@@ -53,11 +54,14 @@ export const Home = () => {
       );
 
       setLatestScreeningData(response.data[0]);
-      console.log(response.data[0]);
+      // console.log(response.data[0]);
       setIsLoading(true);
       const parsedDate = new Date(response.data[0].date);
       setLatestScreeningDate(parsedDate.toDateString());
       setLatestScreeningTime(parsedDate.toTimeString());
+      setLatestScreeningImage(
+        "http://localhost:8000/storage/" + latestScreeningData.img_Url
+      );
     } catch (err) {
       console.log(err);
     }
@@ -90,7 +94,8 @@ export const Home = () => {
             title={latestScreeningData.heading}
             date={latestScreeningDate}
             time={latestScreeningTime}
-            img={"http://localhost:8000/storage/" + latestScreeningData.img_Url}
+            img={latestScreeningData.img_Url}
+            edit={false}
           />
         ) : (
           <LatestScreeningCard
