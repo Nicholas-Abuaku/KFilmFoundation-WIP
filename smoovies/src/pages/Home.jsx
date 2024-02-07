@@ -86,7 +86,7 @@ export const Home = () => {
         xs={12}
         container
         direction={"column"}
-        marginBottom={4}
+        marginBottom={6}
         marginTop={0}
       >
         {isLoading ? (
@@ -94,6 +94,7 @@ export const Home = () => {
             title={latestScreeningData.heading}
             date={latestScreeningDate}
             time={latestScreeningTime}
+            description={latestScreeningData.description}
             img={latestScreeningData.img_Url}
             edit={false}
           />
