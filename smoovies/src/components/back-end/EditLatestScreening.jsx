@@ -8,7 +8,7 @@ export const EditLatestScreening = () => {
   const [date, setDate] = useState();
   const [eventUrl, setEventUrl] = useState();
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
-  const API_KEY = "1|rBvmzeUmqwFX0596V1H0XFCRNV6K4QLKkoo51G86f14fc84b";
+  const API_KEY = "1|8jvuR09NlaSznTQAZkKj71oC7c3kxTOlDo3kx5Eh66560dc9";
   const headers = {
     Authorization: `Bearer ${API_KEY}`,
     "Content-Type": "multipart/form-data",
@@ -16,6 +16,7 @@ export const EditLatestScreening = () => {
   const [file, setFile] = useState(null);
   const [fileUrl, setFileUrl] = useState(null);
   const [fileName, setFileName] = useState("");
+  const [description, setDescription] = useState("");
   function fileHander(event) {
     setFile(event.target.files[0]);
     setFileName(event.target.files[0].name);
@@ -33,10 +34,16 @@ export const EditLatestScreening = () => {
     setHeading(e.target.value);
   }
 
+  function handleDescriptionChange(e) {
+    console.log(e.target.value);
+    setDescription(e.target.value);
+  }
+
   function handlePost() {
     const formData = new FormData();
     formData.append("heading", heading);
     formData.append("date", date);
+    formData.append("description", description);
     formData.append("img_Url", file, fileName);
     console.log(file);
     axios
@@ -53,6 +60,7 @@ export const EditLatestScreening = () => {
         date={date}
         ticketLink={eventUrl}
         img={fileUrl}
+        description={description}
         edit={true}
       />
       <form style={{ marginTop: "50px" }}>
@@ -72,6 +80,12 @@ export const EditLatestScreening = () => {
             type="date"
             name="date"
             onChange={handleDateChange}
+            sx={{ width: "50%" }}
+          />
+          <TextField
+            label="description"
+            name="description"
+            onChange={handleDescriptionChange}
             sx={{ width: "50%" }}
           />
         </Stack>
