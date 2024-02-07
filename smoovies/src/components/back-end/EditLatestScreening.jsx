@@ -1,21 +1,26 @@
 import React, { useState } from "react";
 import { LatestScreeningCard } from "../LatestScreeningCard";
-import { Button, Stack, TextField } from "@mui/material";
+import { Alert, Button, Stack, TextField } from "@mui/material";
+import CheckIcon from "@mui/icons-material/Check";
 import axios from "axios";
 export const EditLatestScreening = () => {
   const [heading, setHeading] = useState();
   const [date, setDate] = useState();
   const [eventUrl, setEventUrl] = useState();
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const API_KEY = "1|rBvmzeUmqwFX0596V1H0XFCRNV6K4QLKkoo51G86f14fc84b";
   const headers = {
     Authorization: `Bearer ${API_KEY}`,
     "Content-Type": "multipart/form-data",
   };
   const [file, setFile] = useState(null);
+  const [fileUrl, setFileUrl] = useState(null);
   const [fileName, setFileName] = useState("");
   function fileHander(event) {
     setFile(event.target.files[0]);
     setFileName(event.target.files[0].name);
+    console.log(fileName);
+    setFileUrl(URL.createObjectURL(event.target.files[0]));
   }
   function handleDateChange(e) {
     console.log(e.target.value);
@@ -38,11 +43,18 @@ export const EditLatestScreening = () => {
       .post("http://localhost:8000/api/featured-content", formData, { headers })
       .then((res) => {
         console.log(res.data);
+        setShowSuccessAlert(true);
       });
   }
   return (
     <>
-      <LatestScreeningCard title={heading} date={date} ticketLink={eventUrl} />
+      <LatestScreeningCard
+        title={heading}
+        date={date}
+        ticketLink={eventUrl}
+        img={fileUrl}
+        edit={true}
+      />
       <form style={{ marginTop: "50px" }}>
         <Stack
           spacing={2}
@@ -57,8 +69,8 @@ export const EditLatestScreening = () => {
             onChange={handleHeadingChange}
           />
           <TextField
+            type="date"
             name="date"
-            label="Date"
             onChange={handleDateChange}
             sx={{ width: "50%" }}
           />
@@ -82,6 +94,11 @@ export const EditLatestScreening = () => {
             Submit
           </Button>
         </Stack>
+        {showSuccessAlert && (
+          <Alert icon={<CheckIcon />} severity="success">
+            Screening Successfully Updated!
+          </Alert>
+        )}
       </form>
     </>
   );
