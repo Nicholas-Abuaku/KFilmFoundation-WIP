@@ -13,6 +13,8 @@ import {
   useMediaQuery,
   createTheme,
   Skeleton,
+  Button,
+  Stack,
 } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { Link } from "react-router-dom";
@@ -43,13 +45,24 @@ export const LatestScreeningCard = (props) => {
   return isMobile ? (
     <>
       <CardActionArea>
-        <Card sx={{ display: "inline", width: "100%" }}>
+        <Card
+          sx={{
+            display: "inline",
+            width: "100%",
+            minHeight: "464.2px",
+            maxHeight: "682px",
+          }}
+        >
           <Box>
             <CardMedia
               component={"img"}
               width={"900px"}
               height={"100%"}
-              src={props.img}
+              src={
+                props.edit
+                  ? props.img
+                  : "http://localhost:8000/storage/" + props.img
+              }
               sx={{ objectFit: "objectFit", marginRight: "0px" }}
             />
           </Box>
@@ -87,37 +100,49 @@ export const LatestScreeningCard = (props) => {
       </CardActionArea>
     </>
   ) : (
-    <CardActionArea>
-      <Card sx={{ display: "flex" }} width={"900px"} height={"63.49vh"}>
-        <Box maxHeight={"500px"} maxWidth={"974px"}>
-          {isLoading ? (
-            <Skeleton
-              variant="rectangular"
-              animation="wave"
-              width={900}
-              height={"63.49vh"}
-            />
-          ) : (
-            <CardMedia
-              component={"img"}
-              height={"100%"}
-              src={
-                props.edit
-                  ? props.img
-                  : "http://localhost:8000/storage/" + props.img
-              }
-              sx={{ objectFit: "fill", marginRight: "0px", width: "100%" }}
-            />
-          )}
-        </Box>
-        <CardContent
-          sx={{
-            backgroundColor: "#1A1A1A",
-            color: "white",
-            wordBreak: "break-word",
-            width: "50%",
-          }}
-        >
+    <Card
+      sx={{ display: "flex", minHeight: "682px" }}
+      width={"900px"}
+      height={"63.49vh"}
+    >
+      <Box maxHeight={"500px"} maxWidth={"974px"}>
+        {props.img && typeof props.img === "object" ? (
+          // Render something different when props.img is an object
+          <Skeleton
+            variant="rectangular"
+            animation="wave"
+            width={962}
+            height={465}
+          />
+        ) : (
+          // Render the regular image when props.img is not an object
+          <CardMedia
+            component={"img"}
+            width={"900px"}
+            height={"100%"}
+            src={
+              props.edit
+                ? props.img
+                : "http://localhost:8000/storage/" + props.img
+            }
+            sx={{
+              objectFit: "cover",
+              marginRight: "0px",
+              minWidth: "900px",
+              minHeight: "682px",
+            }}
+          />
+        )}
+      </Box>
+      <CardContent
+        sx={{
+          backgroundColor: "#1A1A1A",
+          color: "white",
+          wordBreak: "break-word",
+          width: "50%",
+        }}
+      >
+        <Stack direction={"column"} alignItems={"center"}>
           <Typography textAlign={"center"} variant="h1">
             {props.title}
           </Typography>
@@ -129,19 +154,21 @@ export const LatestScreeningCard = (props) => {
           >
             {props.date}
           </Typography>
-          <Typography
-            color={"red"}
-            paddingBottom={4}
-            textAlign={"center"}
-            paddingLeft={"420px"}
-            variant="h5"
-            component={Link}
-            to={props.ticketLink}
+          <Typography textAlign={"center"}>{props.description}</Typography>
+          <Button
+            variant="contained"
+            color="inherit"
+            sx={{
+              borderRadius: "20px",
+              color: "black",
+              height: "50px",
+              width: "160px",
+            }}
           >
             Tickets
-          </Typography>
-        </CardContent>
-      </Card>
-    </CardActionArea>
+          </Button>
+        </Stack>
+      </CardContent>
+    </Card>
   );
 };
