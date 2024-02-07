@@ -101,9 +101,12 @@ export const LatestScreeningCard = (props) => {
             <CardMedia
               component={"img"}
               height={"100%"}
-              src={props.img}
+              src={
+                props.edit
+                  ? props.img
+                  : "http://localhost:8000/storage/" + props.img
+              }
               sx={{ objectFit: "fill", marginRight: "0px", width: "100%" }}
-              onLoad={() => console.log("loaded")}
             />
           )}
         </Box>
