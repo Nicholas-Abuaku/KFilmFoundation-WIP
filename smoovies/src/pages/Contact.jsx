@@ -1,11 +1,11 @@
-import React from 'react'
-import { ContactForm } from '../components/ContactForm'
-import { Typography } from '@mui/material'
-export const Contact = () => {
+import React from "react";
+import { ContactForm } from "../components/ContactForm";
+const Contact = () => {
   return (
     <>
-    <ContactForm/>
-    
+      <ContactForm />
     </>
-  )
-}
+  );
+};
+
+export default Contact;

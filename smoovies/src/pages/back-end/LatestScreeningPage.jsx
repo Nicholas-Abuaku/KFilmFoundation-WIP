@@ -1,19 +1,24 @@
-import { Grid, Typography } from '@mui/material'
-import React from 'react'
-import { EditLatestScreening } from '../../components/back-end/EditLatestScreening'
+import { Grid, Typography } from "@mui/material";
+import React from "react";
+import { EditLatestScreening } from "../../components/back-end/EditLatestScreening";
 
-export const LatestScreeningPage = () => {
+const LatestScreeningPage = () => {
   return (
-   <Grid container>
-    <Grid item xs={12}>
-        <Typography variant='h3' textAlign={'center'}> Edit Latest Screening</Typography>
+    <Grid container>
+      <Grid item xs={12}>
+        <Typography variant="h3" textAlign={"center"}>
+          {" "}
+          Edit Latest Screening
+        </Typography>
+      </Grid>
+      <Grid item xs={12}>
+        <Typography variant="h3">Preview</Typography>
+      </Grid>
+      <Grid item xs={12}>
+        <EditLatestScreening />
+      </Grid>
     </Grid>
-    <Grid item xs={12}>
-        <Typography variant='h3'>Preview</Typography>
-    </Grid>
-    <Grid item xs={12}>
-        <EditLatestScreening/>
-    </Grid>
-   </Grid>
-  )
-}
+  );
+};
+
+export default LatestScreeningPage;

@@ -9,8 +9,7 @@ import {
   createTheme,
 } from "@mui/material";
 import React from "react";
-
-export const About = () => {
+const About = () => {
   const theme = useTheme();
   const textTheme = createTheme();
   theme.typography.h6 = {
@@ -91,3 +90,5 @@ export const About = () => {
     </Grid>
   );
 };
+
+export default About;
