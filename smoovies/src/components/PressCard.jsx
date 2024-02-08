@@ -5,46 +5,50 @@ import {
   CardContent,
   Stack,
   Typography,
+  Button,
 } from "@mui/material";
 import React from "react";
 
 export const PressCard = (props) => {
   return (
-    <Paper
-      elevation={4}
+    <Card
+      width={"100%"}
       sx={{
-        width: "430px",
-        height: "100%",
-        marginTop: "100px",
-        marginBottom: "40px",
-        marginLeft: "0.875rem",
+        backgroundColor: "#339465",
+        minHeight: "462px",
+        width: "369.5px",
+        color: "white",
+        marginLeft: "10px",
+        marginBottom: "30px",
+        borderRadius: "0px",
       }}
     >
-      <Card width={"100%"} height={"100%"}>
-        <CardMedia
-          component={"img"}
-          height={"300px"}
-          src={
-            "https://theisleofthanetnews.com/wp-content/uploads/2023/12/kffshop.jpg"
-          }
-        />
-        <CardContent>
-          <Stack spacing={0}>
-            <Typography
-              textAlign={"center"}
-              fontWeight={"bold"}
-              variant="subtitle1"
-            >
-              {
-                "Ramsgate shop being transformed into community cinema by Kent Film Foundation"
-              }
-            </Typography>
-            <Typography textAlign={"center"} variant="subtitle2">
-              {props.desc}
-            </Typography>
-          </Stack>
-        </CardContent>
-      </Card>
-    </Paper>
+      <CardMedia
+        component={"img"}
+        height={"300px"}
+        src={
+          "https://theisleofthanetnews.com/wp-content/uploads/2023/12/kffshop.jpg"
+        }
+      />
+      <CardContent>
+        <Stack spacing={0}>
+          <Typography
+            textAlign={"center"}
+            fontWeight={"bold"}
+            variant="subtitle1"
+          >
+            {props.title}
+          </Typography>
+          <Typography textAlign={"center"} variant="subtitle2">
+            {
+              "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam maxime laboriosam illo voluptates? Corporis aliquam maiores minima reiciendis, officiis ut ducimus odit, autem suscipit blanditiis deleniti deserunt consequatur repellendus dolorem! Ut consectetur illum hic debitis laudantium at pariatur veritatis voluptas!"
+            }
+          </Typography>
+          <Button variant="outlined" color="inherit">
+            Learn More
+          </Button>
+        </Stack>
+      </CardContent>
+    </Card>
   );
 };
