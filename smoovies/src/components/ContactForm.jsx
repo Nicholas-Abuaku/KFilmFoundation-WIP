@@ -131,7 +131,7 @@ export const ContactForm = () => {
               <Typography textAlign={"center"} color={"#339465"}>
                 KENT FILM FOUNDATION
               </Typography>
-              <Typography textAlign={"center"}>
+              <Typography textAlign={"center"} marginBottom={4}>
                 Ramsgate Youth Centre, High St, St Lawrence Ramsgate, CT11 0QG
               </Typography>
             </Stack>
