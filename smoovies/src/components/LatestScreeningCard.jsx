@@ -44,35 +44,36 @@ export const LatestScreeningCard = (props) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return isMobile ? (
     <>
-      <CardActionArea>
-        <Card
+      <Card
+        sx={{
+          display: "inline",
+          width: "100%",
+          minHeight: "464.2px",
+          maxHeight: "682px",
+          borderRadius: "0px",
+        }}
+      >
+        <Box>
+          <CardMedia
+            component={"img"}
+            width={"900px"}
+            height={"100%"}
+            src={
+              props.edit
+                ? props.img
+                : "http://localhost:8000/storage/" + props.img
+            }
+            sx={{ objectFit: "objectFit", marginRight: "0px" }}
+          />
+        </Box>
+        <CardContent
           sx={{
-            display: "inline",
-            width: "100%",
-            minHeight: "464.2px",
-            maxHeight: "682px",
+            backgroundColor: "#1A1A1A",
+            color: "white",
+            wordBreak: "break-word",
           }}
         >
-          <Box>
-            <CardMedia
-              component={"img"}
-              width={"900px"}
-              height={"100%"}
-              src={
-                props.edit
-                  ? props.img
-                  : "http://localhost:8000/storage/" + props.img
-              }
-              sx={{ objectFit: "objectFit", marginRight: "0px" }}
-            />
-          </Box>
-          <CardContent
-            sx={{
-              backgroundColor: "#1A1A1A",
-              color: "white",
-              wordBreak: "break-word",
-            }}
-          >
+          <Stack direction={"column"} alignItems={"center"} spacing={2}>
             <ThemeProvider theme={textTheme}>
               <Typography textAlign={"center"} variant="h1">
                 {props.title}
@@ -86,18 +87,23 @@ export const LatestScreeningCard = (props) => {
               >
                 {props.date}
               </Typography>
-              <Typography
-                color={"red"}
-                paddingBottom={4}
-                textAlign={"center"}
-                variant="h5"
+              <Typography textAlign={"center"}>{props.description}</Typography>
+              <Button
+                variant="contained"
+                color="inherit"
+                sx={{
+                  borderRadius: "20px",
+                  color: "black",
+                  height: "50px",
+                  width: "160px",
+                }}
               >
                 Tickets
-              </Typography>
+              </Button>
             </ThemeProvider>
-          </CardContent>
-        </Card>
-      </CardActionArea>
+          </Stack>
+        </CardContent>
+      </Card>
     </>
   ) : (
     <Card
@@ -139,10 +145,10 @@ export const LatestScreeningCard = (props) => {
           backgroundColor: "#1A1A1A",
           color: "white",
           wordBreak: "break-word",
-          width: "50%",
+          minWidth: "50%",
         }}
       >
-        <Stack direction={"column"} alignItems={"center"}>
+        <Stack direction={"column"} alignItems={"center"} spacing={2}>
           <Typography textAlign={"center"} variant="h1">
             {props.title}
           </Typography>
