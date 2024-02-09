@@ -44,6 +44,8 @@ export const PressCard = (props) => {
               "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam maxime laboriosam illo voluptates? Corporis aliquam maiores minima reiciendis, officiis ut ducimus odit, autem suscipit blanditiis deleniti deserunt consequatur repellendus dolorem! Ut consectetur illum hic debitis laudantium at pariatur veritatis voluptas!"
             }
           </Typography>
+        </Stack>
+        <Stack alignItems={"center"} justifyContent={"center"} marginTop={2}>
           <Button variant="outlined" color="inherit">
             Learn More
           </Button>
