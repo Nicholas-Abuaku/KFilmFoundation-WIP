@@ -14,7 +14,7 @@ export const CardGridPaginated = (props) => {
   const [allEvents, setAllEvents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const itemsPerPage = 3; // Change this as needed
+  const itemsPerPage = 6; // Change this as needed
   const API_KEY = import.meta.env.VITE_Event_API_KEY;
 
   const theme = useTheme();
@@ -73,11 +73,16 @@ export const CardGridPaginated = (props) => {
         direction={"row"}
         paddingTop={3}
         paddingBottom={3}
+        marginBottom={3}
         paddingLeft={"3%"}
         paddingRight={"3%"}
-        sx={{ backgroundColor: "#339465", overflow: "auto" }}
+        sx={{
+          backgroundColor: "#339465",
+          overflow: "scroll",
+          maxHeight: "723px",
+        }}
         width={"100vw"}
-        height={"47.61vh"}
+        minHeight={"47.61vh"}
       >
         <Grid item xs={12}>
           <Typography
