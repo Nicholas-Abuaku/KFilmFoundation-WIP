@@ -37,12 +37,11 @@ export const PressCard = (props) => {
             fontWeight={"bold"}
             variant="subtitle1"
           >
-            {props.title}
+            {"The Isle of Thanet News"}
           </Typography>
-          <Typography textAlign={"center"} variant="subtitle2">
-            {
-              "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam maxime laboriosam illo voluptates? Corporis aliquam maiores minima reiciendis, officiis ut ducimus odit, autem suscipit blanditiis deleniti deserunt consequatur repellendus dolorem! Ut consectetur illum hic debitis laudantium at pariatur veritatis voluptas!"
-            }
+          <Typography textAlign={"center"} variant="body1">
+            Ramsgate shop being transformed into community cinema by Kent Film
+            Foundation
           </Typography>
         </Stack>
         <Stack alignItems={"center"} justifyContent={"center"} marginTop={2}>
