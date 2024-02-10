@@ -23,7 +23,7 @@ export const Home = () => {
       fontFamily: "Open Sans, arial, sans-serif",
     },
   };
-  const API_KEY = "1|rBvmzeUmqwFX0596V1H0XFCRNV6K4QLKkoo51G86f14fc84b";
+  const API_KEY = import.meta.env.VITE_Laravel_API_KEY;
   const headers = {
     Authorization: `Bearer ${API_KEY}`,
     "Content-Type": "application/json",

@@ -8,7 +8,7 @@ export const EditLatestScreening = () => {
   const [date, setDate] = useState();
   const [eventUrl, setEventUrl] = useState();
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
-  const API_KEY = "1|8jvuR09NlaSznTQAZkKj71oC7c3kxTOlDo3kx5Eh66560dc9";
+  const API_KEY = import.meta.env.VITE_Laravel_API_KEY;
   const headers = {
     Authorization: `Bearer ${API_KEY}`,
     "Content-Type": "multipart/form-data",
