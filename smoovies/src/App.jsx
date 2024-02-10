@@ -23,7 +23,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/film-clubs" element={<FilmClub />} />
           <Route path="/press" element={<Press />} />
-          <Route path="/about" element={<Dashboard />} />
+          <Route path="/about" element={<About />} />
           <Route
             path="/dashboard/edit-latest-screening"
             element={<LatestScreeningPage />}
