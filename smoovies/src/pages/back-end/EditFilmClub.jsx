@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-export const EditFilmClub = () => {
+export const EditFilmClub = (props) => {
   const params = useParams();
   const userId = params.id;
   const [imageFile, setImageFile] = useState();
@@ -25,7 +25,6 @@ export const EditFilmClub = () => {
     Authorization: `Bearer ${API_KEY}`,
     "Content-Type": "multipart/form-data",
   };
-
   function handlePost() {
     const formData = new FormData();
     formData.append("heading", heading);
@@ -69,6 +68,34 @@ export const EditFilmClub = () => {
     setDescription(event.target.value);
   }
 
+  const handleNew = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("heading", heading);
+      formData.append("description", description);
+      formData.append("img_Url", imageFile, fileName);
+      axios
+        .post("http://localhost:8000/api/film-clubs/", formData, {
+          headers,
+        })
+        .then((res) => {
+          console.log(res);
+          setShowSuccessAlert(true);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  function handleSubmit() {
+    if (userId) {
+      console.log("there is id");
+      handlePost();
+    } else {
+      console.log("No id");
+      handleNew();
+    }
+  }
   useEffect(() => {
     fetchClubData();
   }, []);
@@ -106,12 +133,16 @@ export const EditFilmClub = () => {
               Upload Image
               <input type="file" hidden onChange={fileHandler} />
             </Button>
-            <Button variant="contained" color="success" onClick={handlePost}>
+            <Button variant="contained" color="success" onClick={handleSubmit}>
               Submit
             </Button>
           </Stack>
           {showSuccessAlert && (
-            <Alert severity="success">Film Club Successfully Updated!</Alert>
+            <Alert severity="success">
+              {userId
+                ? "Film Club Successfully Updated!"
+                : "Film Club Added Successfully"}
+            </Alert>
           )}
         </form>
       </Grid>
