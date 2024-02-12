@@ -8,10 +8,15 @@ import {
   CardActionArea,
 } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 import ManageHistoryIcon from "@mui/icons-material/ManageHistory";
 export const DashboardManageButton = (props) => {
   return (
-    <CardActionArea sx={{ width: "300px", height: "140px" }}>
+    <CardActionArea
+      sx={{ width: "300px", height: "140px" }}
+      component={Link}
+      to={"/dashboard/film-clubs"}
+    >
       <Card
         sx={{
           width: "300px",
