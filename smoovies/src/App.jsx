@@ -36,6 +36,7 @@ function App() {
             path="/dashboard/film-clubs/edit/:id"
             element={<EditFilmClub />}
           />
+          <Route path="/dashboard/film-clubs/new" element={<EditFilmClub />} />
         </Routes>
       </Suspense>
       <Footer />
