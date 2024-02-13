@@ -10,6 +10,9 @@ const FilmClub = lazy(() => import("./pages/FlimClub"));
 const Press = lazy(() => import("./pages/Press"));
 const About = lazy(() => import("./pages/About"));
 const Dashboard = lazy(() => import("./Pages/back-end/Dashboard"));
+const AddPressArticle = lazy(() =>
+  import("./pages/back-end/AddPressArticle.jsx")
+);
 const LatestScreeningPage = lazy(() =>
   import("./Pages/back-end/LatestScreeningPage")
 );
@@ -41,6 +44,11 @@ function App() {
           />
           <Route path="/dashboard/film-clubs/new" element={<EditFilmClub />} />
           <Route path="/dashboard/press" element={<PressArticleManage />} />
+          <Route path="/dashboard/press/new" element={<AddPressArticle />} />
+          <Route
+            path="/dashboard/press/edit/:id"
+            element={<AddPressArticle />}
+          />
         </Routes>
       </Suspense>
       <Footer />
