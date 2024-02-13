@@ -15,6 +15,9 @@ const LatestScreeningPage = lazy(() =>
 );
 import { FilmClubManager } from "./pages/back-end/FilmClubManager.jsx";
 import { EditFilmClub } from "./pages/back-end/EditFilmClub.jsx";
+const PressArticleManage = lazy(() =>
+  import("./pages/back-end/PressArticleManage")
+);
 function App() {
   return (
     <>
@@ -37,6 +40,7 @@ function App() {
             element={<EditFilmClub />}
           />
           <Route path="/dashboard/film-clubs/new" element={<EditFilmClub />} />
+          <Route path="/dashboard/press" element={<PressArticleManage />} />
         </Routes>
       </Suspense>
       <Footer />
