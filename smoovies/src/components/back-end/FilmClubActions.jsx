@@ -1,4 +1,5 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useContext } from "react";
+import { ManageTableContext } from "../../Contexts/ManageTableContext";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -7,6 +8,7 @@ import { Link } from "react-router-dom";
 import Snackbar from "@mui/material/Snackbar";
 import axios from "axios";
 export const FilmClubActions = (props) => {
+  const { tableUpdate, setTableUpdate } = useContext(ManageTableContext);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const [openSnack, setOpenSnack] = useState();
@@ -25,8 +27,6 @@ export const FilmClubActions = (props) => {
     "Content-Type": "multipart/form-data",
   };
 
-  const [ignored, forceUpdate] = useReducer((x) => x + 1, 0);
-
   const handleDelete = async () => {
     try {
       const response = await axios.delete(
@@ -34,7 +34,8 @@ export const FilmClubActions = (props) => {
         { headers }
       );
       setOpenSnack(true);
-      window.location.reload();
+      setTableUpdate(true);
+      props.onDelete();
       console.log(response);
     } catch (err) {
       console.log(err);

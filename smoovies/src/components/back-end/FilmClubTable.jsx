@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { ManageTableContext } from "../../Contexts/ManageTableContext";
 import axios from "axios";
 import {
   Table,
@@ -12,6 +13,8 @@ import {
 import { FilmClubActions } from "./FilmClubActions";
 import { Link } from "react-router-dom";
 export const FilmClubTable = () => {
+  const { tableUpdate, setTableUpdate } = useContext(ManageTableContext);
+  const [deleteCounter, setDeleteCounter] = useState(0);
   const API_KEY = import.meta.env.VITE_Event_API_KEY;
   const [data, setData] = useState([]);
 
@@ -31,9 +34,16 @@ export const FilmClubTable = () => {
     }
   };
 
+  const forceTableRefresh = () => {
+    fetchFilmClubs();
+    // Increment deleteCounter to trigger a refresh
+    setDeleteCounter((prevCounter) => prevCounter + 1);
+    setTableUpdate(false);
+  };
+
   useEffect(() => {
     fetchFilmClubs();
-  }, []);
+  }, [tableUpdate, deleteCounter]);
 
   return (
     <>
@@ -70,7 +80,7 @@ export const FilmClubTable = () => {
                   />
                 </TableCell>
                 <TableCell>
-                  <FilmClubActions id={club.id} />
+                  <FilmClubActions id={club.id} onDelete={forceTableRefresh} />
                 </TableCell>
               </TableRow>
             ))}

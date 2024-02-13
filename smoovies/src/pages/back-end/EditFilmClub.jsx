@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FilmClubCard } from "../../components/back-end/FilmClubCard";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import {
   Stack,
   TextField,
@@ -7,8 +8,9 @@ import {
   Grid,
   Typography,
   Alert,
+  IconButton,
 } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 export const EditFilmClub = (props) => {
   const params = useParams();
@@ -102,7 +104,12 @@ export const EditFilmClub = (props) => {
   return (
     <Grid container justifyContent={"center"} alignItems={"center"}>
       <Grid item xs={12}>
-        <h1>Edit {userId}</h1>
+        <Stack direction={"row"} spacing={2}>
+          <IconButton component={Link} to={"/dashboard/film-clubs"}>
+            <ArrowBackIcon />
+          </IconButton>
+          <h1>{userId ? "Edit" : "New"}</h1>
+        </Stack>
       </Grid>
       <Grid item xs={6}>
         <form>
