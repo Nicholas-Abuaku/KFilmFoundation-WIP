@@ -121,7 +121,7 @@ const AddPressArticle = () => {
           <IconButton component={Link} to={"/dashboard/press"}>
             <ArrowBackIcon />
           </IconButton>
-          <Typography variant="h3">New Press Article</Typography>
+          <Typography variant="h3">{articleId ? "Edit" : "New"}</Typography>
         </Stack>
         <PressCardPreview
           img={
