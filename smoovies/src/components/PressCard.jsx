@@ -6,10 +6,13 @@ import {
   Stack,
   Typography,
   Button,
+  Link,
+  Skeleton,
 } from "@mui/material";
 import React from "react";
 
 export const PressCard = (props) => {
+  const { newsSource, articleTitle, articleUrl, image } = props;
   return (
     <Card
       width={"100%"}
@@ -23,13 +26,7 @@ export const PressCard = (props) => {
         borderRadius: "0px",
       }}
     >
-      <CardMedia
-        component={"img"}
-        height={"300px"}
-        src={
-          "https://theisleofthanetnews.com/wp-content/uploads/2023/12/kffshop.jpg"
-        }
-      />
+      <CardMedia component={"img"} height={"300px"} src={image} />
       <CardContent>
         <Stack spacing={0}>
           <Typography
@@ -37,15 +34,19 @@ export const PressCard = (props) => {
             fontWeight={"bold"}
             variant="subtitle1"
           >
-            {"The Isle of Thanet News"}
+            {newsSource}
           </Typography>
           <Typography textAlign={"center"} variant="body1">
-            Ramsgate shop being transformed into community cinema by Kent Film
-            Foundation
+            {articleTitle}
           </Typography>
         </Stack>
         <Stack alignItems={"center"} justifyContent={"center"} marginTop={2}>
-          <Button variant="outlined" color="inherit">
+          <Button
+            variant="outlined"
+            color="inherit"
+            component={Link}
+            to={articleUrl}
+          >
             Learn More
           </Button>
         </Stack>
