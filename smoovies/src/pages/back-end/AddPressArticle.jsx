@@ -12,7 +12,7 @@ import { Link, useParams } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import axios from "axios";
 const AddPressArticle = () => {
-  const [imageFile, setImageFile] = useState();
+  const [imageFile, setImageFile] = useState(null);
   const [articleData, setArticleData] = useState([]);
   const [fileName, setFileName] = useState();
   const [fileUrl, setFileUrl] = useState();
@@ -46,7 +46,6 @@ const AddPressArticle = () => {
   const API_KEY = import.meta.env.VITE_Laravel_API_KEY;
   const headers = {
     Authorization: `Bearer ${API_KEY}`,
-    "Content-Type": "multipart/form-data",
   };
   const handleNew = async () => {
     try {
@@ -91,7 +90,7 @@ const AddPressArticle = () => {
       handlePost();
     } else {
       console.log("No id");
-      // handleNew();
+      handleNew();
     }
   }
 

@@ -15,7 +15,7 @@ import axios from "axios";
 export const EditFilmClub = (props) => {
   const params = useParams();
   const userId = params.id;
-  const [imageFile, setImageFile] = useState();
+  const [imageFile, setImageFile] = useState(null);
   const [fileUrl, setFileUrl] = useState();
   const [clubData, setClubData] = useState([]);
   const [fileName, setFileName] = useState();
