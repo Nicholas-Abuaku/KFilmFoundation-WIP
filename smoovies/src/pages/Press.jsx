@@ -1,6 +1,4 @@
-import React from "react";
-import { Skeleton, Stack, Grid, Typography } from "@mui/material";
-import { PressCard } from "../components/PressCard";
+import { Grid, Typography } from "@mui/material";
 import { PressCardGrid } from "../components/back-end/PressCardGrid";
 const Press = () => {
   return (
