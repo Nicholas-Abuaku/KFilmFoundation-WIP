@@ -15,17 +15,6 @@ export const ContactForm = () => {
   const theme = useTheme();
   const textTheme = createTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
-  theme.typography.h6 = {
-    fontSize: "1 rem",
-    fontFamily: "Open Sans, arial, sans-serif",
-    "@media (min-width:600px)": {
-      fontSize: "1rem",
-    },
-    [theme.breakpoints.up("md")]: {
-      fontSize: "1rem",
-    },
-  };
   theme.typography.h4 = {
     fontSize: "0.5 rem",
     fontFamily: "Open Sans, arial, sans-serif",
@@ -47,13 +36,28 @@ export const ContactForm = () => {
       fontSize: "0.5rem",
     },
   };
+  theme.typography.h6 = {
+    fontSize: "1 rem",
+    fontFamily: "Open Sans, arial, sans-serif",
+    "@media (min-width:600px)": {
+      fontSize: "1rem",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "1rem",
+    },
+  };
 
   return (
     <>
       {isMobile ? (
         <Box width={"90%"}>
           <form style={{ width: "100%" }}>
-            <Typography textAlign={"left"} variant="h6" color={"#339465"}>
+            <Typography
+              textAlign={"left"}
+              variant="h6"
+              component={"h2"}
+              color={"#339465"}
+            >
               Contact Us
             </Typography>
             <Stack direction={"column"} spacing={2}>
@@ -74,19 +78,29 @@ export const ContactForm = () => {
             </Stack>
             <Stack spacing={3} marginTop={"40px"}>
               <ThemeProvider theme={textTheme}>
-                <Typography textAlign={"center"} color={"#339465"} variant="h6">
+                <Typography
+                  textAlign={"center"}
+                  color={"#339465"}
+                  variant="body1"
+                  component={"h3"}
+                >
                   PLEASE NOTE KENT FILM FOUNDATION HAS NO FULL TIME STAFF SO
                   PLEASE BE PATIENT WITH US.
                 </Typography>
               </ThemeProvider>
-              <Typography textAlign={"center"} variant="h6">
+              <Typography textAlign={"center"} variant="body1" component={"h4"}>
                 ALL OUR PROFESSIONAL FILM MENTORS UNDERTAKE AN ENHANCED DBS
                 CHECK
               </Typography>
-              <Typography textAlign={"center"} color={"#339465"} variant="h6">
+              <Typography
+                textAlign={"center"}
+                color={"#339465"}
+                variant="h6"
+                component={"h5"}
+              >
                 KENT FILM FOUNDATION
               </Typography>
-              <Typography textAlign={"center"} variant="h6">
+              <Typography textAlign={"center"} variant="body1" component={"h6"}>
                 Ramsgate Youth Centre, High St, St Lawrence Ramsgate, CT11 0QG
               </Typography>
             </Stack>
@@ -100,7 +114,12 @@ export const ContactForm = () => {
           margin={"auto"}
         >
           <form>
-            <Typography textAlign={"left"} variant="h6" color={"#339465"}>
+            <Typography
+              textAlign={"left"}
+              variant="h6"
+              component="h2"
+              color={"#339465"}
+            >
               Contact Us
             </Typography>
             <Stack direction={"column"} spacing={2}>
@@ -120,7 +139,12 @@ export const ContactForm = () => {
               </Button>
             </Stack>
             <Stack spacing={3} marginTop={"40px"}>
-              <Typography textAlign={"center"} color={"#339465"} variant="h6">
+              <Typography
+                textAlign={"center"}
+                color={"#339465"}
+                variant="h6"
+                component={"h3"}
+              >
                 PLEASE NOTE KENT FILM FOUNDATION HAS NO FULL TIME STAFF SO
                 PLEASE BE PATIENT WITH US.
               </Typography>
