@@ -22,7 +22,7 @@ export const DashboardAnalytics = () => {
         { headers }
       );
       setSales(response.data.events);
-      console.log(sales);
+      console.log(response.data);
     } catch (err) {
       console.log(err);
     }
@@ -36,12 +36,12 @@ export const DashboardAnalytics = () => {
     <TableContainer
       component={Paper}
       sx={{ width: "100%", maxHeight: "50%" }}
-      elevation={24}
+      elevation={0}
     >
       <Table stickyHeader>
         <TableHead>
           <TableRow>
-            <TableCell>Event ID</TableCell>
+            <TableCell>Date</TableCell>
             <TableCell>Name</TableCell>
             <TableCell>Date</TableCell>
             <TableCell>Capacity</TableCell>
@@ -50,7 +50,7 @@ export const DashboardAnalytics = () => {
         <TableBody>
           {sales.map((event) => (
             <TableRow key={event.id}>
-              <TableCell>{event.id}</TableCell>
+              <TableCell>{event.start.local}</TableCell>
               <TableCell>{event.name.text}</TableCell>
               <TableCell>{event.status}</TableCell>
               <TableCell>{event.capacity}</TableCell>
