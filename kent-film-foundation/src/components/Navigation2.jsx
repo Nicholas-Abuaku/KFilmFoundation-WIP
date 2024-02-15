@@ -24,13 +24,26 @@ export const Navigation2 = (props) => {
       <Toolbar
         sx={{ backgroundColor: "#339465", width: "100%", height: "100px" }}
       >
-        <IconButton component={Link} to={"/"} sx={{ float: "left" }}>
-          <img src={KentFilmLogo} width={80} height={80} />
+        <IconButton
+          component={Link}
+          to={"/"}
+          sx={{ float: "left" }}
+          disableRipple
+        >
+          <img
+            src={KentFilmLogo}
+            width={80}
+            height={80}
+            title="Kent Film Foundation Logo"
+            alt="A white seagull flying with a white clapperboard in its mouth "
+            loading="eager"
+          />
         </IconButton>
         <Stack direction={"column"}>
           <Typography
             sx={{ flexGrow: "1", color: "white", fontWeight: "bold" }}
             variant="h5"
+            component="h1"
           >
             {" "}
             Kent Film Foundation
