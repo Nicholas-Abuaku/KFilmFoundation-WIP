@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Grid, useTheme, createTheme, Skeleton } from "@mui/material";
+import { Grid, useTheme, createTheme, Skeleton, Button } from "@mui/material";
 import { LatestScreeningCard } from "../components/LatestScreeningCard";
 import { CardGridPaginated } from "../components/CardGridPaginated";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 export const Home = () => {
   const [latestScreeningData, setLatestScreeningData] = useState([]);
@@ -11,18 +12,6 @@ export const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const theme = useTheme();
   const textTheme = createTheme();
-  textTheme.typography.h4 = {
-    fontSize: "1 rem",
-    fontWeight: "bold",
-    fontFamily: "Open Sans, arial, sans-serif",
-    "@media (min-width:600px)": {
-      fontSize: "1.5rem",
-    },
-    [theme.breakpoints.up("md")]: {
-      fontSize: "2rem",
-      fontFamily: "Open Sans, arial, sans-serif",
-    },
-  };
   const API_KEY = import.meta.env.VITE_Laravel_API_KEY;
   const headers = {
     Authorization: `Bearer ${API_KEY}`,
@@ -52,48 +41,75 @@ export const Home = () => {
   }, []);
 
   return (
-    <Grid
-      container
-      spacing={0}
-      direction={"row"}
-      marginTop={0}
-      paddingLeft={0}
-      paddingRight={0}
-    >
+    <>
+      <Helmet>
+        <title>Home</title>
+        <meta
+          name="description"
+          content="Explore films at Ramsgate Community Cinema. Check this month's screenings, enjoy events, and connect on social media. Your cinematic journey begins here!"
+        />
+        <link rel="canonical" href="http://localhost:5173/" />
+        <meta property="og:title" content="Kent Film Foundation" />
+        <meta
+          property="og:description"
+          content="Kent Film Foundation Home | What's On"
+        />
+        <meta
+          property="og:image"
+          content="https://img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/logo/c5a56d23-b292-4dd3-b3fa-06fdeadebab1.jpg/:/rs=h:80,cg:true,m/qt=q:95"
+        />
+        <meta property="og:url" content="http://localhost:5173/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="Kent Film Foundation" />
+        <meta
+          name="twitter:description"
+          content="Explore films at Ramsgate Community Cinema. Check this month's screenings, enjoy events, and connect on social media. Your cinematic journey begins here!"
+        />
+        {/* <meta name="twitter:image" content="URL to your image for Twitter" /> */}
+      </Helmet>
       <Grid
-        item
-        md={12}
-        xs={12}
         container
-        direction={"column"}
-        marginBottom={6}
+        spacing={0}
+        direction={"row"}
         marginTop={0}
+        paddingLeft={0}
+        paddingRight={0}
       >
-        {isLoading ? (
-          <LatestScreeningCard
-            title={latestScreeningData.heading}
-            date={latestScreeningDate}
-            time={latestScreeningTime}
-            description={latestScreeningData.description}
-            img={latestScreeningData.img_Url}
-            edit={false}
-          />
-        ) : (
-          <LatestScreeningCard
-            title={
-              <>
-                <Skeleton variant="text" animation="wave" width={900} />
-                <Skeleton variant="text" animation="wave" width={900} />
-              </>
-            }
-            date={<Skeleton variant="text" width={300} />}
-            img={<Skeleton variant="rectangular" animation="wave" />}
-          />
-        )}
+        <Grid
+          item
+          md={12}
+          xs={12}
+          container
+          direction={"column"}
+          marginBottom={6}
+          marginTop={0}
+        >
+          {isLoading ? (
+            <LatestScreeningCard
+              title={latestScreeningData.heading}
+              date={latestScreeningDate}
+              time={latestScreeningTime}
+              description={latestScreeningData.description}
+              img={latestScreeningData.img_Url}
+              edit={false}
+            />
+          ) : (
+            <LatestScreeningCard
+              title={
+                <>
+                  <Skeleton variant="text" animation="wave" width={900} />
+                  <Skeleton variant="text" animation="wave" width={900} />
+                </>
+              }
+              date={<Skeleton variant="text" width={300} />}
+              img={<Skeleton variant="rectangular" animation="wave" />}
+            />
+          )}
+        </Grid>
+        <Grid item>
+          <CardGridPaginated />
+        </Grid>
       </Grid>
-      <Grid item>
-        <CardGridPaginated />
-      </Grid>
-    </Grid>
+    </>
   );
 };
