@@ -31,7 +31,9 @@ export const EditFilmClub = (props) => {
     const formData = new FormData();
     formData.append("heading", heading);
     formData.append("description", description);
-    formData.append("img_Url", imageFile, fileName);
+    if (imageFile) {
+      formData.append("img_Url", imageFile, fileName);
+    }
 
     axios
       .post("http://localhost:8000/api/film-clubs/" + userId, formData, {
