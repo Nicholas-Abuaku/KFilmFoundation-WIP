@@ -62,6 +62,8 @@ export const MCard = (props) => {
             component="img"
             image={props.img}
             title={props.title}
+            alt={"Movie poster for " + props.title}
+            loading="lazy"
             sx={{
               maxWidth: "8.5vw",
               minHeight: "29vh",
@@ -77,6 +79,7 @@ export const MCard = (props) => {
                 <Typography
                   fontWeight={"bold"}
                   variant="h5"
+                  component="h3"
                   fontFamily={"Open Sans, arial, sans-serif"}
                 >
                   {props.title}
@@ -84,7 +87,7 @@ export const MCard = (props) => {
               </ThemeProvider>
             </Stack>
             <ThemeProvider theme={textTheme}>
-              <Typography fontWeight={"bold"} variant="h6">
+              <Typography fontWeight={"bold"} variant="h6" component={"h4"}>
                 {props.date + " " + props.time}
               </Typography>
             </ThemeProvider>
@@ -115,6 +118,8 @@ export const MCard = (props) => {
               objectFit: "scale-down",
               marginRight: "5px",
             }}
+            alt="Latest screening poster"
+            loading="lazy"
           />
           {/* <Skeleton variant='rectangular' width={400} height={274.05}/> */}
           <Box sx={{ wordWrap: "break-word", overflow: "auto" }}>
@@ -122,12 +127,13 @@ export const MCard = (props) => {
               <Typography
                 fontWeight={"bold"}
                 variant="h5"
+                component="h3"
                 fontFamily={"Open Sans, arial, sans-serif"}
               >
                 {props.title}
               </Typography>
             </Stack>
-            <Typography fontWeight={"bold"} variant="h6">
+            <Typography fontWeight={"bold"} variant="h6" component="h4">
               {props.date + " " + props.time}
             </Typography>
 
