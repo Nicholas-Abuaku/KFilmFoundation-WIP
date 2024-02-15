@@ -20,25 +20,25 @@ const FilmClub = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  theme.typography.h5 = {
-    fontSize: "1.2rem",
-    "@media (min-width:600px)": {
-      fontSize: "1.5rem",
-    },
-    [theme.breakpoints.up("md")]: {
-      fontSize: "1.5rem",
-    },
-  };
+  // theme.typography.h5 = {
+  //   fontSize: "1.2rem",
+  //   "@media (min-width:600px)": {
+  //     fontSize: "1.5rem",
+  //   },
+  //   [theme.breakpoints.up("md")]: {
+  //     fontSize: "1.5rem",
+  //   },
+  // };
 
-  theme.typography.h6 = {
-    fontSize: "1.2rem",
-    "@media (min-width:600px)": {
-      fontSize: "1.5rem",
-    },
-    [theme.breakpoints.up("md")]: {
-      fontSize: "1.5rem",
-    },
-  };
+  // theme.typography.h6 = {
+  //   fontSize: "1.2rem",
+  //   "@media (min-width:600px)": {
+  //     fontSize: "1.5rem",
+  //   },
+  //   [theme.breakpoints.up("md")]: {
+  //     fontSize: "1.5rem",
+  //   },
+  // };
 
   return (
     <>
