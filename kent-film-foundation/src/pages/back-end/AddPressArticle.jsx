@@ -11,14 +11,16 @@ import { PressCardPreview } from "../../components/back-end/PressCardPreview";
 import { Link, useParams } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 const AddPressArticle = () => {
   const [imageFile, setImageFile] = useState(null);
   const [articleData, setArticleData] = useState([]);
   const [fileName, setFileName] = useState();
   const [fileUrl, setFileUrl] = useState();
-  const [newsSource, setNewsSource] = useState();
-  const [articleTitle, setArticleTitle] = useState();
-  const [articleUrl, setArticleUrl] = useState();
+  const [showErrorAlert, setShowErrorAlert] = useState(false);
+  const [newsSource, setNewsSource] = useState(null);
+  const [articleTitle, setArticleTitle] = useState(null);
+  const [articleUrl, setArticleUrl] = useState(null);
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const params = useParams();
   const articleId = params.id;
@@ -50,10 +52,10 @@ const AddPressArticle = () => {
   const handleNew = async () => {
     try {
       const formData = new FormData();
-      formData.append("news_source", newsSource);
-      formData.append("article_title", articleTitle);
-      formData.append("article_url", articleUrl);
-      formData.append("image", imageFile, fileName);
+      formData.append("news_source", newsSource || "");
+      formData.append("article_title", articleTitle || "");
+      formData.append("article_url", articleUrl || "");
+      formData.append("image", imageFile, fileName || "");
       axios
         .post("http://localhost:8000/api/press", formData, { headers })
         .then((res) => {
@@ -61,17 +63,21 @@ const AddPressArticle = () => {
           setShowSuccessAlert(true);
         });
     } catch (err) {
-      console.log(err);
+      setShowErrorAlert(true);
+      console.log(err.response.message);
     }
   };
 
-  const handlePost = async () => {
+  const handlePost = async (e) => {
     try {
       const formData = new FormData();
       formData.append("news_source", newsSource);
       formData.append("article_title", articleTitle);
       formData.append("article_url", articleUrl);
-      formData.append("image", imageFile, fileName);
+      if (imageFile) {
+        formData.append("image", imageFile, fileName);
+      }
+
       axios
         .post("http://localhost:8000/api/press/" + articleId, formData, {
           headers,
@@ -81,7 +87,10 @@ const AddPressArticle = () => {
           setShowSuccessAlert(true);
         });
     } catch (err) {
-      console.log(err);
+      setShowErrorAlert(true);
+      if (err.response) {
+        console.log(err.response.data.message);
+      }
     }
   };
   function handleSubmit() {
@@ -109,72 +118,90 @@ const AddPressArticle = () => {
     fetchPressInfo();
   }, []);
   return (
-    <form>
-      <Stack
-        spacing={2}
-        direction={"column"}
-        justifyContent={"center"}
-        alignItems={"center"}
-      >
-        <Stack direction={"row"} spacing={2}>
-          <IconButton component={Link} to={"/dashboard/press"}>
-            <ArrowBackIcon />
-          </IconButton>
-          <Typography variant="h3">{articleId ? "Edit" : "New"}</Typography>
+    <>
+      <Helmet>
+        <title>New Press Article</title>
+        <meta name="description" content="Add new Press article" />
+        <link rel="canonical" href="/dashboard/press/new" />
+        <meta name="robots" content="noindex" />
+      </Helmet>
+      <form>
+        <Stack
+          spacing={2}
+          direction={"column"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <Stack direction={"row"} spacing={2}>
+            <IconButton component={Link} to={"/dashboard/press"}>
+              <ArrowBackIcon />
+            </IconButton>
+            <Typography variant="h3">{articleId ? "Edit" : "New"}</Typography>
+          </Stack>
+          <PressCardPreview
+            img={
+              fileUrl
+                ? fileUrl
+                : "http://localhost:8000/storage/" + articleData.image
+            }
+            source={newsSource ? newsSource : articleData.news_source}
+            title={articleTitle ? articleTitle : articleData.article_title}
+          />
+          <TextField
+            name="news_source"
+            label="News Source"
+            sx={{ width: "80%" }}
+            onChange={handleSourceChange}
+            required
+          />
+          <TextField
+            name="article_title"
+            label="Article Title"
+            rows={8}
+            sx={{ width: "80%" }}
+            onChange={handleTitleChange}
+            required
+          />
+          <TextField
+            name="article_url"
+            label="Article Link"
+            rows={8}
+            sx={{ width: "80%" }}
+            onChange={handleUrlChange}
+            required
+          />
+          {showSuccessAlert && (
+            <Alert severity="success">
+              {articleId
+                ? "Article Information Successfully Updated!"
+                : "Article Added Successfully"}
+            </Alert>
+          )}
+          {showErrorAlert && (
+            <Alert severity={"warning"}>
+              {articleId
+                ? "Update Failed, Please check all fields marked with * are filled!"
+                : "Failed to create new article. Please check all fields marked with * are filled"}
+            </Alert>
+          )}
+          <Button component="label" variant="contained">
+            Upload Image
+            <input type="file" hidden onChange={fileHandler} />
+          </Button>
         </Stack>
-        <PressCardPreview
-          img={
-            fileUrl
-              ? fileUrl
-              : "http://localhost:8000/storage/" + articleData.image
-          }
-          source={newsSource ? newsSource : articleData.news_source}
-          title={articleTitle ? articleTitle : articleData.article_title}
-        />
-        <TextField
-          name="news_source"
-          label="News Source"
-          sx={{ width: "80%" }}
-          onChange={handleSourceChange}
-        />
-        <TextField
-          name="article_title"
-          label="Article Title"
-          rows={8}
-          sx={{ width: "80%" }}
-          onChange={handleTitleChange}
-        />
-        <TextField
-          name="article_url"
-          label="Article Link"
-          rows={8}
-          sx={{ width: "80%" }}
-          onChange={handleUrlChange}
-        />
-        {showSuccessAlert && (
-          <Alert severity="success">
-            {articleId
-              ? "Article Information Successfully Updated!"
-              : "Article Added Successfully"}
-          </Alert>
-        )}
-        <Button component="label" variant="contained">
-          Upload Image
-          <input type="file" hidden onChange={fileHandler} />
-        </Button>
-      </Stack>
-      <Stack
-        spacing={2}
-        direction={"row"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        marginTop={5}
-      >
-        <Button variant="contained" color="success" onClick={handleSubmit}>
-          Submit
-        </Button>
-      </Stack>
-    </form>
+        <Stack
+          spacing={2}
+          direction={"row"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          marginTop={5}
+        >
+          <Button variant="contained" color="success" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </Stack>
+      </form>
+    </>
   );
 };
 
