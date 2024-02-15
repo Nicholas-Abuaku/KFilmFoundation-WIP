@@ -3,6 +3,12 @@ import "./App.css";
 import React, { lazy, Suspense } from "react";
 import { Footer } from "./components/Footer";
 import { Home } from "./pages/Home";
+import {
+  ThemeProvider,
+  createTheme,
+  responsiveFontSizes,
+} from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 import { Navigation2 } from "./components/Navigation2.jsx";
 const Contact = lazy(() => import("./pages/Contact"));
