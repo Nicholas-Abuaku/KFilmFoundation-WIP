@@ -1,0 +1,11 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow: /dashboard
+Disallow: /dashboard/edit-latest-screening
+Disallow: /dashboard/film-clubs
+Disallow: /dashboard/film-clubs/edit/:id
+Disallow: /dashboard/film-clubs/new
+Disallow: /dashboard/press
+Disallow: /dashboard/press/new
+Disallow: /dashboard/press/edit/:id
+
