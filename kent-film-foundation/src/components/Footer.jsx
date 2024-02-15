@@ -34,7 +34,7 @@ export const Footer = () => {
       </Grid>
       <Grid item xs={12}>
         <ThemeProvider theme={textTheme}>
-          <Typography variant="h6" textAlign={"center"}>
+          <Typography variant="h6" textAlign={"center"} component={"h4"}>
             COPYRIGHT © 2024 KENT FILM FOUNDATION - ALL RIGHTS RESERVED.
           </Typography>
         </ThemeProvider>
