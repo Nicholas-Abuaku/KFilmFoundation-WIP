@@ -26,13 +26,21 @@ export const PressCard = (props) => {
         borderRadius: "0px",
       }}
     >
-      <CardMedia component={"img"} height={"300px"} src={image} />
+      <CardMedia
+        component={"img"}
+        height={"300px"}
+        src={image}
+        loading="eager"
+        title={props.articleTitle}
+        alt={"News coverage from " + props.newsSource}
+      />
       <CardContent>
         <Stack spacing={0}>
           <Typography
             textAlign={"center"}
             fontWeight={"bold"}
             variant="subtitle1"
+            component={"h3"}
           >
             {newsSource}
           </Typography>
