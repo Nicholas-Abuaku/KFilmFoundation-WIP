@@ -22,8 +22,8 @@ export const LatestScreeningCard = (props) => {
   const theme = useTheme();
   const textTheme = createTheme();
   const [isLoading, setIsLoading] = useState(false);
-  textTheme.typography.h1 = {
-    fontSize: "0.9rem",
+  textTheme.typography.h2 = {
+    fontSize: "2rem",
     "@media (min-width:600px)": {
       fontSize: "1.5rem",
     },
@@ -58,12 +58,15 @@ export const LatestScreeningCard = (props) => {
             component={"img"}
             width={"900px"}
             height={"100%"}
+            loading="lazy"
+            title={props.title}
             src={
               props.edit
                 ? props.img
                 : "http://localhost:8000/storage/" + props.img
             }
             sx={{ objectFit: "objectFit", marginRight: "0px" }}
+            alt="hellooo"
           />
         </Box>
         <CardContent
@@ -75,7 +78,7 @@ export const LatestScreeningCard = (props) => {
         >
           <Stack direction={"column"} alignItems={"center"} spacing={2}>
             <ThemeProvider theme={textTheme}>
-              <Typography textAlign={"center"} variant="h1">
+              <Typography textAlign={"center"} variant="h2">
                 {props.title}
               </Typography>
 
@@ -84,6 +87,7 @@ export const LatestScreeningCard = (props) => {
                 paddingBottom={4}
                 textAlign={"center"}
                 variant="h4"
+                component={"h2"}
               >
                 {props.date}
               </Typography>
@@ -107,7 +111,7 @@ export const LatestScreeningCard = (props) => {
     </>
   ) : (
     <Card
-      sx={{ display: "flex", minHeight: "682px" }}
+      sx={{ display: "flex", minHeight: "682px", borderRadius: "0px" }}
       width={"900px"}
       height={"63.49vh"}
     >
@@ -126,11 +130,14 @@ export const LatestScreeningCard = (props) => {
             component={"img"}
             width={"900px"}
             height={"100%"}
+            title={props.title}
             src={
               props.edit
                 ? props.img
                 : "http://localhost:8000/storage/" + props.img
             }
+            alt="The poster of the latest screening"
+            loading="eager"
             sx={{
               objectFit: "cover",
               marginRight: "0px",
@@ -149,7 +156,7 @@ export const LatestScreeningCard = (props) => {
         }}
       >
         <Stack direction={"column"} alignItems={"center"} spacing={2}>
-          <Typography textAlign={"center"} variant="h1">
+          <Typography textAlign={"center"} variant="h1" component="h2">
             {props.title}
           </Typography>
           <Typography
@@ -157,6 +164,7 @@ export const LatestScreeningCard = (props) => {
             paddingBottom={4}
             textAlign={"center"}
             variant="h4"
+            component="h3"
           >
             {props.date}
           </Typography>
