@@ -29,8 +29,18 @@ export const EditFilmClub = (props) => {
   };
   function handlePost() {
     const formData = new FormData();
-    formData.append("heading", heading);
-    formData.append("description", description);
+    if (!heading) {
+      formData.append("heading", clubData.heading);
+    } else {
+      formData.append("heading", heading);
+    }
+
+    if (!description) {
+      formData.append("description", clubData.description);
+    } else {
+      formData.append("description", description);
+    }
+
     if (imageFile) {
       formData.append("img_Url", imageFile, fileName);
     }

@@ -71,9 +71,23 @@ const AddPressArticle = () => {
   const handlePost = async (e) => {
     try {
       const formData = new FormData();
-      formData.append("news_source", newsSource);
-      formData.append("article_title", articleTitle);
-      formData.append("article_url", articleUrl);
+      if (!newsSource) {
+        formData.append("news_source", articleData.news_source);
+      } else {
+        formData.append("news_source", newsSource);
+      }
+
+      if (!articleTitle) {
+        formData.append("article_title", articleData.article_title);
+      } else {
+        formData.append("article_title", articleTitle);
+      }
+      if (!articleUrl) {
+        formData.append("article_url", articleData.article_url);
+      } else {
+        formData.append("article_url", articleUrl);
+      }
+
       if (imageFile) {
         formData.append("image", imageFile, fileName);
       }
