@@ -100,7 +100,8 @@ export const MCard = (props) => {
         <Card
           sx={{
             width: "29.59vw",
-            height: "29vh",
+            height: "32vh",
+            // height: "29vh",
             display: "flex",
             backgroundColor: "#F0F0ED ",
             color: "black",
@@ -115,7 +116,7 @@ export const MCard = (props) => {
               maxWidth: "8.5vw",
               minHeight: "29vh",
               maxHeight: "29vh",
-              objectFit: "scale-down",
+              objectFit: "contain",
               marginRight: "5px",
             }}
             alt="Latest screening poster"
@@ -126,14 +127,14 @@ export const MCard = (props) => {
             <Stack direction={"row"} spacing={10}>
               <Typography
                 fontWeight={"bold"}
-                variant="h5"
+                variant="h6"
                 component="h3"
                 fontFamily={"Open Sans, arial, sans-serif"}
               >
                 {props.title}
               </Typography>
             </Stack>
-            <Typography fontWeight={"bold"} variant="h6" component="h4">
+            <Typography fontWeight={"bold"} variant="subtitle1" component="h4">
               {props.date + " " + props.time}
             </Typography>
 
