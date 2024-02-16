@@ -53,11 +53,11 @@ export const LatestScreeningCard = (props) => {
           borderRadius: "0px",
         }}
       >
-        <Box>
+        <Box maxWidth={"100%"} maxHeight={"50%"}>
           <CardMedia
             component={"img"}
-            width={"900px"}
-            height={"100%"}
+            // width={"100%"}
+            // maxHeight={"2px"}
             loading="lazy"
             title={props.title}
             src={
@@ -65,7 +65,12 @@ export const LatestScreeningCard = (props) => {
                 ? props.img
                 : "http://localhost:8000/storage/" + props.img
             }
-            sx={{ objectFit: "objectFit", marginRight: "0px" }}
+            sx={{
+              objectFit: "cover",
+              width: "100%",
+              height: "200px",
+              "@media (max-width: 600px)": { minWidth: "100%" },
+            }}
             alt="hellooo"
           />
         </Box>
@@ -74,6 +79,7 @@ export const LatestScreeningCard = (props) => {
             backgroundColor: "#1A1A1A",
             color: "white",
             wordBreak: "break-word",
+            minHeight: "400px",
           }}
         >
           <Stack direction={"column"} alignItems={"center"} spacing={2}>
@@ -117,7 +123,6 @@ export const LatestScreeningCard = (props) => {
     >
       <Box maxHeight={"500px"} maxWidth={"974px"}>
         {props.img && typeof props.img === "object" ? (
-          // Render something different when props.img is an object
           <Skeleton
             variant="rectangular"
             animation="wave"
@@ -125,11 +130,8 @@ export const LatestScreeningCard = (props) => {
             height={465}
           />
         ) : (
-          // Render the regular image when props.img is not an object
           <CardMedia
             component={"img"}
-            width={"900px"}
-            height={"100%"}
             title={props.title}
             src={
               props.edit
@@ -141,7 +143,7 @@ export const LatestScreeningCard = (props) => {
             sx={{
               objectFit: "cover",
               marginRight: "0px",
-              minWidth: "900px",
+              minWidth: "100%",
               minHeight: "682px",
             }}
           />
