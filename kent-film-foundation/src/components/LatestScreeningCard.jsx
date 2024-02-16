@@ -118,7 +118,7 @@ export const LatestScreeningCard = (props) => {
   ) : (
     <Card
       sx={{ display: "flex", minHeight: "682px", borderRadius: "0px" }}
-      width={"900px"}
+      width={"100vw"}
       height={"63.49vh"}
     >
       <Box maxHeight={"500px"} maxWidth={"974px"}>
@@ -143,8 +143,10 @@ export const LatestScreeningCard = (props) => {
             sx={{
               objectFit: "cover",
               marginRight: "0px",
-              minWidth: "100%",
-              minHeight: "682px",
+              minWidth: "10px",
+              maxWidth: "1920px",
+              minHeight: "750px",
+              maxHeight: "708px",
             }}
           />
         )}
