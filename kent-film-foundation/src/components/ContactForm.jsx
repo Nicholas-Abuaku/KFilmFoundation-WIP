@@ -61,9 +61,16 @@ export const ContactForm = () => {
               Contact Us
             </Typography>
             <Stack direction={"column"} spacing={2}>
-              <TextField name="Name" label="Name" />
-              <TextField name="Email" label="Email" />
-              <TextField name="mesasge" label="Message" multiline rows={8} />
+              <TextField type="text" name="Name" label="Name" required />
+              <TextField type="email" name="Email" label="Email" required />
+              <TextField
+                type="text"
+                name="mesasge"
+                label="Message"
+                multiline
+                rows={8}
+                required
+              />
               <Button
                 variant="contained"
                 sx={{
@@ -72,6 +79,7 @@ export const ContactForm = () => {
                   width: "10px",
                   alignSelf: "center",
                 }}
+                type="submit"
               >
                 Send
               </Button>
@@ -123,9 +131,16 @@ export const ContactForm = () => {
               Contact Us
             </Typography>
             <Stack direction={"column"} spacing={2}>
-              <TextField name="Name" label="Name" />
-              <TextField name="Email" label="Email" />
-              <TextField name="mesasge" label="Message" multiline rows={8} />
+              <TextField type="text" name="Name" label="Name" required />
+              <TextField type="email" name="Email" label="Email" required />
+              <TextField
+                type="text"
+                name="Mesasge"
+                label="Message"
+                multiline
+                rows={8}
+                required
+              />
               <Button
                 variant="contained"
                 sx={{
@@ -134,6 +149,7 @@ export const ContactForm = () => {
                   width: "10px",
                   alignSelf: "center",
                 }}
+                type="submit"
               >
                 Send
               </Button>
