@@ -39,7 +39,7 @@ export const FilmClubDisplayCard = (props) => {
         <Card
           elevation={12}
           sx={{
-            width: "422px",
+            width: "80%",
             marginLeft: "0.875rem",
             marginTop: "40px",
           }}
