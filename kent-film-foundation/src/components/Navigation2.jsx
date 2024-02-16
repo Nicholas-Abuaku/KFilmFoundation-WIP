@@ -41,7 +41,12 @@ export const Navigation2 = (props) => {
         </IconButton>
         <Stack direction={"column"}>
           <Typography
-            sx={{ flexGrow: "1", color: "white", fontWeight: "bold" }}
+            sx={{
+              flexGrow: "1",
+              color: "white",
+              fontWeight: "bold",
+              flexBasis: "100%",
+            }}
             variant="h5"
             component="h1"
           >
@@ -53,7 +58,7 @@ export const Navigation2 = (props) => {
         {isMobile ? (
           <NavDrawer />
         ) : (
-          <Stack direction={"row"} spacing={2} sx={{ marginLeft: "55%" }}>
+          <Stack direction={"row"} spacing={2} sx={{ marginLeft: "auto" }}>
             <Button variant="text" color="inherit" component={Link} to={"/"}>
               Home
             </Button>
