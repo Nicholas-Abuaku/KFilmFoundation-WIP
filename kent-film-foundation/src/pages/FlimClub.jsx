@@ -68,9 +68,10 @@ const FilmClub = () => {
             </Card>
           ) : (
             <Card
-              height={"65.18vh"}
+              // height={"65.18vh"}
               sx={{
                 backgroundColor: "#88A79A",
+                width: "60%",
                 margin: "auto",
                 marginTop: "40px",
                 marginBottom: "80px",
