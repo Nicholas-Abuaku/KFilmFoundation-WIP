@@ -1,7 +1,9 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, useTheme, useMediaQuery } from "@mui/material";
 import { PressCardGrid } from "../components/back-end/PressCardGrid";
 import { Helmet } from "react-helmet-async";
 const Press = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <>
       <Helmet>
@@ -13,7 +15,7 @@ const Press = () => {
         <link rel="canonical" href="http://localhost:5173/press" />
       </Helmet>
       <Grid container justifyContent={"center"} alignItems={"center"}>
-        <Grid item xs={12}>
+        <Grid item md={12} xs={12}>
           <Typography
             variant="h3"
             textAlign={"center"}
