@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { Partners } from "../components/Partners";
 const About = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -31,14 +32,12 @@ const About = () => {
         alignItems={"center"}
       >
         <Grid item xs={12} md={12}>
-          <img
-            src="https://img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/ff5ef498a6974abbf9f8cbb269fac47a628a60a5.jpg"
-            width={"100%"}
-            height={300}
-            loading="eager"
-            title="banner"
-            alt="banner"
-          />
+          <Box width={"100%"} height={200} sx={{ backgroundColor: "black" }}>
+            <Typography variant="h1" color="red" textAlign={"center"}>
+              {" "}
+              Image Placeholder
+            </Typography>
+          </Box>
         </Grid>
         <Grid item container>
           <Grid item xs={7} md={7} marginRight={0}>
@@ -152,6 +151,9 @@ const About = () => {
                 </Typography>
               </Stack>
             )}
+          </Grid>
+          <Grid item xs={12} marginTop={10}>
+            <Partners />
           </Grid>
         </Grid>
       </Grid>
