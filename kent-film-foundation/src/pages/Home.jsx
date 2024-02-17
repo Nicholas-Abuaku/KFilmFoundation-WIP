@@ -4,6 +4,7 @@ import { LatestScreeningCard } from "../components/LatestScreeningCard";
 import { CardGridPaginated } from "../components/CardGridPaginated";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
+import { PayPalDonate } from "../components/PayPalDonate";
 
 export const Home = () => {
   const [latestScreeningData, setLatestScreeningData] = useState([]);
@@ -108,6 +109,9 @@ export const Home = () => {
         </Grid>
         <Grid item>
           <CardGridPaginated />
+        </Grid>
+        <Grid item>
+          <PayPalDonate />
         </Grid>
       </Grid>
     </>
