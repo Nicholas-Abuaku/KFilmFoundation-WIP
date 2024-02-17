@@ -143,8 +143,10 @@ export const LatestScreeningCard = (props) => {
             sx={{
               objectFit: "cover",
               marginRight: "0px",
-              minWidth: "10px",
-              maxWidth: "1920px",
+              minWidth: "962px",
+              "@media (max-width: 1024px)": { minWidth: "450px" },
+              "@media (max-width: 1280px)": { minWidth: "500px" },
+              maxWidth: "962px",
               minHeight: "750px",
               maxHeight: "708px",
             }}
