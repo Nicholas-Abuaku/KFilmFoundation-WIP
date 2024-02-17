@@ -5,11 +5,32 @@ import {
   useMediaQuery,
   useTheme,
   createTheme,
+  Typography,
 } from "@mui/material";
+import GarfieldWestonIcon from "../assets/images/1GarfieldWestonFoundation.png";
+import ColyerFergusonIcon from "../assets/images/1ColyerFerguson.png";
+import KentCommunityFoundationIcon from "../assets/images/1KentCommunityFoundation .png";
+import PartnerLogo from "../assets/images/1PartnerLogo.png";
+import FilmHubSoutheastLogo from "../assets/images/1FilmHubSoutheast.png";
+import ComicRelief from "../assets/images/2ComicRelief.png";
+import ScreenSouth from "../assets/images/2ScreenSouth.png";
+import FoyleFoundation from "../assets/images/2FoyleFoundation.png";
+import BFFilm from "../assets/images/2BFFilm.png";
+import LotteryFunded from "../assets/images/2LotteryFunded.png";
+import RamsgateFilm from "../assets/images/3RamsgateInternationalFilm.png";
+import AnimationCompany from "../assets/images/3TheAnimationCompany.png";
+import FutureYouthProject from "../assets/images/3FutureYouthProject.png";
+import POW from "../assets/images/3PowerOfWomen.png";
+import MargatePride from "../assets/images/4MargatePride.png";
+import Oasis from "../assets/images/4OasisDomessticAbuseService.png";
+import DoverYouth from "../assets/images/4DoverYouthTheatre.png";
+import LoveQuexPark from "../assets/images/4QuexPark.png";
+import CharltonAthletic from "../assets/images/4CharltonAthletic.png";
 export const Partners = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const textTheme = createTheme();
+
   return (
     <Grid
       item
@@ -20,6 +41,11 @@ export const Partners = () => {
       spacing={1}
     >
       <Grid item md={12}>
+        <Typography textAlign={"center"} variant="h4" marginBottom={3}>
+          A HUGE THANKS to our Partners
+        </Typography>
+      </Grid>
+      <Grid item md={12}>
         {isMobile ? (
           <Stack
             direction={"row"}
@@ -28,42 +54,70 @@ export const Partners = () => {
             alignItems={"center"}
           >
             <img
-              src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/rsz_comic-relief.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=h:100,cg:true"
+              src={GarfieldWestonIcon}
+              style={{ width: "60px", height: "60px" }}
+              alt="Garfield Weston Foundation"
+            />
+            <img
+              src={ColyerFergusonIcon}
               style={{ width: "60px", height: "60px" }}
             />
             <img
-              src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/sslogo.png/:/rs=h:100,cg:true,m"
+              src={KentCommunityFoundationIcon}
               style={{ width: "60px", height: "60px" }}
             />
+            <img src={PartnerLogo} style={{ width: "60px", height: "60px" }} />
             <img
-              src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/foyle-foundation.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=h:100,cg:true"
-              style={{ width: "60px", height: "60px" }}
-            />
-            <img
-              src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/bfi_logo_transp.png/:/rs=h:100,cg:true,m"
-              style={{ width: "60px", height: "60px" }}
-            />
-            <img
-              src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/Lottery-black.jpg/:/rs=h:100,cg:true,m"
+              src={FilmHubSoutheastLogo}
               style={{ width: "60px", height: "60px" }}
             />
           </Stack>
         ) : (
           <Stack
             direction={"row"}
-            spacing={3}
+            spacing={4}
             justifyContent={"center"}
             alignItems={"center"}
           >
-            <img src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/rsz_comic-relief.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=h:100,cg:true" />
-            <img src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/sslogo.png/:/rs=h:100,cg:true,m" />
-            <img src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/foyle-foundation.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=h:100,cg:true" />
-            <img src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/bfi_logo_transp.png/:/rs=h:100,cg:true,m" />
-            <img src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/Lottery-black.jpg/:/rs=h:100,cg:true,m" />
+            <img
+              src={GarfieldWestonIcon}
+              alt="Garfield Weston Foundation"
+              title="Garfield Weston Foundation"
+              loading="lazy"
+            />
+            <img
+              src={ColyerFergusonIcon}
+              alt="Colyer Ferguson Charitable Trust"
+              title="Colyer Ferguson Charitable Trust"
+              loading="lazy"
+            />
+            <img
+              src={KentCommunityFoundationIcon}
+              alt="Kent Community Foundation"
+              title="Kent Community Foundation"
+              loading="lazy"
+            />
+            <img
+              src={PartnerLogo}
+              alt="Unknown Partner Logo"
+              title="Unknown Partner Logo"
+              loading="lazy"
+            />
+            <img
+              src={FilmHubSoutheastLogo}
+              alt="Film Hub Southeast"
+              title="Film Hub Southeast"
+              loading="lazy"
+            />
           </Stack>
         )}
       </Grid>
       {/* Row 2 of images */}
+      <Grid item xs={12}>
+        <Typography variant="h4" textAlign={"center"}>
+          Supporters over the past 24 months
+        </Typography>
+      </Grid>
       <Grid item md={12}>
         {isMobile ? (
           <Stack
@@ -72,20 +126,15 @@ export const Partners = () => {
             direction={"row"}
             spacing={1}
           >
+            <img src={ComicRelief} style={{ width: "60px", height: "60px" }} />
+            <img src={ScreenSouth} style={{ width: "60px", height: "60px" }} />
             <img
-              src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/logo_2023.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=h:100,cg:true"
+              src={FoyleFoundation}
               style={{ width: "60px", height: "60px" }}
             />
+            <img src={BFFilm} style={{ width: "60px", height: "60px" }} />
             <img
-              src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/animation%20%20company.png/:/rs=h:100,cg:true,m"
-              style={{ width: "60px", height: "60px" }}
-            />
-            <img
-              src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/future%20youth.png/:/rs=h:100,cg:true,m"
-              style={{ width: "60px", height: "60px" }}
-            />
-            <img
-              src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/POW.png/:/rs=h:100,cg:true,m"
+              src={LotteryFunded}
               style={{ width: "60px", height: "60px" }}
             />
           </Stack>
@@ -96,10 +145,36 @@ export const Partners = () => {
             direction={"row"}
             spacing={20}
           >
-            <img src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/logo_2023.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=h:100,cg:true" />
-            <img src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/animation%20%20company.png/:/rs=h:100,cg:true,m" />
-            <img src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/future%20youth.png/:/rs=h:100,cg:true,m" />
-            <img src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/POW.png/:/rs=h:100,cg:true,m" />
+            <img
+              src={ComicRelief}
+              alt="Comic Relief"
+              title="Comic Relief"
+              loading="lazy"
+            />
+            <img
+              src={ScreenSouth}
+              alt="Screen South"
+              title="Screen South"
+              loading="lazy"
+            />
+            <img
+              src={FoyleFoundation}
+              alt="Foyle Foundation"
+              title="Foyle Foundation"
+              loading="lazy"
+            />
+            <img
+              src={BFFilm}
+              alt="British Film Institute"
+              title="British Film Institute"
+              loading="lazy"
+            />
+            <img
+              src={LotteryFunded}
+              alt="Arts Council England"
+              title="Arts Council England"
+              loading="lazy"
+            />
           </Stack>
         )}
       </Grid>
@@ -112,24 +187,65 @@ export const Partners = () => {
             direction={"row"}
             spacing={1}
           >
+            <img src={RamsgateFilm} style={{ width: "60px", height: "60px" }} />
             <img
-              src="//isteam.wsimg.com/ip/c75f83f5-5376-471b-af2d-7c3435beb175/margate%20pride.jpe/:/rs=h:100,cg:true,m"
+              src={AnimationCompany}
               style={{ width: "60px", height: "60px" }}
             />
             <img
-              src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/oasis%202.png/:/rs=h:100,cg:true,m"
+              src={FutureYouthProject}
               style={{ width: "60px", height: "60px" }}
             />
+            <img src={POW} style={{ width: "60px", height: "60px" }} />
+          </Stack>
+        ) : (
+          <Stack
+            justifyContent={"center"}
+            alignItems={"center"}
+            direction={"row"}
+            spacing={20}
+          >
             <img
-              src="//isteam.wsimg.com/ip/c75f83f5-5376-471b-af2d-7c3435beb175/DYT.jpe/:/rs=h:100,cg:true,m"
-              style={{ width: "60px", height: "60px" }}
+              src={RamsgateFilm}
+              title="Ramsgate International Film & TV Festival"
+              alt="Ramsgate International Film & TV Festival"
+              loading="lazy"
             />
             <img
-              src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/powell.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=h:100,cg:true"
-              style={{ width: "60px", height: "60px" }}
+              src={AnimationCompany}
+              title="The Animation Company"
+              alt="The Animation Company"
+              loading="lazy"
             />
             <img
-              src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/download%20(1).png/:/rs=h:100,cg:true,m"
+              src={FutureYouthProject}
+              title="Future Youth Project"
+              alt="Future Youth Project"
+              loading="lazy"
+            />
+            <img
+              src={POW}
+              title="Power of Women Thanet"
+              alt="Power of Women Thanet"
+              loading="lazy"
+            />
+          </Stack>
+        )}
+      </Grid>
+      <Grid item md={12}>
+        {isMobile ? (
+          <Stack
+            justifyContent={"center"}
+            alignItems={"center"}
+            direction={"row"}
+            spacing={1}
+          >
+            <img src={MargatePride} style={{ width: "60px", height: "60px" }} />
+            <img src={Oasis} style={{ width: "60px", height: "60px" }} />
+            <img src={DoverYouth} style={{ width: "60px", height: "60px" }} />
+            <img src={LoveQuexPark} style={{ width: "60px", height: "60px" }} />
+            <img
+              src={CharltonAthletic}
               style={{ width: "60px", height: "60px" }}
             />
           </Stack>
@@ -140,11 +256,36 @@ export const Partners = () => {
             direction={"row"}
             spacing={20}
           >
-            <img src="//isteam.wsimg.com/ip/c75f83f5-5376-471b-af2d-7c3435beb175/margate%20pride.jpe/:/rs=h:100,cg:true,m" />
-            <img src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/oasis%202.png/:/rs=h:100,cg:true,m" />
-            <img src="//isteam.wsimg.com/ip/c75f83f5-5376-471b-af2d-7c3435beb175/DYT.jpe/:/rs=h:100,cg:true,m" />
-            <img src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/powell.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=h:100,cg:true" />
-            <img src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/download%20(1).png/:/rs=h:100,cg:true,m" />
+            <img
+              src={MargatePride}
+              title="Margate Pride"
+              alt="Margate Pride"
+              loading="lazy"
+            />
+            <img
+              src={Oasis}
+              title="Oasis Domestic Abuse Service"
+              alt="Oasis Domestic Abuse Service"
+              loading="lazy"
+            />
+            <img
+              src={DoverYouth}
+              title="Dover Youth Theatre"
+              alt="Dover Youth Theatre"
+              loading="lazy"
+            />
+            <img
+              src={LoveQuexPark}
+              title="Quex Park & Powell Cotton Museum"
+              alt="Quex Park & Powell Cotton Museum"
+              loading="lazy"
+            />
+            <img
+              src={CharltonAthletic}
+              title="Charlton Athletic F.C"
+              alt="Charlton Athletic F.C"
+              loading="lazy"
+            />
           </Stack>
         )}
       </Grid>
