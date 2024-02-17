@@ -22,7 +22,9 @@ const AddPressArticle = lazy(() =>
 const LatestScreeningPage = lazy(() =>
   import("./Pages/back-end/LatestScreeningPage")
 );
-import { FilmClubManager } from "./pages/back-end/FilmClubManager.jsx";
+const FilmClubManager = lazy(() =>
+  import("./pages/back-end/FilmClubManager.jsx")
+);
 import { EditFilmClub } from "./pages/back-end/EditFilmClub.jsx";
 const PressArticleManage = lazy(() =>
   import("./pages/back-end/PressArticleManage")
