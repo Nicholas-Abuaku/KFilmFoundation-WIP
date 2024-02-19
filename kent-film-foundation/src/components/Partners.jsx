@@ -7,11 +7,16 @@ import {
   createTheme,
   Typography,
 } from "@mui/material";
-import GarfieldWestonIcon from "../assets/images/1GarfieldWestonFoundation.png";
-import ColyerFergusonIcon from "../assets/images/1ColyerFerguson.png";
-import KentCommunityFoundationIcon from "../assets/images/1KentCommunityFoundation .png";
-import PartnerLogo from "../assets/images/1PartnerLogo.png";
-import FilmHubSoutheastLogo from "../assets/images/1FilmHubSoutheast.png";
+//Current Partners
+import GarfieldWestonIcon from "../assets/images/1GarfieldWestonFoundation.png"; //Keep
+import ColyerFergusonIcon from "../assets/images/1ColyerFerguson.png"; //Keep
+import KentCommunityFoundationIcon from "../assets/images/1KentCommunityFoundation .png"; //Keep
+import RamsgateCouncil from "../assets/images/1PartnerLogo.png";
+import ShiftKeyFilms from "../assets/images/1Shiftkey.png";
+import VioletPictures from "../assets/images/1VioletPictures.png";
+//| Tweed Family
+//
+//Past Supporters
 import ComicRelief from "../assets/images/2ComicRelief.png";
 import ScreenSouth from "../assets/images/2ScreenSouth.png";
 import FoyleFoundation from "../assets/images/2FoyleFoundation.png";
@@ -41,7 +46,7 @@ export const Partners = () => {
       spacing={1}
     >
       <Grid item md={12}>
-        <Typography textAlign={"center"} variant="h4" marginBottom={3}>
+        <Typography textAlign={"center"} variant="h4" marginBottom={0}>
           A HUGE THANKS to our Partners
         </Typography>
       </Grid>
@@ -66,9 +71,8 @@ export const Partners = () => {
               src={KentCommunityFoundationIcon}
               style={{ width: "60px", height: "60px" }}
             />
-            <img src={PartnerLogo} style={{ width: "60px", height: "60px" }} />
             <img
-              src={FilmHubSoutheastLogo}
+              src={RamsgateCouncil}
               style={{ width: "60px", height: "60px" }}
             />
           </Stack>
@@ -80,45 +84,59 @@ export const Partners = () => {
             alignItems={"center"}
           >
             <img
-              src={GarfieldWestonIcon}
+              src={GarfieldWestonIcon} //Keep
               alt="Garfield Weston Foundation"
               title="Garfield Weston Foundation"
               loading="lazy"
             />
             <img
-              src={ColyerFergusonIcon}
+              src={ColyerFergusonIcon} //Keep
               alt="Colyer Ferguson Charitable Trust"
               title="Colyer Ferguson Charitable Trust"
               loading="lazy"
             />
             <img
-              src={KentCommunityFoundationIcon}
+              src={KentCommunityFoundationIcon} //Keep
               alt="Kent Community Foundation"
               title="Kent Community Foundation"
               loading="lazy"
             />
             <img
-              src={PartnerLogo}
-              alt="Unknown Partner Logo"
-              title="Unknown Partner Logo"
+              src={RamsgateCouncil}
+              alt="Ramsgate Town Council"
+              title="Ramsgate Town Council"
               loading="lazy"
             />
             <img
-              src={FilmHubSoutheastLogo}
-              alt="Film Hub Southeast"
-              title="Film Hub Southeast"
+              src={RamsgateFilm}
+              title="Ramsgate International Film & TV Festival"
+              alt="Ramsgate International Film & TV Festival"
               loading="lazy"
+            />
+            <img
+              src={ShiftKeyFilms} //Keep
+              alt="ShiftKey Films"
+              title="ShiftKey Films"
+              loading="lazy"
+              width={150}
+            />
+            <img
+              src={VioletPictures} //Keep
+              alt="Violet Pictures"
+              title="Violet Pictures"
+              loading="lazy"
+              width={290}
             />
           </Stack>
         )}
       </Grid>
-      {/* Row 2 of images */}
-      <Grid item xs={12}>
+
+      {/* <Grid item xs={12}>
         <Typography variant="h4" textAlign={"center"}>
           Supporters over the past 24 months
         </Typography>
-      </Grid>
-      <Grid item md={12}>
+      </Grid> */}
+      {/* <Grid item md={12}>
         {isMobile ? (
           <Stack
             justifyContent={"center"}
@@ -177,9 +195,9 @@ export const Partners = () => {
             />
           </Stack>
         )}
-      </Grid>
+      </Grid> */}
       {/*Row 3 of images */}
-      <Grid item md={12}>
+      {/* <Grid item md={12}>
         {isMobile ? (
           <Stack
             justifyContent={"center"}
@@ -206,12 +224,6 @@ export const Partners = () => {
             spacing={20}
           >
             <img
-              src={RamsgateFilm}
-              title="Ramsgate International Film & TV Festival"
-              alt="Ramsgate International Film & TV Festival"
-              loading="lazy"
-            />
-            <img
               src={AnimationCompany}
               title="The Animation Company"
               alt="The Animation Company"
@@ -231,8 +243,8 @@ export const Partners = () => {
             />
           </Stack>
         )}
-      </Grid>
-      <Grid item md={12}>
+      </Grid> */}
+      {/* <Grid item md={12}>
         {isMobile ? (
           <Stack
             justifyContent={"center"}
@@ -288,7 +300,7 @@ export const Partners = () => {
             />
           </Stack>
         )}
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };
