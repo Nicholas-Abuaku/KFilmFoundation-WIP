@@ -19,6 +19,7 @@ export const Footer = () => {
       justifyContent={"center"}
       alignItems={"center"}
       marginTop={4}
+      position={"sticky"}
     >
       <Grid item xs={12}>
         <SocialMediaLinks />
