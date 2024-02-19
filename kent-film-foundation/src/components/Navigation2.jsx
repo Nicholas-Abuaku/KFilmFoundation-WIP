@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   AppBar,
   Toolbar,
@@ -13,9 +13,11 @@ import {
 import TheaterComedyIcon from "@mui/icons-material/TheaterComedy";
 import KentFilmLogo from "../assets/icons/Untitled_Artwork.jpg";
 import { NavDrawer } from "./NavDrawer";
+import { ManageLoginContext } from "../Contexts/ManageLoginContext";
 import { Link } from "react-router-dom";
 export const Navigation2 = (props) => {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const { isLoggedIn, setIsLoggedIn } = useContext(ManageLoginContext);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
