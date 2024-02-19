@@ -39,12 +39,18 @@ export const EditLatestScreening = () => {
     setDescription(e.target.value);
   }
 
+  function handleEventUrlChange(e) {
+    setEventUrl(e.target.value);
+    console.log(eventUrl);
+  }
+
   function handlePost() {
     const formData = new FormData();
     formData.append("heading", heading);
     formData.append("date", date);
     formData.append("description", description);
     formData.append("img_Url", file, fileName);
+    formData.append("eventUrl", eventUrl);
     console.log(file);
     axios
       .post("http://localhost:8000/api/featured-content", formData, { headers })
@@ -86,6 +92,12 @@ export const EditLatestScreening = () => {
             label="description"
             name="description"
             onChange={handleDescriptionChange}
+            sx={{ width: "50%" }}
+          />
+          <TextField
+            label="Event Url"
+            name="eventUrl"
+            onChange={handleEventUrlChange}
             sx={{ width: "50%" }}
           />
         </Stack>
