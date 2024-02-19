@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import { Footer } from "./components/Footer";
 import { Home } from "./pages/Home";
 import {
@@ -26,39 +26,99 @@ const FilmClubManager = lazy(() =>
   import("./pages/back-end/FilmClubManager.jsx")
 );
 import { EditFilmClub } from "./pages/back-end/EditFilmClub.jsx";
+import { PrivateRoute } from "./components/back-end/PrivateRoute.jsx";
+import { LoginPage } from "./pages/back-end/LoginPage.jsx";
 const PressArticleManage = lazy(() =>
   import("./pages/back-end/PressArticleManage")
 );
+import { ManageLoginContext } from "./Contexts/ManageLoginContext.jsx";
 function App() {
+  const loggedIn = window.sessionStorage.getItem("isLoggedIn");
+  const [isLoggedIn, setIsLoggedIn] = useState(loggedIn);
+  console.log("Login status: " + loggedIn);
   return (
     <>
       <Navigation2 />
-      <Suspense fallback={<h1>Loading...</h1>}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/film-clubs" element={<FilmClub />} />
-          <Route path="/press" element={<Press />} />
-          <Route path="/about" element={<About />} />
-          <Route
-            path="/dashboard/edit-latest-screening"
-            element={<LatestScreeningPage />}
-          />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/dashboard/film-clubs" element={<FilmClubManager />} />
-          <Route
-            path="/dashboard/film-clubs/edit/:id"
-            element={<EditFilmClub />}
-          />
-          <Route path="/dashboard/film-clubs/new" element={<EditFilmClub />} />
-          <Route path="/dashboard/press" element={<PressArticleManage />} />
-          <Route path="/dashboard/press/new" element={<AddPressArticle />} />
-          <Route
-            path="/dashboard/press/edit/:id"
-            element={<AddPressArticle />}
-          />
-        </Routes>
-      </Suspense>
+      <ManageLoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+
+            <Route path="/film-clubs" element={<FilmClub />} />
+            <Route path="/press" element={<Press />} />
+            <Route path="/about" element={<About />} />
+            {/* Protected Routes */}
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute isLoggedIn={isLoggedIn}>
+                  <Dashboard />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/edit-latest-screening"
+              element={
+                <PrivateRoute isLoggedIn={isLoggedIn}>
+                  <LatestScreeningPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/film-clubs"
+              element={
+                <PrivateRoute isLoggedIn={isLoggedIn}>
+                  <FilmClubManager />
+                </PrivateRoute>
+              }
+            />
+
+            <Route
+              path="/dashboard/film-clubs/edit/:id"
+              element={
+                <PrivateRoute isLoggedIn={isLoggedIn}>
+                  <EditFilmClub />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/film-clubs/new"
+              element={
+                <PrivateRoute isLoggedIn={isLoggedIn}>
+                  <EditFilmClub />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/press"
+              element={
+                <PrivateRoute isLoggedIn={isLoggedIn}>
+                  <PressArticleManage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/press/new"
+              element={
+                <PrivateRoute isLoggedIn={isLoggedIn}>
+                  <AddPressArticle />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/press/edit/:id"
+              element={
+                <PrivateRoute isLoggedIn={isLoggedIn}>
+                  <AddPressArticle />
+                </PrivateRoute>
+              }
+            />
+
+            <Route path="/login" element={<LoginPage />} />
+          </Routes>
+        </Suspense>
+      </ManageLoginContext.Provider>
       <Footer />
     </>
   );
