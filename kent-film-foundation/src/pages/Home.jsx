@@ -1,13 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { Grid, useTheme, createTheme, Skeleton, Button } from "@mui/material";
+import React, { useEffect, useState, useContext } from "react";
+import {
+  Grid,
+  useTheme,
+  createTheme,
+  Skeleton,
+  Button,
+  Typography,
+} from "@mui/material";
 import { LatestScreeningCard } from "../components/LatestScreeningCard";
 import { CardGridPaginated } from "../components/CardGridPaginated";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
 import { PayPalDonate } from "../components/PayPalDonate";
-
+import { ManageLoginContext } from "../Contexts/ManageLoginContext";
 export const Home = () => {
-  const [latestScreeningData, setLatestScreeningData] = useState([]);
+  const { isLoggedIn, setIsLoggedIn } = useContext(ManageLoginContext);
+  const [latestScreeningData, setLatestScreeningData] = useState([
+    {
+      heading: "Hello",
+    },
+  ]);
   const [latestScreeningDate, setLatestScreeningDate] = useState(null);
   const [latestScreeningTime, setLatestScreeningTime] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -27,7 +39,7 @@ export const Home = () => {
       );
 
       setLatestScreeningData(response.data[0]);
-      // console.log(response.data[0]);
+      console.log(response.data[0]);
       setIsLoading(true);
       const parsedDate = new Date(response.data[0].date);
       setLatestScreeningDate(parsedDate.toDateString());
@@ -92,6 +104,7 @@ export const Home = () => {
               time={latestScreeningTime}
               description={latestScreeningData.description}
               img={latestScreeningData.img_Url}
+              url={latestScreeningData.eventUrl}
               edit={false}
             />
           ) : (
@@ -112,6 +125,7 @@ export const Home = () => {
         </Grid>
         <Grid item>
           <PayPalDonate />
+          <Typography>{isLoggedIn ? "In" : "Out"}</Typography>
         </Grid>
       </Grid>
     </>
