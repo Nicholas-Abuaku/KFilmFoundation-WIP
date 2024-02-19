@@ -132,7 +132,7 @@ export const LatestScreeningCard = (props) => {
         ) : (
           <CardMedia
             component={"img"}
-            title={props.title}
+            title={props.title ? props.title : "Hi"}
             src={
               props.edit
                 ? props.img
@@ -184,6 +184,11 @@ export const LatestScreeningCard = (props) => {
               height: "50px",
               width: "160px",
             }}
+            onClick={() => {
+              console.log(props.url);
+            }}
+            component={Link}
+            to={props.url}
           >
             Tickets
           </Button>
