@@ -4,7 +4,7 @@ import { ManageTableContext } from "../../Contexts/ManageTableContext";
 import { Button, Grid, Stack, IconButton } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Link } from "react-router-dom";
-export const FilmClubManager = () => {
+const FilmClubManager = () => {
   const [tableUpdate, setTableUpdate] = useState(false);
   return (
     <Grid container>
@@ -24,3 +24,4 @@ export const FilmClubManager = () => {
     </Grid>
   );
 };
+export default FilmClubManager;
