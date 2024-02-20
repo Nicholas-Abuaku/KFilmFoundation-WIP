@@ -76,7 +76,11 @@ const About = () => {
               </Stack>
             ) : (
               <Stack direction={"column"} spacing={2} width={900}>
-                <Typography variant="h5" component={"h3"}>
+                <Typography
+                  variant="h5"
+                  component={"h3"}
+                  fontFamily={"'Open Sans', arial, sans-serif"}
+                >
                   Kent Film Foundation began as a non-for-profit arm of a film
                   production company based in Thanet , Kent an area of high
                   deprivation where young people suffer from "Poverty of
