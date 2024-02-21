@@ -3,9 +3,9 @@ import {
   Grid,
   Stack,
   useMediaQuery,
-  useTheme,
   createTheme,
   Typography,
+  ThemeProvider,
 } from "@mui/material";
 //Current Partners
 import GarfieldWestonIcon from "../assets/images/1GarfieldWestonFoundation.png"; //Keep
@@ -31,112 +31,112 @@ import Oasis from "../assets/images/4OasisDomessticAbuseService.png";
 import DoverYouth from "../assets/images/4DoverYouthTheatre.png";
 import LoveQuexPark from "../assets/images/4QuexPark.png";
 import CharltonAthletic from "../assets/images/4CharltonAthletic.png";
+import AboutTheme from "../Theme/AboutTheme";
 export const Partners = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const textTheme = createTheme();
+  const isMobile = useMediaQuery(AboutTheme.breakpoints.down("md"));
 
   return (
-    <Grid
-      item
-      container
-      md={12}
-      justifyContent={"center"}
-      alignItems={"center"}
-      spacing={1}
-    >
-      <Grid item md={12}>
-        <Typography textAlign={"center"} variant="h4" marginBottom={0}>
-          A HUGE THANKS to our Partners
-        </Typography>
-      </Grid>
-      <Grid item md={12}>
-        {isMobile ? (
-          <Stack
-            direction={"row"}
-            spacing={1}
-            justifyContent={"center"}
-            alignItems={"center"}
-          >
-            <img
-              src={GarfieldWestonIcon}
-              style={{ width: "60px", height: "60px" }}
-              alt="Garfield Weston Foundation"
-            />
-            <img
-              src={ColyerFergusonIcon}
-              style={{ width: "60px", height: "60px" }}
-            />
-            <img
-              src={KentCommunityFoundationIcon}
-              style={{ width: "60px", height: "60px" }}
-            />
-            <img
-              src={RamsgateCouncil}
-              style={{ width: "60px", height: "60px" }}
-            />
-          </Stack>
-        ) : (
-          <Stack
-            direction={"row"}
-            spacing={4}
-            justifyContent={"center"}
-            alignItems={"center"}
-          >
-            <img
-              src={GarfieldWestonIcon} //Keep
-              alt="Garfield Weston Foundation"
-              title="Garfield Weston Foundation"
-              loading="lazy"
-            />
-            <img
-              src={ColyerFergusonIcon} //Keep
-              alt="Colyer Ferguson Charitable Trust"
-              title="Colyer Ferguson Charitable Trust"
-              loading="lazy"
-            />
-            <img
-              src={KentCommunityFoundationIcon} //Keep
-              alt="Kent Community Foundation"
-              title="Kent Community Foundation"
-              loading="lazy"
-            />
-            <img
-              src={RamsgateCouncil}
-              alt="Ramsgate Town Council"
-              title="Ramsgate Town Council"
-              loading="lazy"
-            />
-            <img
-              src={RamsgateFilm}
-              title="Ramsgate International Film & TV Festival"
-              alt="Ramsgate International Film & TV Festival"
-              loading="lazy"
-            />
-            <img
-              src={ShiftKeyFilms} //Keep
-              alt="ShiftKey Films"
-              title="ShiftKey Films"
-              loading="lazy"
-              width={150}
-            />
-            <img
-              src={VioletPictures} //Keep
-              alt="Violet Pictures"
-              title="Violet Pictures"
-              loading="lazy"
-              width={290}
-            />
-          </Stack>
-        )}
-      </Grid>
+    <ThemeProvider theme={createTheme(AboutTheme)}>
+      <Grid
+        item
+        container
+        md={12}
+        justifyContent={"center"}
+        alignItems={"center"}
+        spacing={1}
+      >
+        <Grid item md={12}>
+          <Typography textAlign={"center"} variant="h4" marginBottom={0}>
+            A HUGE THANKS to our Partners
+          </Typography>
+        </Grid>
+        <Grid item md={12}>
+          {isMobile ? (
+            <Stack
+              direction={"row"}
+              spacing={1}
+              justifyContent={"center"}
+              alignItems={"center"}
+            >
+              <img
+                src={GarfieldWestonIcon}
+                style={{ width: "60px", height: "60px" }}
+                alt="Garfield Weston Foundation"
+              />
+              <img
+                src={ColyerFergusonIcon}
+                style={{ width: "60px", height: "60px" }}
+              />
+              <img
+                src={KentCommunityFoundationIcon}
+                style={{ width: "60px", height: "60px" }}
+              />
+              <img
+                src={RamsgateCouncil}
+                style={{ width: "60px", height: "60px" }}
+              />
+            </Stack>
+          ) : (
+            <Stack
+              direction={"row"}
+              spacing={4}
+              justifyContent={"center"}
+              alignItems={"center"}
+            >
+              <img
+                src={GarfieldWestonIcon} //Keep
+                alt="Garfield Weston Foundation"
+                title="Garfield Weston Foundation"
+                loading="lazy"
+              />
+              <img
+                src={ColyerFergusonIcon} //Keep
+                alt="Colyer Ferguson Charitable Trust"
+                title="Colyer Ferguson Charitable Trust"
+                loading="lazy"
+              />
+              <img
+                src={KentCommunityFoundationIcon} //Keep
+                alt="Kent Community Foundation"
+                title="Kent Community Foundation"
+                loading="lazy"
+              />
+              <img
+                src={RamsgateCouncil}
+                alt="Ramsgate Town Council"
+                title="Ramsgate Town Council"
+                loading="lazy"
+              />
+              <img
+                src={RamsgateFilm}
+                title="Ramsgate International Film & TV Festival"
+                alt="Ramsgate International Film & TV Festival"
+                loading="lazy"
+              />
+              <img
+                src={ShiftKeyFilms} //Keep
+                alt="ShiftKey Films"
+                title="ShiftKey Films"
+                loading="lazy"
+                width={150}
+              />
+              <img
+                src={VioletPictures} //Keep
+                alt="Violet Pictures"
+                title="Violet Pictures"
+                loading="lazy"
+                width={290}
+              />
+            </Stack>
+          )}
+        </Grid>
 
-      {/* <Grid item xs={12}>
+        {/* <Grid item xs={12}>
         <Typography variant="h4" textAlign={"center"}>
           Supporters over the past 24 months
         </Typography>
       </Grid> */}
-      {/* <Grid item md={12}>
+        {/* <Grid item md={12}>
         {isMobile ? (
           <Stack
             justifyContent={"center"}
@@ -196,8 +196,8 @@ export const Partners = () => {
           </Stack>
         )}
       </Grid> */}
-      {/*Row 3 of images */}
-      {/* <Grid item md={12}>
+        {/*Row 3 of images */}
+        {/* <Grid item md={12}>
         {isMobile ? (
           <Stack
             justifyContent={"center"}
@@ -244,7 +244,7 @@ export const Partners = () => {
           </Stack>
         )}
       </Grid> */}
-      {/* <Grid item md={12}>
+        {/* <Grid item md={12}>
         {isMobile ? (
           <Stack
             justifyContent={"center"}
@@ -301,6 +301,7 @@ export const Partners = () => {
           </Stack>
         )}
       </Grid> */}
-    </Grid>
+      </Grid>
+    </ThemeProvider>
   );
 };
