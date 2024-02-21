@@ -9,15 +9,18 @@ import {
   Link,
   useTheme,
   useMediaQuery,
+  ThemeProvider,
+  createTheme,
 } from "@mui/material";
 import React from "react";
+import PressCardTheme from "../Theme/PressCardTheme";
 
 export const PressCard = (props) => {
   const { newsSource, articleTitle, articleUrl, image } = props;
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <>
+    <ThemeProvider theme={createTheme(PressCardTheme)}>
       {isMobile ? (
         <Card
           width={"100%"}
@@ -121,6 +124,6 @@ export const PressCard = (props) => {
           </CardContent>
         </Card>
       )}
-    </>
+    </ThemeProvider>
   );
 };
