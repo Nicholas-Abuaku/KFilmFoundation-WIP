@@ -1,16 +1,19 @@
 import { TextField, Typography, Stack, Grid, Button } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { ManageLoginContext } from "../../Contexts/ManageLoginContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export const LoginPage = () => {
+const LoginPage = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(ManageLoginContext);
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   function logIn() {
     setIsLoggedIn(true);
     window.sessionStorage.setItem("isLoggedIn", true);
+
+    navigate("/dashboard");
   }
 
   const handleLogin = async (event) => {
@@ -73,10 +76,11 @@ export const LoginPage = () => {
             >
               Login
             </Button>
-            <Typography>{isLoggedIn ? "Sweet" : "Stink"}</Typography>
           </Stack>
         </form>
       </Grid>
     </Grid>
   );
 };
+
+export default LoginPage;
