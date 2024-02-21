@@ -59,6 +59,7 @@ export const EditLatestScreening = () => {
         setShowSuccessAlert(true);
       });
   }
+
   return (
     <>
       <LatestScreeningCard
