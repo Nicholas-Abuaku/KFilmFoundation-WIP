@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-export const EditFilmClub = (props) => {
+const EditFilmClub = (props) => {
   const params = useParams();
   const userId = params.id;
   const [imageFile, setImageFile] = useState(null);
@@ -188,3 +188,5 @@ export const EditFilmClub = (props) => {
     </Grid>
   );
 };
+
+export default EditFilmClub;
