@@ -10,47 +10,15 @@ import {
   ThemeProvider,
   createTheme,
 } from "@mui/material";
+import ContactTheme from "../Theme/ContactTheme";
 
 export const ContactForm = () => {
-  const theme = useTheme();
-  const textTheme = createTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  theme.typography.h4 = {
-    fontSize: "0.5 rem",
-    fontFamily: "Open Sans, arial, sans-serif",
-    "@media (min-width:600px)": {
-      fontSize: "1rem",
-    },
-    [theme.breakpoints.up("md")]: {
-      fontSize: "1rem",
-    },
-  };
-
-  theme.typography.body = {
-    fontSize: "0.5 rem",
-    fontFamily: "Open Sans, arial, sans-serif",
-    "@media (min-width:600px)": {
-      fontSize: "1rem",
-    },
-    [theme.breakpoints.up("md")]: {
-      fontSize: "0.5rem",
-    },
-  };
-  theme.typography.h6 = {
-    fontSize: "1 rem",
-    fontFamily: "Open Sans, arial, sans-serif",
-    "@media (min-width:600px)": {
-      fontSize: "1rem",
-    },
-    [theme.breakpoints.up("md")]: {
-      fontSize: "1rem",
-    },
-  };
+  const isMobile = useMediaQuery(ContactTheme.breakpoints.down("md"));
 
   return (
-    <>
+    <ThemeProvider theme={createTheme(ContactTheme)}>
       {isMobile ? (
-        <Box width={"90%"}>
+        <Box width={"100%"}>
           <form style={{ width: "100%" }}>
             <Typography
               textAlign={"left"}
@@ -85,17 +53,16 @@ export const ContactForm = () => {
               </Button>
             </Stack>
             <Stack spacing={3} marginTop={"40px"}>
-              <ThemeProvider theme={textTheme}>
-                <Typography
-                  textAlign={"center"}
-                  color={"#339465"}
-                  variant="body1"
-                  component={"h3"}
-                >
-                  PLEASE NOTE KENT FILM FOUNDATION HAS NO FULL TIME STAFF SO
-                  PLEASE BE PATIENT WITH US.
-                </Typography>
-              </ThemeProvider>
+              <Typography
+                textAlign={"center"}
+                color={"#339465"}
+                variant="body1"
+                component={"h3"}
+              >
+                PLEASE NOTE KENT FILM FOUNDATION HAS NO FULL TIME STAFF SO
+                PLEASE BE PATIENT WITH US.
+              </Typography>
+
               <Typography textAlign={"center"} variant="body1" component={"h4"}>
                 ALL OUR PROFESSIONAL FILM MENTORS UNDERTAKE AN ENHANCED DBS
                 CHECK
@@ -116,7 +83,7 @@ export const ContactForm = () => {
         </Box>
       ) : (
         <Box
-          width={"800px"}
+          width={"50%"}
           justifyContent={"center"}
           alignItems={"center"}
           margin={"auto"}
@@ -178,6 +145,6 @@ export const ContactForm = () => {
           </form>
         </Box>
       )}
-    </>
+    </ThemeProvider>
   );
 };
