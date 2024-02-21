@@ -18,64 +18,44 @@ import {
 import PGIcon from "../assets/icons/bbfc-pg-certificate-uk-seeklogo.svg";
 import { Link } from "react-router-dom";
 import { ThemeProvider } from "@emotion/react";
+import MCardTheme from "../Theme/MCardTheme";
 export const MCard = (props) => {
   function handleClick() {
     console.log(props.link);
   }
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const textTheme = createTheme();
-
-  textTheme.typography.h5 = {
-    fontSize: "0.9rem",
-    "@media (min-width:600px)": {
-      fontSize: "1.5rem",
-    },
-    [theme.breakpoints.up("md")]: {
-      fontSize: "2.4rem",
-    },
-  };
-  textTheme.typography.h6 = {
-    fontSize: "0.9rem",
-    "@media (min-width:600px)": {
-      fontSize: "1.5rem",
-    },
-    [theme.breakpoints.up("md")]: {
-      fontSize: "2.4rem",
-    },
-  };
+  const isMobile = useMediaQuery(MCardTheme.breakpoints.down("md"));
 
   return (
-    <CardActionArea component={Link} to={props.link}>
-      {isMobile ? (
-        <Card
-          sx={{
-            width: "35vw",
-            height: "29vh",
-            display: "flex",
-            backgroundColor: "#F0F0ED ",
-            color: "black",
-          }}
-          elevation={10}
-        >
-          <CardMedia
-            component="img"
-            image={props.img}
-            title={props.title}
-            alt={"Movie poster for " + props.title}
-            loading="lazy"
+    <ThemeProvider theme={createTheme(MCardTheme)}>
+      <CardActionArea component={Link} to={props.link}>
+        {isMobile ? (
+          <Card
             sx={{
-              maxWidth: "8.5vw",
-              minHeight: "29vh",
-              maxHeight: "29vh",
-              objectFit: "scale-down",
-              marginRight: "5px",
+              width: "35vw",
+              height: "29vh",
+              display: "flex",
+              backgroundColor: "#F0F0ED ",
+              color: "black",
             }}
-          />
-          {/* <Skeleton variant='rectangular' width={400} height={274.05}/> */}
-          <Box sx={{ wordWrap: "break-word", overflow: "auto" }}>
-            <Stack direction={"row"} spacing={2}>
-              <ThemeProvider theme={textTheme}>
+            elevation={10}
+          >
+            <CardMedia
+              component="img"
+              image={props.img}
+              title={props.title}
+              alt={"Movie poster for " + props.title}
+              loading="lazy"
+              sx={{
+                maxWidth: "8.5vw",
+                minHeight: "29vh",
+                maxHeight: "29vh",
+                objectFit: "scale-down",
+                marginRight: "5px",
+              }}
+            />
+            {/* <Skeleton variant='rectangular' width={400} height={274.05}/> */}
+            <Box sx={{ wordWrap: "break-word", overflow: "auto" }}>
+              <Stack direction={"row"} spacing={2}>
                 <Typography
                   fontWeight={"bold"}
                   variant="h5"
@@ -84,66 +64,70 @@ export const MCard = (props) => {
                 >
                   {props.title}
                 </Typography>
-              </ThemeProvider>
-            </Stack>
-            <ThemeProvider theme={textTheme}>
+              </Stack>
+
               <Typography fontWeight={"bold"} variant="h6" component={"h4"}>
                 {props.date + " " + props.time}
               </Typography>
-            </ThemeProvider>
-            <Typography sx={{ marginTop: "10px" }}>
-              {props.description}
-            </Typography>
-          </Box>
-        </Card>
-      ) : (
-        <Card
-          sx={{
-            width: "29.59vw",
-            height: "32vh",
-            // height: "29vh",
-            display: "flex",
-            backgroundColor: "#F0F0ED ",
-            color: "black",
-          }}
-          elevation={10}
-        >
-          <CardMedia
-            component="img"
-            image={props.img}
-            title={props.title}
+
+              <Typography sx={{ marginTop: "10px" }}>
+                {props.description}
+              </Typography>
+            </Box>
+          </Card>
+        ) : (
+          <Card
             sx={{
-              maxWidth: "8.5vw",
-              minHeight: "29vh",
-              maxHeight: "29vh",
-              objectFit: "contain",
-              marginRight: "5px",
+              width: "29.59vw",
+              height: "32vh",
+              // height: "29vh",
+              display: "flex",
+              backgroundColor: "#F0F0ED ",
+              color: "black",
             }}
-            alt="Latest screening poster"
-            loading="lazy"
-          />
-          {/* <Skeleton variant='rectangular' width={400} height={274.05}/> */}
-          <Box sx={{ wordWrap: "break-word", overflow: "auto" }}>
-            <Stack direction={"row"} spacing={10}>
+            elevation={10}
+          >
+            <CardMedia
+              component="img"
+              image={props.img}
+              title={props.title}
+              sx={{
+                maxWidth: "8.5vw",
+                minHeight: "29vh",
+                maxHeight: "29vh",
+                objectFit: "contain",
+                marginRight: "5px",
+              }}
+              alt="Latest screening poster"
+              loading="lazy"
+            />
+            {/* <Skeleton variant='rectangular' width={400} height={274.05}/> */}
+            <Box sx={{ wordWrap: "break-word", overflow: "auto" }}>
+              <Stack direction={"row"} spacing={10}>
+                <Typography
+                  fontWeight={"bold"}
+                  variant="h6"
+                  component="h3"
+                  fontFamily={"Open Sans, arial, sans-serif"}
+                >
+                  {props.title}
+                </Typography>
+              </Stack>
               <Typography
                 fontWeight={"bold"}
-                variant="h6"
-                component="h3"
-                fontFamily={"Open Sans, arial, sans-serif"}
+                variant="subtitle1"
+                component="h4"
               >
-                {props.title}
+                {props.date + " " + props.time}
               </Typography>
-            </Stack>
-            <Typography fontWeight={"bold"} variant="subtitle1" component="h4">
-              {props.date + " " + props.time}
-            </Typography>
 
-            <Typography sx={{ marginTop: "10px" }}>
-              {props.description}
-            </Typography>
-          </Box>
-        </Card>
-      )}
-    </CardActionArea>
+              <Typography sx={{ marginTop: "10px" }}>
+                {props.description}
+              </Typography>
+            </Box>
+          </Card>
+        )}
+      </CardActionArea>
+    </ThemeProvider>
   );
 };
