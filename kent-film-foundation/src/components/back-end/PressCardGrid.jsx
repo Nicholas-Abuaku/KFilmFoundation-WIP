@@ -24,7 +24,7 @@ export const PressCardGrid = () => {
     <Grid container spacing={2}>
       {isLoading
         ? pressData.map((article) => (
-            <Grid item md={5} xs={12} xl={3}>
+            <Grid item md={5} xs={12} xl={3} key={article.id}>
               <PressCard
                 newsSource={article.news_source}
                 articleTitle={article.article_title}
