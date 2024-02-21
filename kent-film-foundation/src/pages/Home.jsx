@@ -13,13 +13,11 @@ import axios from "axios";
 import { Helmet } from "react-helmet-async";
 import { PayPalDonate } from "../components/PayPalDonate";
 import { ManageLoginContext } from "../Contexts/ManageLoginContext";
+import { ThemeProvider } from "@emotion/react";
+import HomeTheme from "../Theme/HomeTheme";
 export const Home = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(ManageLoginContext);
-  const [latestScreeningData, setLatestScreeningData] = useState([
-    {
-      heading: "Hello",
-    },
-  ]);
+  const [latestScreeningData, setLatestScreeningData] = useState([]);
   const [latestScreeningDate, setLatestScreeningDate] = useState(null);
   const [latestScreeningTime, setLatestScreeningTime] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -54,7 +52,7 @@ export const Home = () => {
   }, []);
 
   return (
-    <>
+    <ThemeProvider theme={HomeTheme}>
       <Helmet>
         <title>Home</title>
         <meta
@@ -123,11 +121,10 @@ export const Home = () => {
         <Grid item>
           <CardGridPaginated />
         </Grid>
-        <Grid item>
+        <Grid item justifyContent={"center"} alignItems={"center"}>
           <PayPalDonate />
-          <Typography>{isLoggedIn ? "In" : "Out"}</Typography>
         </Grid>
       </Grid>
-    </>
+    </ThemeProvider>
   );
 };
