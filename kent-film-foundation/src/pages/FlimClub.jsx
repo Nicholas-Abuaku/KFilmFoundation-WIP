@@ -10,20 +10,18 @@ import {
   Icon,
   Paper,
   Grid,
-  useTheme,
   useMediaQuery,
-  useThemeProps,
   createTheme,
 } from "@mui/material";
-import { FilmClubDisplayCard } from "../components/FilmClubDisplayCard";
+import { ThemeProvider } from "@emotion/react";
 import { FilmClubDisplayGrid } from "../components/FilmClubDisplayGrid";
+import FilmClubTheme from "../Theme/FilmClubTheme";
 
 const FilmClub = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(FilmClubTheme.breakpoints.down("md"));
 
   return (
-    <>
+    <ThemeProvider theme={createTheme(FilmClubTheme)}>
       <Grid
         container
         spacing={1}
@@ -47,7 +45,7 @@ const FilmClub = () => {
                 height: "100%",
                 margin: "auto",
                 marginTop: "40px",
-                marginBottom: "80px",
+                marginBottom: "30px",
               }}
             >
               <CardMedia
@@ -74,7 +72,7 @@ const FilmClub = () => {
                 width: "60%",
                 margin: "auto",
                 marginTop: "40px",
-                marginBottom: "80px",
+                marginBottom: "30px",
                 maxWidth: "80%",
               }}
               elevation={24}
@@ -101,7 +99,7 @@ const FilmClub = () => {
           <FilmClubDisplayGrid />
         </Grid>
       </Grid>
-    </>
+    </ThemeProvider>
   );
 };
 
