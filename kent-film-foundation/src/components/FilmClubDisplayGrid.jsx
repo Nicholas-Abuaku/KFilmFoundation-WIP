@@ -23,9 +23,6 @@ export const FilmClubDisplayGrid = () => {
   return (
     <>
       <Grid container>
-        <Grid item xs={12}>
-          <Typography variant="h4">Film Clubs</Typography>
-        </Grid>
         {isLoading
           ? filmClubData.map((club) => (
               <Grid item md={6} xs={11} xl={3} key={club.id}>
