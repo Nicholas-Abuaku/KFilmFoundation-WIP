@@ -25,9 +25,10 @@ const LatestScreeningPage = lazy(() =>
 const FilmClubManager = lazy(() =>
   import("./pages/back-end/FilmClubManager.jsx")
 );
-import { EditFilmClub } from "./pages/back-end/EditFilmClub.jsx";
+
+const EditFilmClub = lazy(() => import("./pages/back-end/EditFilmClub.jsx"));
 import { PrivateRoute } from "./components/back-end/PrivateRoute.jsx";
-import { LoginPage } from "./pages/back-end/LoginPage.jsx";
+const LoginPage = lazy(() => import("./pages/back-end/LoginPage.jsx"));
 const PressArticleManage = lazy(() =>
   import("./pages/back-end/PressArticleManage")
 );
@@ -40,7 +41,7 @@ function App() {
     <>
       <Navigation2 />
       <ManageLoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-        <Suspense fallback={<h1>Loading...</h1>}>
+        <Suspense fallback={<h1>Loading Page...</h1>}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
