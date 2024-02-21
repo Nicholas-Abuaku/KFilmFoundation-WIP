@@ -11,12 +11,12 @@ import {
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Partners } from "../components/Partners";
+import AboutTheme from "../Theme/AboutTheme";
 const About = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(AboutTheme.breakpoints.down("md"));
 
   return (
-    <>
+    <ThemeProvider theme={createTheme(AboutTheme)}>
       <Helmet>
         <title>About</title>
         <meta
@@ -161,7 +161,7 @@ const About = () => {
           </Grid>
         </Grid>
       </Grid>
-    </>
+    </ThemeProvider>
   );
 };
 
