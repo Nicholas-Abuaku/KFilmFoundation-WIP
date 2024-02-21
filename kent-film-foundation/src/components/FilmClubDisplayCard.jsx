@@ -7,12 +7,14 @@ import {
   Typography,
   useTheme,
   useMediaQuery,
+  ThemeProvider,
+  createTheme,
 } from "@mui/material";
+import FilmCardTheme from "../Theme/FilmCardTheme";
 export const FilmClubDisplayCard = (props) => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(FilmCardTheme.breakpoints.down("md"));
   return (
-    <>
+    <ThemeProvider theme={createTheme(FilmCardTheme)}>
       {isMobile ? (
         <Card
           sx={{
@@ -29,7 +31,11 @@ export const FilmClubDisplayCard = (props) => {
               <Typography textAlign={"center"} variant="h6" fontWeight={"bold"}>
                 {props.heading}
               </Typography>
-              <Typography textAlign={"center"} variant="subtitle1">
+              <Typography
+                textAlign={"center"}
+                variant="subtitle1"
+                component={"h4"}
+              >
                 {props.description}
               </Typography>
             </Stack>
@@ -57,6 +63,6 @@ export const FilmClubDisplayCard = (props) => {
           </CardContent>
         </Card>
       )}
-    </>
+    </ThemeProvider>
   );
 };
