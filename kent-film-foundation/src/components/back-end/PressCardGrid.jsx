@@ -7,7 +7,7 @@ export const PressCardGrid = () => {
   const [isLoading, setIsLoading] = useState(false);
   const fetchPressData = async () => {
     try {
-      axios.get("http://localhost:8000/api/press").then((res) => {
+      axios.get("https://kentfilm.up.railway.app/api/press").then((res) => {
         console.log(res.data);
         setPressData(res.data);
         setIsLoading(true);
@@ -29,7 +29,9 @@ export const PressCardGrid = () => {
                 newsSource={article.news_source}
                 articleTitle={article.article_title}
                 articleUrl={article.article_url}
-                image={"http://localhost:8000/storage/" + article.image}
+                image={
+                  "https://kentfilm.up.railway.app/storage/" + article.image
+                }
               />
             </Grid>
           ))

@@ -63,7 +63,7 @@ export const LatestScreeningCard = (props) => {
             src={
               props.edit
                 ? props.img
-                : "http://localhost:8000/storage/" + props.img
+                : "https://kentfilm.up.railway.app/storage/" + props.img
             }
             sx={{
               objectFit: "cover",
@@ -136,7 +136,7 @@ export const LatestScreeningCard = (props) => {
             src={
               props.edit
                 ? props.img
-                : "http://localhost:8000/storage/" + props.img
+                : "https://kentfilm.up.railway.app/storage/" + props.img
             }
             alt="The poster of the latest screening"
             loading="eager"

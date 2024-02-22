@@ -57,7 +57,9 @@ const AddPressArticle = () => {
       formData.append("article_url", articleUrl || "");
       formData.append("image", imageFile, fileName || "");
       axios
-        .post("http://localhost:8000/api/press", formData, { headers })
+        .post("https://kentfilm.up.railway.app/api/press", formData, {
+          headers,
+        })
         .then((res) => {
           console.log(res);
           setShowSuccessAlert(true);
@@ -93,9 +95,13 @@ const AddPressArticle = () => {
       }
 
       axios
-        .post("http://localhost:8000/api/press/" + articleId, formData, {
-          headers,
-        })
+        .post(
+          "https://kentfilm.up.railway.app/api/press/" + articleId,
+          formData,
+          {
+            headers,
+          }
+        )
         .then((res) => {
           console.log(res);
           setShowSuccessAlert(true);
@@ -120,7 +126,7 @@ const AddPressArticle = () => {
   const fetchPressInfo = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/press/" + articleId
+        "https://kentfilm.up.railway.app/api/press/" + articleId
       );
       setArticleData(response.data);
     } catch (err) {
@@ -156,7 +162,7 @@ const AddPressArticle = () => {
             img={
               fileUrl
                 ? fileUrl
-                : "http://localhost:8000/storage/" + articleData.image
+                : "https://kentfilm.up.railway.app/storage/" + articleData.image
             }
             source={newsSource ? newsSource : articleData.news_source}
             title={articleTitle ? articleTitle : articleData.article_title}

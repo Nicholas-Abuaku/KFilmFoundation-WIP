@@ -25,9 +25,12 @@ export const FilmClubTable = () => {
 
   const fetchFilmClubs = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/film-clubs", {
-        headers,
-      });
+      const response = await axios.get(
+        "https://kentfilm.up.railway.app/api/film-clubs",
+        {
+          headers,
+        }
+      );
       setData(response.data);
     } catch (err) {
       console.log(err);
@@ -75,7 +78,9 @@ export const FilmClubTable = () => {
                 <TableCell>{club.description}</TableCell>
                 <TableCell>
                   <img
-                    src={"http://localhost:8000/storage/" + club.img_Url}
+                    src={
+                      "https://kentfilm.up.railway.app/storage/" + club.img_Url
+                    }
                     style={{ maxWidth: "50px", maxHeight: "50px" }}
                   />
                 </TableCell>

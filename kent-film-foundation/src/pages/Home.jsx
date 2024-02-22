@@ -32,7 +32,7 @@ export const Home = () => {
   const getScreeningData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/featured-content",
+        "https://kentfilm.up.railway.app/api/featured-content",
         headers
       );
 

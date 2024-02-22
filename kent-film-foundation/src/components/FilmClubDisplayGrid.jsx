@@ -7,11 +7,13 @@ export const FilmClubDisplayGrid = () => {
   const [isLoading, setIsLoading] = useState(false);
   const fetchFilmClubData = async () => {
     try {
-      axios.get("http://localhost:8000/api/film-clubs").then((res) => {
-        console.log(res.data);
-        setFilmClubData(res.data);
-        setIsLoading(true);
-      });
+      axios
+        .get("https://kentfilm.up.railway.app/api/film-clubs")
+        .then((res) => {
+          console.log(res.data);
+          setFilmClubData(res.data);
+          setIsLoading(true);
+        });
     } catch (err) {
       console.log(err);
     }
@@ -28,7 +30,9 @@ export const FilmClubDisplayGrid = () => {
               <Grid item md={6} xs={11} xl={3} key={club.id}>
                 <FilmClubDisplayCard
                   heading={club.heading}
-                  img={"http://localhost:8000/storage/" + club.img_Url}
+                  img={
+                    "https://kentfilm.up.railway.app/storage/" + club.img_Url
+                  }
                   description={club.description}
                 />
               </Grid>

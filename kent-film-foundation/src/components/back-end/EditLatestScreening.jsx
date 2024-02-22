@@ -53,7 +53,9 @@ export const EditLatestScreening = () => {
     formData.append("eventUrl", eventUrl);
     console.log(file);
     axios
-      .post("http://localhost:8000/api/featured-content", formData, { headers })
+      .post("https://kentfilm.up.railway.app/api/featured-content", formData, {
+        headers,
+      })
       .then((res) => {
         console.log(res.data);
         setShowSuccessAlert(true);

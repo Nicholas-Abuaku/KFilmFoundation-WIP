@@ -46,9 +46,13 @@ const EditFilmClub = (props) => {
     }
 
     axios
-      .post("http://localhost:8000/api/film-clubs/" + userId, formData, {
-        headers,
-      })
+      .post(
+        "https://kentfilm.up.railway.app/api/film-clubs/" + userId,
+        formData,
+        {
+          headers,
+        }
+      )
       .then((res) => {
         console.log(res);
         setShowSuccessAlert(true);
@@ -57,7 +61,7 @@ const EditFilmClub = (props) => {
   const fetchClubData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/film-clubs/" + userId
+        "https://kentfilm.up.railway.app/api/film-clubs/" + userId
       );
       setClubData(response.data);
     } catch (err) {
@@ -89,7 +93,7 @@ const EditFilmClub = (props) => {
       formData.append("description", description);
       formData.append("img_Url", imageFile, fileName);
       axios
-        .post("http://localhost:8000/api/film-clubs/", formData, {
+        .post("https://kentfilm.up.railway.app/api/film-clubs/", formData, {
           headers,
         })
         .then((res) => {
@@ -180,7 +184,7 @@ const EditFilmClub = (props) => {
             img={
               fileUrl
                 ? fileUrl
-                : "http://localhost:8000/storage/" + clubData.img_Url
+                : "https://kentfilm.up.railway.app/storage/" + clubData.img_Url
             }
           />
         </Stack>

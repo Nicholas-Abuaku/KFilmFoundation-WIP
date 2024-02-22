@@ -20,7 +20,9 @@ export const PressArticleTable = () => {
 
   const fetchPressData = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/press");
+      const response = await axios.get(
+        "https://kentfilm.up.railway.app/api/press"
+      );
       console.log(response.data);
       setPressData(response.data);
     } catch (err) {
@@ -68,7 +70,10 @@ export const PressArticleTable = () => {
                 <TableCell>
                   {
                     <img
-                      src={"http://localhost:8000/storage/" + article.image}
+                      src={
+                        "https://kentfilm.up.railway.app/storage/" +
+                        article.image
+                      }
                       style={{ width: "50px", height: "50px" }}
                     />
                   }

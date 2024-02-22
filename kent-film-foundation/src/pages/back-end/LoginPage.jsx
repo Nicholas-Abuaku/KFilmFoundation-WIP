@@ -23,7 +23,7 @@ const LoginPage = () => {
       formData.append("password", password);
       event.preventDefault();
       const response = await axios.post(
-        "http://localhost:8000/api/login",
+        "https://kentfilm.up.railway.app/api/login",
         formData
       );
       console.log(response.data);
