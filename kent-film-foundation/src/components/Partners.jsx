@@ -46,7 +46,12 @@ export const Partners = () => {
         spacing={1}
       >
         <Grid item md={12}>
-          <Typography textAlign={"center"} variant="h4" marginBottom={0}>
+          <Typography
+            textAlign={"center"}
+            variant="h4"
+            marginTop={0}
+            marginBottom={0}
+          >
             A HUGE THANKS to our Partners
           </Typography>
         </Grid>
