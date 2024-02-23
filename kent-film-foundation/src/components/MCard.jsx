@@ -79,7 +79,7 @@ export const MCard = (props) => {
           <Card
             sx={{
               width: "29.59vw",
-              height: "32vh",
+              height: "250px",
               // height: "29vh",
               display: "flex",
               backgroundColor: "#F0F0ED ",
@@ -92,10 +92,11 @@ export const MCard = (props) => {
               image={props.img}
               title={props.title}
               sx={{
-                maxWidth: "8.5vw",
-                minHeight: "29vh",
-                maxHeight: "29vh",
-                objectFit: "contain",
+                width: "200px",
+                height: "auto",
+                // minHeight: "100%",
+                // maxHeight: "29vh",
+                objectFit: "fill",
                 marginRight: "5px",
               }}
               alt="Latest screening poster"
