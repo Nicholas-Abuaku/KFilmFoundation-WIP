@@ -76,8 +76,7 @@ export const PressCard = (props) => {
           width={"100%"}
           sx={{
             backgroundColor: "#339465",
-            minHeight: "462px",
-            maxHeight: "462px",
+            height: "500px",
             maxWidth: "550px",
             width: "100%",
             color: "white",
@@ -89,14 +88,13 @@ export const PressCard = (props) => {
         >
           <CardMedia
             component={"img"}
-            // minHeight={"300px"}
-            height={"100%"}
+            height={"70%"}
             src={image}
             loading="eager"
             title={props.articleTitle}
             alt={"News coverage from " + props.newsSource}
           />
-          <CardContent>
+          <CardContent height={"100%"}>
             <Stack spacing={0}>
               <Typography
                 textAlign={"center"}
