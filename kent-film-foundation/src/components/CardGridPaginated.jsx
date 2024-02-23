@@ -14,7 +14,7 @@ export const CardGridPaginated = (props) => {
   const [allEvents, setAllEvents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const itemsPerPage = 6; // Change this as needed
+  const itemsPerPage = 6;
   const API_KEY = import.meta.env.VITE_Event_API_KEY;
 
   const theme = useTheme();
