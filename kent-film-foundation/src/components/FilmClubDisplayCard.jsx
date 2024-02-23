@@ -25,7 +25,14 @@ export const FilmClubDisplayCard = (props) => {
           }}
           elevation={12}
         >
-          <CardMedia component={"img"} height={"30%"} src={props.img} />
+          <CardMedia
+            component={"img"}
+            height={"30%"}
+            src={props.img}
+            alt={props.heading}
+            title={props.heading}
+            loading="lazy"
+          />
           <CardContent>
             <Stack spacing={2}>
               <Typography textAlign={"center"} variant="h6" fontWeight={"bold"}>
@@ -50,7 +57,14 @@ export const FilmClubDisplayCard = (props) => {
             marginTop: "40px",
           }}
         >
-          <CardMedia component={"img"} height={"300px"} src={props.img} />
+          <CardMedia
+            component={"img"}
+            height={"300px"}
+            src={props.img}
+            alt={props.heading}
+            title={props.heading}
+            loading="lazy"
+          />
           <CardContent>
             <Stack spacing={2}>
               <Typography textAlign={"center"} variant="h6" fontWeight={"bold"}>
