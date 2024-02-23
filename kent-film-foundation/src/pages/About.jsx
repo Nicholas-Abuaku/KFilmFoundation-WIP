@@ -18,12 +18,15 @@ const About = () => {
   return (
     <ThemeProvider theme={createTheme(AboutTheme)}>
       <Helmet>
-        <title>About</title>
+        <title>Kent Film Foundation: About Us & Our Impact</title>
         <meta
           name="description"
-          content="Explore Kent Film Foundation's history, mission, and impactful film projects. Join us in the world of cinema and storytelling."
+          content="Discover the stories behind Kent Film Foundation, a non-profit organization igniting a passion for film & nurturing the next generation of filmmakers in Kent."
         />
-        <link rel="canonical" href="http://localhost:5173/about" />
+        <link
+          rel="canonical"
+          href="https://kentfilmfoundation.netlify.app/about"
+        />
       </Helmet>
       <Grid
         container
