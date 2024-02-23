@@ -14,7 +14,9 @@ const Press = () => {
   return (
     <ThemeProvider theme={createTheme(PressTheme)}>
       <Helmet>
-        <title>Press</title>
+        <title>
+          Kent Film Foundation Cinema: News, Events & Press Releases
+        </title>
         <meta
           name="description"
           content="Discover Kent Film Foundation's news mentions, articles, and impactful contributions to the film industry. Stay informed about our latest initiatives and partnerships."
