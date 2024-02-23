@@ -2,6 +2,7 @@ import { createTheme, responsiveFontSizes } from "@mui/material";
 
 let MCardTheme = createTheme({
   typography: {
+    fontFamily: "'NunitoSans',Helvetica,Arial,sans-serif",
     subtitle1: {
       fontSize: "1rem",
     },
