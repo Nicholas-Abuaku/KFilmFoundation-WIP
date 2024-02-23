@@ -22,12 +22,12 @@ const Press = () => {
         <link rel="canonical" href="http://localhost:5173/press" />
       </Helmet>
       <Grid container justifyContent={"center"} alignItems={"center"}>
-        <Grid item md={12} xs={12} marginBottom={4}>
+        <Grid item md={12} xs={12} marginBottom={0}>
           <Typography variant="h3" textAlign={"center"} component={"h2"}>
             Kent Film Foundation in the Press
           </Typography>
         </Grid>
-        <Grid>
+        <Grid item xs={12}>
           <PressCardGrid />
         </Grid>
       </Grid>
