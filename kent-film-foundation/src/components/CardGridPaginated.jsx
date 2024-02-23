@@ -6,19 +6,22 @@ import {
   useMediaQuery,
   Pagination,
   Skeleton,
+  ThemeProvider,
+  createTheme,
 } from "@mui/material";
 import axios from "axios";
 import { MCard } from "./MCard";
-
+import MoviCardGridTheme from "../Theme/MovieCardGridTheme";
 export const CardGridPaginated = (props) => {
   const [allEvents, setAllEvents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const itemsPerPage = 6;
+  const isMobile = useMediaQuery(MoviCardGridTheme.breakpoints.down("md"));
+  const itemsPerPage = isMobile ? 2 : 6;
   const API_KEY = import.meta.env.VITE_Event_API_KEY;
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   const headers = {
     Authorization: `Bearer ${API_KEY}`,
     "Content-Type": "application/json",
@@ -28,7 +31,7 @@ export const CardGridPaginated = (props) => {
     try {
       const response = await axios.get(
         "https://www.eventbriteapi.com/v3/organizations/335808768129/events/",
-        { headers: headers, params: { status: "live" } }
+        { headers: headers }
       );
       setAllEvents(response.data.events);
       setIsLoading(true);
@@ -66,7 +69,7 @@ export const CardGridPaginated = (props) => {
   };
 
   return (
-    <>
+    <ThemeProvider theme={createTheme(MoviCardGridTheme)}>
       <Grid
         container
         spacing={1}
@@ -75,16 +78,14 @@ export const CardGridPaginated = (props) => {
         paddingBottom={3}
         marginBottom={3}
         paddingLeft={"3%"}
-        paddingRight={"3%"}
         sx={{
           backgroundColor: "#339465",
-          overflow: "scroll",
+          width: "100%",
           maxHeight: "723px",
         }}
-        width={"100vw"}
         minHeight={"47.61vh"}
       >
-        <Grid item xs={12}>
+        <Grid item xs={12} width={"100%"}>
           <Typography
             variant="h2"
             fontFamily={"Open Sans, arial, sans-serif"}
@@ -139,6 +140,6 @@ export const CardGridPaginated = (props) => {
         page={currentPage}
         onChange={handlePageChange}
       />
-    </>
+    </ThemeProvider>
   );
 };
