@@ -71,7 +71,7 @@ export const LatestScreeningCard = (props) => {
               height: "200px",
               "@media (max-width: 600px)": { minWidth: "100%" },
             }}
-            alt="hellooo"
+            alt={props.title}
           />
         </Box>
         <CardContent
@@ -107,6 +107,8 @@ export const LatestScreeningCard = (props) => {
                   height: "50px",
                   width: "160px",
                 }}
+                component={Link}
+                to={props.url}
               >
                 Tickets
               </Button>
@@ -138,7 +140,7 @@ export const LatestScreeningCard = (props) => {
                 ? props.img
                 : "https://kentfilm.up.railway.app/storage/" + props.img
             }
-            alt="The poster of the latest screening"
+            alt={props.title}
             loading="eager"
             sx={{
               objectFit: "cover",
