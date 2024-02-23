@@ -6,7 +6,6 @@ import {
   Stack,
   Typography,
   Button,
-  Link,
   useTheme,
   useMediaQuery,
   ThemeProvider,
@@ -14,7 +13,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import PressCardTheme from "../Theme/PressCardTheme";
-
+import { Link } from "react-router-dom";
 export const PressCard = (props) => {
   const { newsSource, articleTitle, articleUrl, image } = props;
   const theme = useTheme();
@@ -78,16 +77,20 @@ export const PressCard = (props) => {
           sx={{
             backgroundColor: "#339465",
             minHeight: "462px",
-            width: "369.5px",
+            maxHeight: "462px",
+            maxWidth: "550px",
+            width: "100%",
             color: "white",
-            marginLeft: "10px",
-            marginBottom: "30px",
-            borderRadius: "0px",
+            marginBottom: "10px",
+            display: "flex",
+            flexDirection: "column",
+            // borderRadius: "0px",
           }}
         >
           <CardMedia
             component={"img"}
-            height={"300px"}
+            // minHeight={"300px"}
+            height={"100%"}
             src={image}
             loading="eager"
             title={props.articleTitle}
