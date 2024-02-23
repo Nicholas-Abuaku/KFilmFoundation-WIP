@@ -1,5 +1,4 @@
 import { Grid, Skeleton, Pagination } from "@mui/material";
-import { PressCard2 } from "../PressCard2";
 import { PressCard } from "../PressCard";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
