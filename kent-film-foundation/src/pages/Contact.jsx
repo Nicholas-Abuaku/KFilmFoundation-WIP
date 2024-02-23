@@ -5,16 +5,19 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact</title>
+        <title>Kent Film Foundation | Contact Us | We're Here to Help</title>
         <meta
           name="description"
-          content="Connect with Ramsgate Community Cinema - inquire about screenings, events, or reach us via the provided contact form. Your cinematic experience begins with us!"
+          content="Have a question for Kent Film Foundation? Find our contact information, address, and easy-to-use inquiry form"
         />
-        <link rel="canonical" href="http://localhost:5173/contact" />
+        <link
+          rel="canonical"
+          href="https://kentfilmfoundation.netlify.app/contact"
+        />
         {/* Social Tags */}
         <meta
           property="og:description"
-          content="Kent Film Foundation | Contact Us"
+          content="Have a question for Kent Film Foundation? Find our contact information, address, and easy-to-use inquiry form!"
         />
         <meta
           property="og:image"
