@@ -26,7 +26,7 @@ export const PressActionsButton = (props) => {
   const handleDelete = async () => {
     try {
       const response = await axios.delete(
-        "http://localhost:8000/api/press/" + props.id,
+        "https://kentfilm.up.railway.app/api/press/" + props.id,
         { headers }
       );
       setOpenSnack(true);
