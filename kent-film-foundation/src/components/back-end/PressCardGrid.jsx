@@ -31,18 +31,21 @@ export const PressCardGrid = () => {
     <>
       <Grid container spacing={5} sx={{ margin: "auto" }} maxWidth={"100%"}>
         {isLoading
-          ? pressData.slice(startIndex, endIndex).map((article) => (
-              <Grid item md={5} xs={12} xl={4} key={article.id}>
-                <PressCard
-                  newsSource={article.news_source}
-                  articleTitle={article.article_title}
-                  articleUrl={article.article_url}
-                  image={
-                    "https://kentfilm.up.railway.app/storage/" + article.image
-                  }
-                />
-              </Grid>
-            ))
+          ? pressData
+              .slice(startIndex, endIndex)
+              .reverse()
+              .map((article) => (
+                <Grid item md={5} xs={12} xl={4} key={article.id}>
+                  <PressCard
+                    newsSource={article.news_source}
+                    articleTitle={article.article_title}
+                    articleUrl={article.article_url}
+                    image={
+                      "https://kentfilm.up.railway.app/storage/" + article.image
+                    }
+                  />
+                </Grid>
+              ))
           : Array.from({ length: 4 }).map((_, index) => (
               <Grid item key={index} md={5} xs={12} xl={4}>
                 <Skeleton
