@@ -22,6 +22,8 @@ export const FilmClubDisplayCard = (props) => {
             height: "auto",
             marginLeft: "4%",
             marginBottom: "4px",
+            backgroundColor: "#339465",
+            color: "white",
           }}
           elevation={12}
         >
@@ -55,6 +57,8 @@ export const FilmClubDisplayCard = (props) => {
             width: "80%",
             marginLeft: "0.875rem",
             marginTop: "40px",
+            backgroundColor: "#339465",
+            color: "white",
           }}
         >
           <CardMedia
