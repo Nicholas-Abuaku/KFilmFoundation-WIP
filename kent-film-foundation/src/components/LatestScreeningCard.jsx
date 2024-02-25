@@ -18,6 +18,7 @@ import {
 } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { Link } from "react-router-dom";
+import LatestScreeningTheme from "../Theme/LatestScreeningTheme";
 export const LatestScreeningCard = (props) => {
   const theme = useTheme();
   const textTheme = createTheme();
@@ -118,84 +119,86 @@ export const LatestScreeningCard = (props) => {
       </Card>
     </>
   ) : (
-    <Card
-      sx={{ display: "flex", minHeight: "682px", borderRadius: "0px" }}
-      width={"100vw"}
-      height={"63.49vh"}
-    >
-      <Box maxHeight={"500px"} maxWidth={"974px"}>
-        {props.img && typeof props.img === "object" ? (
-          <Skeleton
-            variant="rectangular"
-            animation="wave"
-            width={962}
-            height={465}
-          />
-        ) : (
-          <CardMedia
-            component={"img"}
-            title={props.title ? props.title : "Hi"}
-            src={
-              props.edit
-                ? props.img
-                : "https://kentfilm.up.railway.app/storage/" + props.img
-            }
-            alt={props.title}
-            loading="eager"
-            sx={{
-              objectFit: "cover",
-              marginRight: "0px",
-              minWidth: "962px",
-              "@media (max-width: 1024px)": { minWidth: "450px" },
-              "@media (max-width: 1280px)": { minWidth: "500px" },
-              maxWidth: "962px",
-              minHeight: "750px",
-              maxHeight: "708px",
-            }}
-          />
-        )}
-      </Box>
-      <CardContent
-        sx={{
-          backgroundColor: "#1A1A1A",
-          color: "white",
-          wordBreak: "break-word",
-          minWidth: "50%",
-        }}
+    <ThemeProvider theme={createTheme(LatestScreeningTheme)}>
+      <Card
+        sx={{ display: "flex", minHeight: "682px", borderRadius: "0px" }}
+        width={"100vw"}
+        height={"63.49vh"}
       >
-        <Stack direction={"column"} alignItems={"center"} spacing={2}>
-          <Typography textAlign={"center"} variant="h1" component="h2">
-            {props.title}
-          </Typography>
-          <Typography
-            color={"white"}
-            paddingBottom={4}
-            textAlign={"center"}
-            variant="h4"
-            component="h3"
-          >
-            {props.date}
-          </Typography>
-          <Typography textAlign={"center"}>{props.description}</Typography>
-          <Button
-            variant="contained"
-            color="inherit"
-            sx={{
-              borderRadius: "20px",
-              color: "black",
-              height: "50px",
-              width: "160px",
-            }}
-            onClick={() => {
-              console.log(props.url);
-            }}
-            component={Link}
-            to={props.url}
-          >
-            Tickets
-          </Button>
-        </Stack>
-      </CardContent>
-    </Card>
+        <Box maxHeight={"500px"} maxWidth={"974px"}>
+          {props.img && typeof props.img === "object" ? (
+            <Skeleton
+              variant="rectangular"
+              animation="wave"
+              width={962}
+              height={465}
+            />
+          ) : (
+            <CardMedia
+              component={"img"}
+              title={props.title ? props.title : "Hi"}
+              src={
+                props.edit
+                  ? props.img
+                  : "https://kentfilm.up.railway.app/storage/" + props.img
+              }
+              alt={props.title}
+              loading="eager"
+              sx={{
+                objectFit: "cover",
+                marginRight: "0px",
+                minWidth: "962px",
+                "@media (max-width: 1024px)": { minWidth: "450px" },
+                "@media (max-width: 1280px)": { minWidth: "500px" },
+                maxWidth: "962px",
+                minHeight: "750px",
+                maxHeight: "708px",
+              }}
+            />
+          )}
+        </Box>
+        <CardContent
+          sx={{
+            backgroundColor: "#1A1A1A",
+            color: "white",
+            wordBreak: "break-word",
+            minWidth: "50%",
+          }}
+        >
+          <Stack direction={"column"} alignItems={"center"} spacing={2}>
+            <Typography textAlign={"center"} variant="h1" component="h2">
+              {props.title}
+            </Typography>
+            <Typography
+              color={"white"}
+              paddingBottom={4}
+              textAlign={"center"}
+              variant="h4"
+              component="h3"
+            >
+              {props.date}
+            </Typography>
+            <Typography textAlign={"center"}>{props.description}</Typography>
+            <Button
+              variant="contained"
+              color="inherit"
+              sx={{
+                borderRadius: "20px",
+                color: "black",
+                height: "50px",
+                width: "160px",
+              }}
+              onClick={() => {
+                console.log(props.url);
+              }}
+              component={Link}
+              to={props.url}
+            >
+              Tickets
+            </Button>
+          </Stack>
+        </CardContent>
+      </Card>
+    </ThemeProvider>
   );
 };
