@@ -16,8 +16,9 @@ export const PressCardPreview = (props) => {
       width={"100%"}
       sx={{
         backgroundColor: "#339465",
-        minHeight: "462px",
-        width: "369.5px",
+        height: "500px",
+        maxWidth: "550px",
+        width: "100%",
         color: "white",
         marginLeft: "10px",
         marginBottom: "30px",
