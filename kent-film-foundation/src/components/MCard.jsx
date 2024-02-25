@@ -96,7 +96,7 @@ export const MCard = (props) => {
                 height: "auto",
                 // minHeight: "100%",
                 // maxHeight: "29vh",
-                objectFit: "fill",
+                objectFit: "contain",
                 marginRight: "5px",
               }}
               alt="Latest screening poster"
