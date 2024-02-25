@@ -8,7 +8,7 @@ export const PayPalDonate = () => {
     <Button
       endIcon={<PaidIcon />}
       variant="contained"
-      sx={{ borderRadius: "20px", backgroundColor: "#339465" }}
+      sx={{ borderRadius: "20px", backgroundColor: "#339465", float: "right" }}
     >
       Donate
     </Button>

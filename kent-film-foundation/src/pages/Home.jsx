@@ -129,7 +129,7 @@ export const Home = () => {
           <Grid item xl={12} xs={12}>
             <CardGridPaginated />
           </Grid>
-          <Grid item justifyContent={"center"} alignItems={"center"}>
+          <Grid itex xs={12}>
             <PayPalDonate />
           </Grid>
         </Grid>
