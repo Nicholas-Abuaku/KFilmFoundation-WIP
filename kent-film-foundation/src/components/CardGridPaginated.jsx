@@ -102,8 +102,9 @@ export const CardGridPaginated = (props) => {
         </Grid>
 
         {
-          isLoading
-            ? currentEvents.map((event) => {
+          isLoading ? (
+            currentEvents.length > 0 ? (
+              currentEvents.map((event) => {
                 const startArr = event.start.local.replace("T", " ");
                 const dateTimeArray = startArr.split(" ");
                 const startTime = dateTimeArray[1];
@@ -123,15 +124,24 @@ export const CardGridPaginated = (props) => {
                   </Grid>
                 );
               })
-            : Array.from({ length: itemsPerPage }).map((_, index) => (
-                <Grid item key={index}>
-                  <Skeleton
-                    variant="rectangular"
-                    width={576.13}
-                    height={275.06}
-                  />
-                </Grid>
-              ))
+            ) : (
+              <Grid item xs={12}>
+                <Typography variant="h3" color={"white"}>
+                  Nothing Scheduled yet, check back again later!
+                </Typography>
+              </Grid>
+            )
+          ) : (
+            Array.from({ length: itemsPerPage }).map((_, index) => (
+              <Grid item key={index}>
+                <Skeleton
+                  variant="rectangular"
+                  width={576.13}
+                  height={275.06}
+                />
+              </Grid>
+            ))
+          )
           // <Skeleton variant="rectangular" width={576.13} height={275.06} />
         }
       </Grid>
