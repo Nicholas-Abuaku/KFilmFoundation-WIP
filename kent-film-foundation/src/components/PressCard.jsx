@@ -73,6 +73,7 @@ export const PressCard = (props) => {
         </Card>
       ) : (
         <Card
+          elevation={24}
           width={"100%"}
           sx={{
             backgroundColor: "#339465",
