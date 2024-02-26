@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FilmClubCard } from "../../components/back-end/FilmClubCard";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Helmet } from "react-helmet-async";
 import {
   Stack,
   TextField,
@@ -118,78 +119,95 @@ const EditFilmClub = (props) => {
     fetchClubData();
   }, []);
   return (
-    <Grid container justifyContent={"center"} alignItems={"center"}>
-      <Grid item xs={12}>
-        <Stack direction={"row"} spacing={2}>
-          <IconButton component={Link} to={"/dashboard/film-clubs"}>
-            <ArrowBackIcon />
-          </IconButton>
-          <h1>{userId ? "Edit" : "New"}</h1>
-        </Stack>
-      </Grid>
-      <Grid item xs={6}>
-        <form>
-          <Stack
-            direction={"column"}
-            spacing={4}
-            justifyContent={"center"}
-            alignItems={"center"}
-            marginRight={0}
-          >
-            <TextField
-              name="heading"
-              label="heading"
-              onChange={handleHeadingChange}
-              sx={{ width: "100%" }}
-            />
-            <TextField
-              name="description"
-              label="Description"
-              onChange={handleDescriptionChange}
-              sx={{ width: "100%" }}
-              multiline={true}
-              rows={9}
+    <>
+      <Helmet>
+        <title>Edit Film Clubs</title>
+        <meta name="description" content="Edit Film Club" />
+        <link
+          rel="canonical"
+          href="https://kentfilmfoundation.netlify.app/film-clubs/edit/:id"
+        />
+        <meta name="robots" content="noindex" />
+      </Helmet>
+
+      <Grid container justifyContent={"center"} alignItems={"center"}>
+        <Grid item xs={12}>
+          <Stack direction={"row"} spacing={2}>
+            <IconButton component={Link} to={"/dashboard/film-clubs"}>
+              <ArrowBackIcon />
+            </IconButton>
+            <h1>{userId ? "Edit" : "New"}</h1>
+          </Stack>
+        </Grid>
+        <Grid item xs={6}>
+          <form>
+            <Stack
+              direction={"column"}
+              spacing={4}
+              justifyContent={"center"}
+              alignItems={"center"}
+              marginRight={0}
+            >
+              <TextField
+                name="heading"
+                label="heading"
+                onChange={handleHeadingChange}
+                sx={{ width: "100%" }}
+              />
+              <TextField
+                name="description"
+                label="Description"
+                onChange={handleDescriptionChange}
+                sx={{ width: "100%" }}
+                multiline={true}
+                rows={9}
+              />
+            </Stack>
+            <Stack direction={"row"} spacing={2} marginTop={4}>
+              <Button component="label" variant="contained">
+                Upload Image
+                <input type="file" hidden onChange={fileHandler} />
+              </Button>
+              <Button
+                variant="contained"
+                color="success"
+                onClick={handleSubmit}
+              >
+                Submit
+              </Button>
+            </Stack>
+            {showSuccessAlert && (
+              <Alert severity="success">
+                {userId
+                  ? "Film Club Successfully Updated!"
+                  : "Film Club Added Successfully"}
+              </Alert>
+            )}
+          </form>
+        </Grid>
+        <Grid item xs={3} justifyContent={"center"} alignItems={"center"}>
+          <Stack spacing={0}>
+            <Typography
+              variant="h4"
+              textAlign={"center"}
+              sx={{ textDecoration: "underline" }}
+            >
+              Preview
+            </Typography>
+            <FilmClubCard
+              heading={heading ? heading : clubData.heading}
+              desc={description ? description : clubData.description}
+              img={
+                fileUrl
+                  ? fileUrl
+                  : "https://kentfilm.up.railway.app/storage/" +
+                    clubData.img_Url
+              }
             />
           </Stack>
-          <Stack direction={"row"} spacing={2} marginTop={4}>
-            <Button component="label" variant="contained">
-              Upload Image
-              <input type="file" hidden onChange={fileHandler} />
-            </Button>
-            <Button variant="contained" color="success" onClick={handleSubmit}>
-              Submit
-            </Button>
-          </Stack>
-          {showSuccessAlert && (
-            <Alert severity="success">
-              {userId
-                ? "Film Club Successfully Updated!"
-                : "Film Club Added Successfully"}
-            </Alert>
-          )}
-        </form>
+        </Grid>
       </Grid>
-      <Grid item xs={3} justifyContent={"center"} alignItems={"center"}>
-        <Stack spacing={0}>
-          <Typography
-            variant="h4"
-            textAlign={"center"}
-            sx={{ textDecoration: "underline" }}
-          >
-            Preview
-          </Typography>
-          <FilmClubCard
-            heading={heading ? heading : clubData.heading}
-            desc={description ? description : clubData.description}
-            img={
-              fileUrl
-                ? fileUrl
-                : "https://kentfilm.up.railway.app/storage/" + clubData.img_Url
-            }
-          />
-        </Stack>
-      </Grid>
-    </Grid>
+    </>
   );
 };
 

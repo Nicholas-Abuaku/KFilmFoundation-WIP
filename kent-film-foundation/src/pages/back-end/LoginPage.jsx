@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { ManageLoginContext } from "../../Contexts/ManageLoginContext";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const LoginPage = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(ManageLoginContext);
@@ -39,47 +40,58 @@ const LoginPage = () => {
   };
 
   return (
-    <Grid
-      container
-      justifyContent={"center"}
-      alignItems={"center"}
-      textAlign={"center"}
-    >
-      <Grid item xs={12}>
-        <form>
-          <Stack
-            direction="column"
-            spacing={2}
-            alignItems={"center"}
-            justifyContent={"center"}
-          >
-            <Typography variant="h3">Login</Typography>
-            <TextField
-              name="username"
-              label="username"
-              type="text"
-              onChange={(e) => setUserName(e.target.value)}
-              sx={{ width: "50%" }}
-            />
-            <TextField
-              name="password"
-              label="Password"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-              sx={{ width: "50%" }}
-            />
-            <Button
-              variant="contained"
-              onClick={handleLogin}
-              component={Link}
-              to={"/dashboard"}
+    <>
+      <Helmet>
+        <title>Login</title>
+        <meta name="description" content="Login" />
+        <link
+          rel="canonical"
+          href="https://kentfilmfoundation.netlify.app/login"
+        />
+        <meta name="robots" content="noindex" />
+      </Helmet>
+      <Grid
+        container
+        justifyContent={"center"}
+        alignItems={"center"}
+        textAlign={"center"}
+      >
+        <Grid item xs={12}>
+          <form>
+            <Stack
+              direction="column"
+              spacing={2}
+              alignItems={"center"}
+              justifyContent={"center"}
             >
-              Login
-            </Button>
-          </Stack>
-        </form>
+              <Typography variant="h3">Login</Typography>
+              <TextField
+                name="username"
+                label="username"
+                type="text"
+                onChange={(e) => setUserName(e.target.value)}
+                sx={{ width: "50%" }}
+              />
+              <TextField
+                name="password"
+                label="Password"
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                sx={{ width: "50%" }}
+              />
+              <Button
+                variant="contained"
+                onClick={handleLogin}
+                component={Link}
+                to={"/dashboard"}
+              >
+                Login
+              </Button>
+            </Stack>
+          </form>
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
 

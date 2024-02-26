@@ -142,7 +142,10 @@ const AddPressArticle = () => {
       <Helmet>
         <title>New Press Article</title>
         <meta name="description" content="Add new Press article" />
-        <link rel="canonical" href="/dashboard/press/new" />
+        <link
+          rel="canonical"
+          href="https://kentfilmfoundation.netlify.app/dashboard/press/new"
+        />
         <meta name="robots" content="noindex" />
       </Helmet>
       <form>
