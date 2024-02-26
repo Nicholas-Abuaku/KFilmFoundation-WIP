@@ -44,7 +44,7 @@ const About = () => {
         </Grid> */}
         <Grid item container>
           <Grid item xs={7} md={7} marginRight={0}>
-            <Typography variant="h3" component={"h2"}>
+            <Typography variant="h3" component={"h2"} marginLeft={4}>
               About
             </Typography>
             <hr style={{ width: "300px" }} />
@@ -78,7 +78,12 @@ const About = () => {
                 </Typography>
               </Stack>
             ) : (
-              <Stack direction={"column"} spacing={2} width={900}>
+              <Stack
+                direction={"column"}
+                spacing={2}
+                width={900}
+                marginLeft={4}
+              >
                 <Typography
                   variant="h5"
                   component={"h3"}
