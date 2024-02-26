@@ -1,0 +1,5 @@
+https://kentfilmfoundation.netlify.app/
+https://kentfilmfoundation.netlify.app/film-clubs
+https://kentfilmfoundation.netlify.app/press
+https://kentfilmfoundation.netlify.app/about
+https://kentfilmfoundation.netlify.app/contact
