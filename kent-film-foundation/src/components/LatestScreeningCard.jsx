@@ -84,7 +84,7 @@ export const LatestScreeningCard = (props) => {
           }}
         >
           <Stack direction={"column"} alignItems={"center"} spacing={2}>
-            <ThemeProvider theme={textTheme}>
+            <ThemeProvider theme={LatestScreeningTheme}>
               <Typography textAlign={"center"} variant="h2">
                 {props.title}
               </Typography>
@@ -134,27 +134,40 @@ export const LatestScreeningCard = (props) => {
               height={465}
             />
           ) : (
-            <CardMedia
-              component={"img"}
-              title={props.title ? props.title : "Hi"}
-              src={
-                props.edit
-                  ? props.img
-                  : "https://kentfilm.up.railway.app/storage/" + props.img
-              }
-              alt={props.title}
-              loading="eager"
+            <Box
               sx={{
-                objectFit: "cover",
-                marginRight: "0px",
-                minWidth: "962px",
-                "@media (max-width: 1024px)": { minWidth: "450px" },
-                "@media (max-width: 1280px)": { minWidth: "500px" },
-                maxWidth: "962px",
-                minHeight: "750px",
-                maxHeight: "708px",
+                flex: "1",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                maxHeight: "auto",
+                maxWidth: "100%",
               }}
-            />
+            >
+              <CardMedia
+                component={"img"}
+                title={props.title ? props.title : "Hi"}
+                src={
+                  props.edit
+                    ? props.img
+                    : "https://kentfilm.up.railway.app/storage/" + props.img
+                }
+                alt={props.title}
+                loading="eager"
+                sx={{
+                  objectFit: "cover",
+                  marginRight: "0px",
+                  minWidth: "962px",
+                  "@media (max-width: 1280px)": { minWidth: "500px" },
+                  "@media (max-width: 1838px)": { minWidth: "46.875vw" },
+                  // "@media (max-width: 1832px)": { width: "300px" },
+                  "@media (max-width: 1024px)": { minWidth: "450px" },
+                  // maxWidth: "962px",
+                  minHeight: "95.14563106796116vh",
+                  // maxHeight: "708px",
+                }}
+              />
+            </Box>
           )}
         </Box>
         <CardContent
