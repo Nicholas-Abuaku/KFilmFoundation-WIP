@@ -13,7 +13,7 @@ import {
   createTheme,
 } from "@mui/material";
 import TheaterComedyIcon from "@mui/icons-material/TheaterComedy";
-import KentFilmLogo from "../assets/icons/Untitled_Artwork.jpg";
+import KentFilmLogo from "../assets/icons/RamsgateCinema.jpg";
 import { NavDrawer } from "./NavDrawer";
 import { ManageLoginContext } from "../Contexts/ManageLoginContext";
 import { Link } from "react-router-dom";
