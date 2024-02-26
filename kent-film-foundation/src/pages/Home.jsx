@@ -15,6 +15,7 @@ import { PayPalDonate } from "../components/PayPalDonate";
 import { ManageLoginContext } from "../Contexts/ManageLoginContext";
 import { ThemeProvider } from "@emotion/react";
 import HomeTheme from "../Theme/HomeTheme";
+import { MailingListDialog } from "../components/MailingListDialog";
 export const Home = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(ManageLoginContext);
   const [latestScreeningData, setLatestScreeningData] = useState([]);
@@ -131,6 +132,7 @@ export const Home = () => {
           </Grid>
           <Grid itex xs={12}>
             <PayPalDonate />
+            <MailingListDialog />
           </Grid>
         </Grid>
       </ThemeProvider>
