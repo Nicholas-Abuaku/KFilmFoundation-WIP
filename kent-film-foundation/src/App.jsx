@@ -33,6 +33,7 @@ const PressArticleManage = lazy(() =>
   import("./pages/back-end/PressArticleManage")
 );
 import { ManageLoginContext } from "./Contexts/ManageLoginContext.jsx";
+import { NotFound } from "./pages/NotFound.jsx";
 function App() {
   const loggedIn = window.sessionStorage.getItem("isLoggedIn");
   const [isLoggedIn, setIsLoggedIn] = useState(loggedIn);
@@ -117,6 +118,7 @@ function App() {
             />
 
             <Route path="/login" element={<LoginPage />} />
+            <Route path="*" element={<NotFound />}></Route>
           </Routes>
         </Suspense>
       </ManageLoginContext.Provider>
